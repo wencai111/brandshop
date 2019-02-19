@@ -153,11 +153,19 @@ export default [
     component: () => import('@/view/answer/answer.vue')
   },
   {
-    path: '/Starting-work',
-    name: 'Starting-work',
+    path: '/starting-work',
+    name: 'starting-work',
     meta: {
       title: '答题题目'
     },
-    component: () => import('@/view/Starting-work/Starting-work.vue')
+    component: () => import('@/view/starting-work/starting-work.vue')
+  },
+  {
+    path: '/risk',
+    name: 'risk',
+    meta: {
+      title: '安全视频'
+    },
+    component: () => import('@/view/risk/risk.vue')
   },
 ]
