@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="background">
-            <img src="@/assets/answer/safety-survey-background">
+            <img src="@/assets/answer/safety-survey-background.jpg">
         </div>
         <div class="topic">
             <img src="@/assets/other/rule-content.png">
@@ -35,12 +35,12 @@ export default {
 .topic img{
     width: 90%;
     position: absolute;
-    margin-top: 30%;
+    margin-top: 60%;
     margin-left: 5%;
 }
 .answers img{
    position: absolute; 
-   margin-top: 80%;
+   margin-top: 100%;
    width: 60%;
    margin-left: 20%;
 }
@@ -49,6 +49,7 @@ export default {
    width: 60%;
    bottom:0;
    left:0;
+   margin: 20px;
 }
 </style>
 
