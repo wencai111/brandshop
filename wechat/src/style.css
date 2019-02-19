@@ -1,0 +1,67 @@
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: microsoft jhenghei ui,sans-serif;
+    user-select: none;
+  }
+  ul,li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+  }
+  a{
+    text-decoration: none;
+    cursor: default;
+  }
+  img{
+    max-width: 100%;
+  }
+  .clearfix:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+  .bgCover{
+    background-position: center;
+    background-size: cover;
+  }
+  .wrapper{
+    overflow: hidden;
+  }
+  .container{
+    width: calc(100% - 30px);
+    max-width: 480px;
+    margin: auto;
+    display: block;
+  }
+  .clicker input{
+    display: none;}
+  .clicker input + label{
+    height: 30px;
+    width: 55px;
+    display: block;
+    background-color: #888;
+    border-radius: 30px;
+    position: relative;
+    transition: 0.3s;
+    overflow: hidden;}
+  .clicker input + label nav{
+    height: 24px;
+    width: 24px;
+    background-color: #fff;
+    border-radius: 30px;
+    top: 3px;
+    position: absolute;
+    left: 3px;
+    box-shadow: 1px 2px 4px #00000042;
+    transition: 0.5s;}
+  .clicker input:checked + label{
+    background-color: #aee5fd;
+  }
+  .clicker input:checked + label nav{
+    left: calc(100% - 27px);
+  }

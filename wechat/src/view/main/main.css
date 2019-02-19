@@ -1,0 +1,435 @@
+.CoursePurchaseMainPage{}
+.CoursePurchaseMainPage .HeroBanner{
+	background-image: url('../../assets/upload/main/bg.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;;}
+.CoursePurchaseMainPage .HeroBanner .container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;;;;;}
+.CoursePurchaseMainPage .HeroBanner .bg{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.8) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */}
+.CoursePurchaseMainPage .HeroBanner .Title{
+  color: #fff;;}
+.CoursePurchaseMainPage .HeroBanner h3{
+  font-size: 24px;
+  margin-bottom: 7px;;}
+.CoursePurchaseMainPage .HeroBanner h2{
+  font-size: 36px;
+  line-height: 1.3;
+  margin-bottom: 22px;;;}
+.CoursePurchaseMainPage .HeroBanner .Title .flex{}
+.CoursePurchaseMainPage .HeroBanner .Title .btn{
+  font-size: 18px;
+  padding: 6px 24px;;}
+.CoursePurchaseMainPage .HeroBanner .Title .btn.border{
+  border: 2px solid #fff;
+  border-radius: 30px;;;;}
+.CoursePurchaseMainPage .HeroBanner .ScrollDown{
+  color: #fff;
+  height: 23vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;;;;;;;}
+.CoursePurchaseMainPage .HeroBanner .ScrollDown img{
+  width: 26px;;
+  animation: 1s pointDown infinite;
+}
+@keyframes pointDown{
+  0%,100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(5px);
+  }
+  
+}
+.CoursePurchaseMainPage .HeroBanner .ScrollDown p{
+  margin-top: 19px;}
+.CoursePurchaseMainPage .scheduleBlock{
+  padding: 90px 0 40px;}
+.CoursePurchaseMainPage .scheduleBlock h2{
+  font-size: 24px;
+  color: #4f4f4f;
+  margin-bottom: 17px;;}
+.CoursePurchaseMainPage .scheduleBlock .flexCheck{
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 5px;;;;;}
+.CoursePurchaseMainPage .scheduleBlock .flexCheck img{
+  width: 23px;
+  margin-right: 10px;
+  margin-top: 3px;;;;}
+.CoursePurchaseMainPage .scheduleBlock p{
+  font-size: 17px;
+  color: #4f4f4f;
+  line-height: 1.6;;}
+.CoursePurchaseMainPage .scheduleBlock .container > p{
+  margin: 15px 0;}
+.CoursePurchaseMainPage .CustomizeBlock{}
+.CoursePurchaseMainPage .CustomizeBlock .banner{
+  background-image: url('../../assets/upload/main/customize_banner.jpg');
+  height: 210px;
+  margin-bottom: 35px;;;}
+.CoursePurchaseMainPage .CustomizeBlock h2{
+  font-size: 24px;
+  color: #4f4f4f;
+  margin-bottom: 11px;}
+.CoursePurchaseMainPage .CustomizeBlock p{
+  font-size: 17px;
+  color: #4f4f4f;
+  line-height: 1.6;}
+.CoursePurchaseMainPage .CustomizeBlock .grid{
+  display: grid;
+  grid: auto / 1fr 1fr 1fr;
+  margin-top: 21px;
+  margin-bottom: 45px;;;;;}
+.CoursePurchaseMainPage .CustomizeBlock .grid article{}
+.CoursePurchaseMainPage .CustomizeBlock .grid article img{
+  display: block;
+  width: 70%;
+  margin: 0 auto 6px;;;;}
+.CoursePurchaseMainPage .CustomizeBlock .grid article p{
+  text-align: center;}
+  .CoursePurchaseMainPage .videoBlock{
+  margin-bottom: 25px;;}
+.CoursePurchaseMainPage .videoBlock img{
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.CoursePurchaseMainPage .videoBlock h2{
+  font-size: 24px;
+  color: #4f4f4f;
+  margin-bottom: 10px;;}
+.CoursePurchaseMainPage .videoBlock p{
+  font-size: 17px;
+  color: #4f4f4f;
+  line-height: 1.6;}
+.CoursePurchaseMainPage .spoilerBlock h2{
+  font-size: 24px;
+  color: #4f4f4f;
+  margin-bottom: 5px;;}
+.CoursePurchaseMainPage .spoilerBlock p{
+  font-size: 17px;
+  color: #4f4f4f;
+  line-height: 1.6;}
+.CoursePurchaseMainPage .previewPage{
+  height: 75vh;
+  margin-top: 15px;;}
+.CoursePurchaseMainPage .previewPage .flipCardComponent{
+  height: 100%;}
+.CoursePurchaseMainPage .introduceBlock{
+  margin-bottom: 50px;;}
+.CoursePurchaseMainPage .introduceBlock h2{
+  font-size: 24px;
+  color: #4f4f4f;
+  margin-bottom: 15px;}
+.CoursePurchaseMainPage .introduceBlock p{
+  font-size: 17px;
+  color: #4f4f4f;
+  line-height: 1.6;}
+.CoursePurchaseMainPage .introduceBlock .photoframe{
+  height: 215px;
+  border-radius: 10px;
+  margin-bottom: 14px;;;;}
+.CoursePurchaseMainPage .commentBlock{
+  margin-bottom: 50px;;}
+.CoursePurchaseMainPage .commentBlock h2{
+  font-size: 24px;
+  color: #4f4f4f;
+  margin-bottom: 15px;}
+.CoursePurchaseMainPage .commentBlock p{
+  font-size: 17px;
+  color: #4f4f4f;
+  line-height: 1.6;}
+.CoursePurchaseMainPage .commentBlock .gridBox{
+  display: grid;
+  grid: auto / 30% 68%;
+  grid-gap: 2%;
+  padding: 30px 10px;
+  box-shadow: 1px 1px 23px #00000014;
+  border-radius: 6px;
+  margin-bottom: 15px;;;;;;}
+.CoursePurchaseMainPage .commentBlock .gridBox > div:first-child{;;}
+.CoursePurchaseMainPage .commentBlock .portrait{
+  height: 60px;
+  width: 60px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  margin: 10px auto;;;;;;;;;}
+.CoursePurchaseMainPage .commentBlock .star{
+  display: flex;
+  align-items: center;
+  justify-content: center;;;;}
+.CoursePurchaseMainPage .commentBlock .star img{
+  width: 13%;
+  margin: 0 2px;;;;}
+.CoursePurchaseMainPage .commentBlock .gridBox > div:last-child{}
+.CoursePurchaseMainPage .commentBlock .gridBox h4{
+  color: #4f4f4f;
+  margin-bottom: 8px;;}
+.CoursePurchaseMainPage .commentBlock .gridBox p{
+  font-size: 16px;
+  color: #4f4f4f;
+  letter-spacing: -0.18px;
+  line-height: 26px;
+  text-align: left;}
+.CoursePurchaseMainPage .commentBlock .more{
+  font-size: 16px;
+  color: #ade5ff;
+  font-weight: 500;
+  display: flex;
+  align-items: center;;;}
+.CoursePurchaseMainPage .commentBlock .more i{
+  transform: rotate(90deg);;;}
+.CoursePurchaseMainPage .sportBlock{
+  margin-bottom: 65px;;}
+.CoursePurchaseMainPage .sportBlock img{
+  margin-bottom: 25px;;}
+.CoursePurchaseMainPage .sportBlock h2{
+  font-size: 24px;
+  color: #4f4f4f;
+  margin-bottom: 10px;;}
+.CoursePurchaseMainPage .sportBlock h3{
+  font-size: 20px;
+  color: #4f4f4f;
+  margin-bottom: 6px;;}
+.CoursePurchaseMainPage .sportBlock p{
+  font-size: 16px;
+  color: #4f4f4f;
+  line-height: 1.5;
+  margin-bottom: 15px;;;}
+.CoursePurchaseMainPage .bottonBlock .flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 58px;;;;;}
+.CoursePurchaseMainPage .bottonBlock .btn{
+  padding: 7px 45px;
+  color: #ade5ff;
+  font-weight: 500;
+  border-bottom: 5px solid transparent;;;;;;;}
+.CoursePurchaseMainPage .bottonBlock .btn.colored{
+  background-color: #c2e6fc;
+  border-radius: 20px;
+  color: #fff;
+  border-bottom: 5px solid #acdeff;;;;;}
+.CoursePurchaseMainPage .bottonBlock{
+    position: fixed;
+    width: 100vw;
+    left: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    z-index: 999999;
+    transition: 0.5s;
+    transform: translateY(60px);
+}
+.CoursePurchaseMainPage .bottonBlock.active{
+    transform: translateY(0);
+}
+.CoursePurchaseMainPage .stickyBar {
+  position: absolute;
+  z-index: 10;
+  top: 100vh;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e6e6e6;;;;;;;;;;
+  background-color: #fff;
+}
+.CoursePurchaseMainPage .stickyBar.active {
+  position: fixed;
+  top: 0;
+}
+.CoursePurchaseMainPage .stickyBar span {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-weight: 600;
+  color: #4f4f4f;;;;;;;;;;;;;;;
+}
+.CoursePurchaseMainPage .tabsCtrl{
+  display: flex;
+  transition: 0.5s;
+  width: 200vw;}
+.CoursePurchaseMainPage .tabsCtrl > div{
+  flex: 1;}
+.CoursePurchaseMainPage .tabsCtrl.secondPage{
+  transform: translateX(-100vw);}
+.CoursePurchaseMainPage .courseList{
+  padding-top: 90px;;;;;;;;;}
+.CoursePurchaseMainPage .courseList h2{
+  font-size: 24px;
+  color: #4f4f4f;
+  margin-bottom: 30px;;}
+.CoursePurchaseMainPage .courseList article{
+  padding: 11px;
+  box-shadow: 2px 5px 15px #00000026;
+  margin-bottom: 20px;
+  border-radius: 5px;;;;;}
+.CoursePurchaseMainPage .courseList article .bgCover{
+  height: 140px;
+  margin-bottom: 10px;;;}
+.CoursePurchaseMainPage .courseList article .title{
+  margin-bottom: 3px;;}
+.CoursePurchaseMainPage .courseList article .title h3{
+  font-size: 19px;
+  color: #4f4f4f;}
+.CoursePurchaseMainPage .stickyBar {
+  position: absolute;
+  z-index: 10;
+  top: 100vh;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e6e6e6;;;;;;;;;;
+  background-color: #fff;
+}
+.CoursePurchaseMainPage .stickyBar.active {
+  position: fixed;
+  top: 0;
+}
+.CoursePurchaseMainPage .stickyBar span {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-weight: 600;
+  color: #4f4f4f;;;;;;;;;;;;;;;
+}
+.CoursePurchaseMainPage .tabsCtrl{
+  display: flex;
+  transition: 0.5s;
+  width: 200vw;}
+.CoursePurchaseMainPage .tabsCtrl > div{
+  flex: 1;}
+.CoursePurchaseMainPage .tabsCtrl.secondPage{
+  transform: translateX(-100vw);}
+.CoursePurchaseMainPage .courseList{
+  padding-top: 90px;;}
+.CoursePurchaseMainPage .courseList h2{
+  font-size: 24px;
+  color: #4f4f4f;
+  margin-bottom: 30px;;}
+.CoursePurchaseMainPage .courseList article{
+  padding: 11px;
+  box-shadow: 2px 5px 15px #00000026;
+  margin-bottom: 20px;
+  border-radius: 5px;;;;;}
+.CoursePurchaseMainPage .courseList article .bgCover{
+  height: 140px;
+  margin-bottom: 10px;;;}
+.CoursePurchaseMainPage .courseList article .title{
+  margin-bottom: 3px;;}
+.CoursePurchaseMainPage .courseList article .title h3{
+  font-size: 19px;
+  color: #4f4f4f;}
+
+
+  .previewPage .flipCardComponent{
+    height: 85vh;
+    width: 100vw;
+  }
+  .previewPage{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+  }
+  .previewPage .card{
+    background-color: #fff;
+    border-radius: 9px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 1px 1px 5px #00000024;
+    overflow: hidden;
+  }
+  .previewPage .card .topBanner{
+    height: 40%;
+    border-radius: 9px;
+    background-size: cover;
+    background-position: center;
+    position: relative;}
+  .previewPage .card .topBanner h2{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.9rem;
+    text-shadow: 1px 1px 5px #00000029;}
+  .previewPage .card .content{
+    height: calc(60% - 40px);
+    margin: 20px;
+    overflow: auto;
+    color: #2d2d2d;}
+  .previewPage .card .content.withBtn{
+    height: calc(60% - 100px);}
+  .previewPage .card .btnBlock{
+    height: 50px;
+    bottom: 10px;
+  }
+  .previewPage .card .btnBlock a{
+    display: block;
+    height: 100%;
+    text-align: center;
+  }
+  .previewPage .card .btnBlock img{
+    max-height: 100%;
+  }
+  .previewPage .card .voice{
+    display: flex;
+    align-items: center;
+    margin: 5px 0;}
+  .previewPage .card .voice img{
+    padding-right: 8px;
+    width: 20px;}
+  .previewPage .card .voice span{
+    display: block;
+    margin-bottom: 3px;}
+  .previewPage .card .voice span.colour{
+    color: #ade5ff;}
+  .previewPage .card .padding{;
+    padding-left: 28px;}
+  .previewPage .card h4{
+    margin-bottom: 10px;}
+  .previewPage .card p{
+    line-height: 1.7;}
+  .previewPage .card .light{
+    color: #888;}
+  .previewPage .card ul{;
+    margin-bottom: 10px;}
+  .previewPage .card ul li{
+    margin: 5px 0;}
+  .previewPage .card ul.dotted li{
+    list-style: disc;
+    margin: 7px 0;
+    line-height: 1.4;
+  }
+  .previewPage .card ul.dotted{
+    list-style: circle;
+    padding-left: 22px;
+  }
