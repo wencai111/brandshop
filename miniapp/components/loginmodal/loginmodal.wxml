@@ -1,0 +1,8 @@
+<view class="modal" hidden="{{hidden}}">
+    <view class="container" hidden="{{hidden}}">
+        <image class="login-bk" src="../../images/login-bk.png"></image>
+        <button bindgetuserinfo="confirm" class="confirm-button" lang="zh_CN" openType="getUserInfo">
+            <image class="login-button" src="../../images/login-button.png"></image>
+        </button>
+    </view>
+</view>

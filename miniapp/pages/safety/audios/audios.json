@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "儿童安全音频",
+    "disableScroll": true,
+    "usingComponents": {
+        "audioplayer": "../../../components/audioplayer/audioplayer"
+    }
+}

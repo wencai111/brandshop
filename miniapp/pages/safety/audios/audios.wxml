@@ -1,0 +1,8 @@
+<scroll-view class="container" scrollWithAnimation="true" scrollY="true">
+    <view bindtap="safetyAudioBannerTapHandler" class="safety-audio-banner">
+        <image src="{{safetyAudioBanner}}" style="width:100%;height:100%;"></image>
+    </view>
+    <view class="audioView">
+        <audioplayer bindtap="audioPlayerTapHandler" class="audioplayer" duartion="{{audio.duration}}" id="{{audio.audioID}}" intro="{{audio.subtitle}}" percent="{{audio.percent}}" playtime="{{audio.playtime}}" posterPath="{{audio.image}}" statusImagePath="{{audio.statusImage}}" wx:for="{{audios}}" wx:for-item="audio" wx:key="audioID"></audioplayer>
+    </view>
+</scroll-view>

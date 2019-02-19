@@ -1,0 +1,6 @@
+{
+    "disableScroll": true,
+    "usingComponents": {
+        "goodsSKU": "../../../components/goodsSKU/goodsSKU"
+    }
+}

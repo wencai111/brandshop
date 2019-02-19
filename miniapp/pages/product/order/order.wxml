@@ -1,0 +1,44 @@
+<view class="container">
+    <view class="addressView">
+        <view bindtap="fetchAddressFromWx" wx:if="{{withoutAddress}}">
+            <image class="without-address-image" src="../../../images/withoutaddress.jpg"></image>
+        </view>
+        <view class="withAddress" wx:else>
+            <view class="mobile">{{expressInfo.mobile}}</view>
+            <view class="name">{{expressInfo.consignee}}</view>
+            <view class="address">{{expressInfo.province+expressInfo.city+expressInfo.district+expressInfo.address}}</view>
+            <view bindtap="fetchAddressFromWx" class="more-view">
+                <image class="more-image" src="../../../images/arrow-right.png"></image>
+            </view>
+        </view>
+        <view class="line-view">
+            <image class="line-image" src="../../../images/colorline.jpg"></image>
+        </view>
+    </view>
+    <view class="orderView">
+        <view class="order-header">
+            <text class="order-text">订单信息</text>
+        </view>
+        <view class="order-info">
+            <image class="order-image" src="{{order.image}}"></image>
+            <text class="order-title">{{order.title}}</text>
+            <text class="order-price">￥{{order.price}}</text>
+            <text class="order-num">x {{order.num}}</text>
+        </view>
+    </view>
+    <view class="express">
+        <text class="express-text">配送方式</text>
+        <text class="express-info">包邮</text>
+    </view>
+    <view class="coupon" hidden="{{!hasCoupon}}">
+        <text class="coupon-text">店铺优惠</text>
+        <text class="coupon-info">省50元：50元优惠券</text>
+    </view>
+    <view class="payView">
+        <text class="order-total-desc">应付金额：</text>
+        <text class="order-total-price">￥{{order.total}}</text>
+        <view bindtap="confirmPayOrder" class="order-pay">
+            <text class="order-pay-text">确认支付</text>
+        </view>
+    </view>
+</view>

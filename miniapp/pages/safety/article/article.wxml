@@ -1,0 +1,12 @@
+<scroll-view class="container" scrollWithAnimation="true" scrollY="true">
+    <view bindtap="safetyArticleBannerTapHandler" class="safety-article-banner">
+        <image src="{{safetyArticleBanner}}" style="width:100%;height:100%;"></image>
+    </view>
+    <view class="articleView">
+        <view bindtap="articleTapHandler" class="articleItem" id="{{article.articleID}}" wx:for="{{articles}}" wx:for-item="article" wx:key="articleID">
+            <image class="articleImage" src="{{article.image}}"></image>
+            <text class="articleTitle">{{article.title}}</text>
+            <text class="articleSubtitle">{{article.subtitle}}</text>
+        </view>
+    </view>
+</scroll-view>

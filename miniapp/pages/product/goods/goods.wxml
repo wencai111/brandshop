@@ -1,0 +1,14 @@
+<view class="container">
+    <view class="detail-container">
+        <scroll-view class="detail" scrollWithAnimation="true" scrollY="true">
+            <view wx:for="{{imageContent}}" wx:for-index="idx" wx:for-item="image" wx:key="{{idx}}">
+                <image lazyLoad="true" mode="widthFix" src="{{image}}"></image>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="orderView">
+        <button class="service" openType="contact" style="background-image:url({{serviceImgUrl}});"></button>
+        <button bindtap="buynowTapHandler" class="buynow" style="background-image:url({{buynowImgUrl}});"></button>
+    </view>
+    <goodsSKU bindbuyConfirm="buyConfirm" bindcloseSkuModal="closeSkuModal" class="goods-sku" goods="{{goods}}" hidden="{{hiddenSkuModal}}" skuimage="{{skuimage}}"></goodsSKU>
+</view>

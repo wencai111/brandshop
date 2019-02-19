@@ -1,0 +1,26 @@
+<view class="modal" hidden="{{hidden}}">
+    <view class="container" hidden="{{hidden}}">
+        <view class="sku-header">
+            <image class="sku-image" src="{{skuimage}}"></image>
+            <view class="price" id="goods-price">￥{{goods.price}}</view>
+            <view class="desc" id="goods-desc">{{goods.title}}</view>
+            <image bindtap="closeSkuModal" class="sku-close" src="../../images/close.png"></image>
+        </view>
+        <view class="sku-color">
+            <view class="h2">颜色分类</view>
+            <view class="radiogroup">
+                <label bindtap="selectSkuColor" class="{{item.checked?'is_checked':''}}" id="{{index}}" wx:for="{{goods.skus}}" wx:key="{{index}}">{{item.name}}</label>
+            </view>
+        </view>
+        <view class="sku-num">
+            <view class="h2">购买数量</view>
+            <image class="image-num" src="../../images/nums.png"></image>
+            <view bindtap="decreaseNum" class="less-num"></view>
+            <view class="text-num">{{num}}</view>
+            <view bindtap="increaseNum" class="more-num"></view>
+        </view>
+        <view bindtap="buyConfirm" class="buy-confirm">
+            <image src="../../images/buyconfirm.jpg" style="width:100%; height:100%"></image>
+        </view>
+    </view>
+</view>

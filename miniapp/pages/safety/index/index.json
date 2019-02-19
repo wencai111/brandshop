@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "小黄人儿童安全课堂",
+    "disableScroll": true,
+    "usingComponents": {
+        "audioplayer": "../../../components/audioplayer/audioplayer"
+    }
+}

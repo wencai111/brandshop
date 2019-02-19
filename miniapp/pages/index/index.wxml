@@ -1,0 +1,9 @@
+<view class="container">
+    <view bindtap="safetySurveyTapHandler" binderror="dfdfd" class="safety-survey">
+        <image src="{{safetySurvey}}" style="width:100%;height:100%;"></image>
+    </view>
+    <view bindtap="safetyClassTapHandler" class="safety-class">
+        <image src="{{safetyClass}}" style="width:100%;height:100%;"></image>
+    </view>
+    <button class="service" openType="contact" style="background-image:url({{serviceImgUrl}});"></button>
+</view>

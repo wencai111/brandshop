@@ -1,0 +1,9 @@
+<view class="modal" hidden="{{hidden}}">
+    <view class="container" hidden="{{hidden}}">
+        <image class="background" src="../../images/safety-comfrim-backgorund.png"></image>
+        <view class="resultView">{{result}}</view>
+        <view class="answerView">{{answer}}</view>
+        <view class="tipView">{{tip}}</view>
+        <button bindtap="nextquestion" class="btnnext" style="background-image:url({{btnstyle}});"></button>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+{
+    "disableScroll": true,
+    "usingComponents": {
+        "loginmodal": "../../components/loginmodal/loginmodal",
+        "audioplayer": "../../components/audioplayer/audioplayer",
+        "goodsSKU": "../../components/goodsSKU/goodsSKU"
+    }
+}

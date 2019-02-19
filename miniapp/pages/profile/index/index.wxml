@@ -1,0 +1,15 @@
+<view class="container">
+    <open-data class="avator" type="userAvatarUrl"></open-data>
+    <image class="background" src="../../../images/profile-background.png"></image>
+    <open-data class="nickname" type="userNickName"></open-data>
+    <view class="orderView">
+        <image bindtap="unpaidOrder" class="unpaid" src="../../../images/unpaid.png"></image>
+        <image bindtap="unshippedOrder" class="unshipped" src="../../../images/unshipped.png"></image>
+        <image bindtap="unreceiptOrder" class="unreceipt" src="../../../images/unreceipt.png"></image>
+        <image bindtap="refundingOrder" class="refunding" src="../../../images/refunding.png"></image>
+        <image bindtap="completedOrder" class="completed" src="../../../images/completed.png"></image>
+    </view>
+    <button bindtap="addressTapHandler" class="address" style="background-image:url({{goonImage}});"></button>
+    <button class="service" openType="contact" style="background-image:url({{goonImage}});"></button>
+    <button bindtap="makePhoneCallTapHandler" class="phoneCall" style="background-image:url({{goonImage}});"></button>
+</view>

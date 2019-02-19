@@ -1,0 +1,49 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/product/index/index",
+        "pages/product/goods/goods",
+        "pages/safety/index/index",
+        "pages/safety/videos/videos",
+        "pages/safety/audios/audios",
+        "pages/safety/article/article",
+        "pages/safety/survey/survey",
+        "pages/profile/index/index",
+        "pages/safety/articledetail/articledetail",
+        "pages/safety/videodetail/videodetail",
+        "pages/product/order/order",
+        "pages/product/orderlist/orderlist"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "小黄人儿童安全座椅",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#3b3b3b",
+        "selectedColor": "#629fff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/index-unchecked.png",
+                "selectedIconPath": "images/index-checked.png"
+            },
+            {
+                "pagePath": "pages/product/index/index",
+                "text": "产品",
+                "iconPath": "images/product-unchecked.png",
+                "selectedIconPath": "images/product-checked.png"
+            },
+            {
+                "pagePath": "pages/profile/index/index",
+                "text": "我的",
+                "iconPath": "images/profile-unchecked.png",
+                "selectedIconPath": "images/profile-checked.png"
+            }
+        ]
+    },
+    "debug": true
+}

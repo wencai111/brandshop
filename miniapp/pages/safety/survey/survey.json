@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "小黄人儿童安全测试",
+    "disableScroll": true,
+    "usingComponents": {
+        "resultmodal": "../../../components/resultmodal/resultmodal"
+    }
+}

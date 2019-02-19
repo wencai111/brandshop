@@ -1,0 +1,40 @@
+<view class="container">
+    <view class="status-box">
+        <view bindtap="statusTapHandler" class="status-label {{index==currentType?'active':''}}" data-index="{{index}}" wx:for="{{statusType}}" wx:key="{{index}}">
+            {{item}}
+            <view class="{{tabClass[index]}}"></view>
+        </view>
+    </view>
+    <view class="no-order" hidden="{{orderList?true:false}}">
+        <image class="no-order-img" src="../../../images/no-order.png"></image>
+        <view class="text">暂无订单</view>
+    </view>
+    <view class="order-list" hidden="{{orderList?false:true}}">
+        <view class="a-order" wx:for="{{orderList}}" wx:key="{{index}}">
+            <view class="order-header">
+                <view class="orderno">订单号: {{item.order_no}} </view>
+            </view>
+            <view bindtap="buyAgainTapHandler" class="goods-img-container" data-goods="{{item}}">
+                <view class="order-info">
+                    <image class="order-image" src="{{item.goods_image}}"></image>
+                    <text class="order-title">{{item.goods_title}}</text>
+                    <text class="order-sku">颜色：{{item.buy_sku}}</text>
+                    <text class="order-price">￥{{item.goods_price}}</text>
+                    <text class="order-num">x {{item.buy_nums}}</text>
+                </view>
+            </view>
+            <view class="price-box">
+                <view class="total-price">合计：¥ {{item.pay_amount/100}}</view>
+                <view bindtap="toPayOrderTap" class="btn topay-btn" data-index="{{index}}" hidden="{{item.status==='0'?false:true}}">马上付款</view>
+                <view bindtap="toShippedTap" class="btn toshipped-btn" data-orderno="{{item.order_no}}" hidden="{{item.status==='1'?false:true}}">提醒发货</view>
+                <view class="toreceive-btn" hidden="{{item.status==='2'?false:true}}">已发货</view>
+                <button class="torefund-btn" hidden="{{item.status==='3'?false:true}}" openType="contact">联系客服</button>
+                <view class="tofinished-btn" hidden="{{item.status==='4'?false:true}}">已完成</view>
+            </view>
+            <view class="express-box" hidden="{{item.status>=2?false:true}}">
+                <view class="toreceive-btn">快递公司：{{item.express_name}}</view>
+                <view class="toreceive-btn">快递单号：{{item.express_sn}}</view>
+            </view>
+        </view>
+    </view>
+</view>

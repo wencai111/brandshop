@@ -1,0 +1,13 @@
+<scroll-view class="container" scrollWithAnimation="true" scrollY="true">
+    <view bindtap="safetyVideoBannerTapHandler" class="safety-video-banner">
+        <image src="{{safetyVideoBanner}}" style="width:100%;height:100%;"></image>
+    </view>
+    <view class="videoView">
+        <video autoplay="true" class="player" poster="{{poster}}" src="{{url}}"></video>
+        <view class="introView">
+            <text class="subtitle">{{subtitle}}</text>
+            <image class="line" src="../../../images/line.jpg"></image>
+            <text class="intro">{{intro}}</text>
+        </view>
+    </view>
+</scroll-view>

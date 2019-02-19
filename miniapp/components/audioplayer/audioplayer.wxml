@@ -1,0 +1,10 @@
+<view class="palyer">
+    <image class="posterimage" src="{{posterPath}}"></image>
+    <view class="palycontrols">
+        <image class="playstatus" src="{{statusImagePath}}"></image>
+        <text class="txtTime">{{playtime}}</text>
+        <progress class="playerProgress" percent="{{percent}}" strokeWidth="2"></progress>
+        <text class="txtDuartion">{{duartion}}</text>
+    </view>
+    <text class="txtIntro">{{intro}}</text>
+</view>

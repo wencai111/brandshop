@@ -1,0 +1,30 @@
+<scroll-view scrollY class="container" scrollWithAnimation="true">
+    <view bindtap="goodsBannerTapHandler" class="banner">
+        <image src="{{goodsBanner}}" style="width:100%; height:100%"></image>
+    </view>
+    <view bindtap="goodsCouponTapHandler" class="coupon">
+        <image src="{{goodsCoupon}}" style="width:100%; height:100%"></image>
+    </view>
+    <view bindtap="GetCouponTapHandler" class="coupon-detail" hidden="{{showCouponDetail}}">
+        <image class="coupon-image" src="../../../images/getcoupon.jpg"></image>
+    </view>
+    <view class="goods">
+        <image src="{{goodsIndex}}" style="width:100%; height:100%"></image>
+        <view capture-catch:tap="buynowTapHandler" class="fstView" id="0">
+            <text class="fstTitle">{{goods[0].goods_title}}</text>
+            <text class="fstSubtitle">{{goods[0].goods_subtitle}}</text>
+            <text class="fstPrice">￥{{goods[0].price}}</text>
+        </view>
+        <view capture-catch:tap="buynowTapHandler" class="secdView" id="1">
+            <text class="secdTitle">{{goods[1].goods_title}}</text>
+            <text class="secdSubtitle">{{goods[1].goods_subtitle}}</text>
+            <text class="secdPrice">￥{{goods[1].price}}</text>
+        </view>
+        <view capture-catch:tap="buynowTapHandler" class="thirdView" id="2">
+            <text class="thirdTitle">{{goods[2].goods_title}}</text>
+            <text class="thirdSubtitle">{{goods[2].goods_subtitle}}</text>
+            <text class="thirdPrice">￥{{goods[2].price}}</text>
+        </view>
+    </view>
+    <loginmodal bindconfirm="comfirmLoginTapHandler" hidden="{{hiddenLoginModel}}"></loginmodal>
+</scroll-view>
