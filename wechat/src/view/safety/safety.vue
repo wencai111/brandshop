@@ -1,7 +1,10 @@
 <template>
   <div class="home">
-    <div>
-      <img src="@/resource/image/lecture/safety-index-banner.jpg">
+    <div class="safety1">
+      <img src="@/assets/safety-index-banner.jpg">
+    </div>
+    <div class="safety">
+      <img src="@/assets/safety-index-bk.jpg">
     </div>
     <span class="video">安全视频</span>
     <div class="more">点击更多</div>
@@ -54,6 +57,14 @@ export default {
 .home {
   width: 100%;
 }
+.safety1 img {
+  width: 100%;
+}
+.safety img {
+  position: fixed;
+  margin-top: -5px;
+  width: 91.5%;
+}
 .video {
   font-size: 15px;
   color: rgb(63, 63, 212);
@@ -71,13 +82,19 @@ export default {
 .srs {
   width: 400px;
   margin: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
+  bottom: 40px;
+  left: 0;
+  margin-top: 70%;
 }
 .srs1 img {
   float: left;
   width: 70%;
   height: 100px;
-  overflow: hidden;
+  position: absolute;
+  /* overflow: hidden; */
+   bottom:0;
+   left:0;
 }
 .safe {
   margin-left: 10%;
@@ -91,7 +108,8 @@ export default {
   height: 100px;
   margin-top: -100px;
   margin-right: -80px;
-  overflow: hidden;
+  position: absolute;
+  /* overflow: hidden; */
 }
 .text1 {
   width: 160px;
