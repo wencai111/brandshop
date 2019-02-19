@@ -144,4 +144,20 @@ export default [
     },
     component: () => import('@/view/safety/safety.vue')
   },
+  {
+    path: '/answer',
+    name: 'answer',
+    meta: {
+      title: '答题页面'
+    },
+    component: () => import('@/view/answer/answer.vue')
+  },
+  {
+    path: '/Starting-work',
+    name: 'Starting-work',
+    meta: {
+      title: '答题题目'
+    },
+    component: () => import('@/view/Starting-work/Starting-work.vue')
+  },
 ]
