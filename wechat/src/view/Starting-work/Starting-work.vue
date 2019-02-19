@@ -8,7 +8,7 @@
     </div>
     <div class="question">
       <img src="@/assets/other/question.png">
-      <input type="text" v-model="1" >
+      <input type="text">
     </div>
     <div class="answer-a">
       <img src="@/assets/other/answer-a.png">
