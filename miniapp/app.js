@@ -1,94 +1,37 @@
 var o = require("osann.config.js");
 
 App({
-    onLaunch: function () {
-        debugger;
-        var _this = this;
+    onLaunch: function() {
+        var o = this;
         wx.checkSession({
-            success: function () {
-                debugger;
-
-
-                let obj = {
-                    "nickName": "33",
-                    "gender": "2",
-                    "city": "孝感",
-                    "country": "中国",
-                    "province": "湖北",
-                    "language": "zh_CN",
-                    "avatarUrl": "http://thirdwx.qlogo.cn/mmopen/vi_32/giayHUxMyah7B0e0Qhxpsz8e2ZAnibq0cHkvfFQjB4hDgl76ROOga19bUYRJXJ14Jyibl010dCiabwKotOGSEgiasDw/132"
-                };
-                wx.setStorage({
-                    key: "sessionid",
-                    data: "oiFBo5OQy1u4cNCBO4-UpJeyrSf0"
-                });
-                wx.setStorage({
-                    key: "userid",
-                    data: "10437"
-                });
-                wx.setStorage({
-                    key: "userInfo",
-                    data: obj
-                });
-
-
-
-
-
-
-
-                var sessionid = wx.getStorageSync("sessionid");
-                var userid = wx.getStorageSync("userid");
-                var userInfo = wx.getStorageSync("userInfo");
-                if (sessionid != "" && userid != "" && userInfo) {
-                    _this.globalData.openid = sessionid;
-                    _this.globalData.userid = "10437";
-                    _this.globalData.userInfo = userInfo;
-                } else {
-                    console.log("re-login and fetch userinfo again ...");
-                    console.error("11");
-                
-                    debugger;
-                    _this.wxloginwithsession();
-                }
+            success: function() {
+                var e = wx.getStorageSync("sessionid"), n = wx.getStorageSync("userid"), s = wx.getStorageSync("userInfo");
+                "" != e && "" != n && s ? (o.globalData.openid = e, o.globalData.userid = n, console.log("storage sessionid = ", e, " and userid = ", n), 
+                o.globalData.userInfo = s, console.log("storage userInfo : ", o.globalData.userInfo)) : (console.log("re-login and fetch userinfo again ..."), 
+                o.wxloginwithsession());
             },
-            fail: function () {
-                console.error("22");
-                debugger;
-                _this.wxloginwithsession();
+            fail: function() {
+                o.wxloginwithsession();
             }
         });
     },
-    wxloginwithsession: function () {
-        debugger;
-        var _this = this;
+    wxloginwithsession: function() {
+        var e = this;
         wx.login({
-            success: function (n) {
-                if (n.code) {
-                    let obj = {
-                        "nickName": "33",
-                        "gender": "2",
-                        "city": "孝感",
-                        "country": "中国",
-                        "province": "湖北",
-                        "language": "zh_CN",
-                        "avatarUrl": "http://thirdwx.qlogo.cn/mmopen/vi_32/giayHUxMyah7B0e0Qhxpsz8e2ZAnibq0cHkvfFQjB4hDgl76ROOga19bUYRJXJ14Jyibl010dCiabwKotOGSEgiasDw/132"
-                    };
-                    _this.globalData.openid = "oiFBo5OQy1u4cNCBO4-UpJeyrSf0";
-                    wx.setStorage({
-                        key: "sessionid",
-                        data: "oiFBo5OQy1u4cNCBO4-UpJeyrSf0"
-                    });
-
-                } else {
-                    console.log("登录失败！" + n.errMsg)
-                }
-
-
-
-            },
-            fail: function (res) {
-                debugger;
+            success: function(n) {
+                n.code ? (console.log("Code is " + n.code), wx.request({
+                    url: o.apiUrl + "/login",
+                    method: "POST",
+                    data: {
+                        code: n.code
+                    },
+                    success: function(o) {
+                        console.log("remote sessionid : ", o.data), e.globalData.openid = o.data, wx.setStorage({
+                            key: "sessionid",
+                            data: o.data
+                        });
+                    }
+                })) : console.log("登录失败！" + n.errMsg);
             }
         });
     },

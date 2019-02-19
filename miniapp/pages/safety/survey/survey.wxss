@@ -1,1 +1,240 @@
-/* pages/safety/survey/survey.wxss */
+page {
+    height: 100%;
+    width: 750rpx;
+}
+
+.container {
+    position: relative;
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0rpx;
+    background: #F9DC4C;
+}
+
+.background {
+    width: 750rpx;
+    height: 1206rpx;
+}
+
+.title {
+    width: 335rpx;
+    height: 72rpx;
+    position: absolute;
+    top: 215rpx;
+    left: 212rpx;
+}
+
+.ruleView {
+    width: 750rpx;
+    height: 1206rpx;
+    position: absolute;
+}
+
+.ruleContent {
+    width: 620rpx;
+    height: 150rpx;
+    position: absolute;
+    margin-left: 65rpx;
+    margin-top: 400rpx;
+}
+
+button::after {
+    border: none;
+}
+
+.btnStart {
+    width: 300rpx;
+    height: 90rpx;
+    position: absolute;
+    margin-left: 225rpx;
+    margin-top: 640rpx;
+    background-repeat: no-repeat;
+    background-size: 300rpx 90rpx;
+    background-color: rgba(255,255,255,0);
+}
+
+.footer {
+    width: 366rpx;
+    height: 305rpx;
+    position: absolute;
+    margin-left: 100rpx;
+    margin-top: 850rpx;
+}
+
+.questionView {
+    width: 750rpx;
+    height: 1206rpx;
+    position: absolute;
+}
+
+.titleBackground {
+    width: 633rpx;
+    height: 125rpx;
+    position: absolute;
+    top: 360rpx;
+    left: 58rpx;
+}
+
+.titleText {
+    width: 620rpx;
+    height: 120rpx;
+    position: absolute;
+    top: 360rpx;
+    left: 65rpx;
+    font-size: 26rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 35rpx;
+}
+
+.answerABackground {
+    width: 604rpx;
+    height: 112rpx;
+    position: absolute;
+    top: 510rpx;
+    left: 73rpx;
+}
+
+.answerAText {
+    width: 520rpx;
+    height: 110rpx;
+    position: absolute;
+    top: 510rpx;
+    left: 150rpx;
+    font-size: 22rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    line-height: 32rpx;
+}
+
+.answerBBackground {
+    width: 604rpx;
+    height: 112rpx;
+    position: absolute;
+    top: 650rpx;
+    left: 73rpx;
+}
+
+.answerBText {
+    width: 520rpx;
+    height: 110rpx;
+    position: absolute;
+    top: 650rpx;
+    left: 150rpx;
+    font-size: 22rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    line-height: 32rpx;
+}
+
+.answerCBackground {
+    width: 604rpx;
+    height: 112rpx;
+    position: absolute;
+    top: 790rpx;
+    left: 73rpx;
+}
+
+.answerCText {
+    width: 520rpx;
+    height: 110rpx;
+    position: absolute;
+    top: 790rpx;
+    left: 150rpx;
+    font-size: 22rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    line-height: 32rpx;
+}
+
+.qFooter {
+    width: 670rpx;
+    height: 220rpx;
+    position: absolute;
+    bottom: 27rpx;
+    left: 40rpx;
+}
+
+.resultView {
+    width: 750rpx;
+    height: 1206rpx;
+    position: fixed;
+    top: 0rpx;
+    left: 0rpx;
+}
+
+.resimage {
+    width: 668rpx;
+    height: 553rpx;
+    position: absolute;
+    left: 41rpx;
+    top: 324rpx;
+}
+
+.avator {
+    width: 136rpx;
+    height: 136rpx;
+    position: absolute;
+    left: 290rpx;
+    top: 662rpx;
+}
+
+.snapshot {
+    width: 580rpx;
+    height: 266rpx;
+    position: absolute;
+    left: 90rpx;
+    top: 890rpx;
+}
+
+.canvasMask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 750rpx;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.previewImage {
+    width: 600rpx;
+    height: 965rpx;
+    position: absolute;
+    top: 55rpx;
+    left: 75rpx;
+}
+
+button::after {
+    border: 0;
+}
+
+.saveImage {
+    display: block;
+    width: 80%;
+    height: 80rpx;
+    padding: 0;
+    line-height: 80rpx;
+    text-align: center;
+    position: fixed;
+    top: 1075rpx;
+    left: 10%;
+    background: #ffe200;
+    color: #333;
+    font-size: 32rpx;
+    border-radius: 44rpx;
+}
+
+.canvasView {
+    position: fixed;
+    top: 999999rpx;
+    left: 0;
+}

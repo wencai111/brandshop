@@ -1,1 +1,48 @@
-/* pages/index/index.wxss */
+page {
+    height: 100%;
+    width: 750rpx;
+}
+
+.container {
+    position: relative;
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0rpx;
+    background: #FEF9C8;
+}
+
+.safety-survey {
+    width: 750rpx;
+    height: 412rpx;
+}
+
+.safety-class {
+    width: 750rpx;
+    height: 696rpx;
+}
+
+button::after {
+    border: none;
+}
+
+.service {
+    width: 152rpx;
+    height: 125rpx;
+    position: absolute;
+    bottom: 0rpx;
+    right: 0rpx;
+    background-repeat: no-repeat;
+    background-size: 100%,100%;
+    background-color: rgba(255,255,255,0);
+}
+
+.audioplayer {
+    width: 320rpx;
+    height: 340rpx;
+    position: absolute;
+    top: 720rpx;
+    left: 200rpx;
+}

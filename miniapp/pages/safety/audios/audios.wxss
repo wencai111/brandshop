@@ -1,1 +1,39 @@
-/* pages/safety/audios/audios.wxss */
+page {
+    height: 100%;
+    width: 750rpx;
+}
+
+.container {
+    position: relative;
+    width: 750rpx;
+    height: 100%;
+    display: flex;
+    padding: 0rpx;
+    background: #F9E7AD;
+}
+
+.safety-audio-banner {
+    width: 750rpx;
+    height: 270rpx;
+    position: relative;
+}
+
+.audioView {
+    width: 710rpx;
+    height: 355rpx;
+    top: 250rpx;
+    left: 20rpx;
+    position: absolute;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.audioplayer {
+    width: 320rpx;
+    height: 355rpx;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+}

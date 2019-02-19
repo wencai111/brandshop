@@ -1,0 +1,77 @@
+.palyer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 320rpx;
+    height: 350rpx;
+}
+
+.posterimage {
+    width: 320rpx;
+    height: 320rpx;
+    position: absolute;
+    left: 0rpx;
+    top: 0rpx;
+}
+
+.palycontrols {
+    width: 320rpx;
+    height: 320rpx;
+    position: absolute;
+    left: 0rpx;
+    top: 0rpx;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.playstatus {
+    width: 48rpx;
+    height: 48rpx;
+    position: absolute;
+    left: 136rpx;
+    top: 126rpx;
+}
+
+.txtTime {
+    align-items: center;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+    font-size: 15rpx;
+    color: white;
+    position: absolute;
+    bottom: 5rpx;
+    left: 5rpx;
+    width: 50rpx;
+    height: 20rpx;
+}
+
+.playerProgress {
+    width: 200rpx;
+    height: 20rpx;
+    position: absolute;
+    bottom: 6rpx;
+    left: 60rpx;
+}
+
+.txtDuartion {
+    align-items: center;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+    font-size: 15rpx;
+    color: white;
+    position: absolute;
+    bottom: 5rpx;
+    left: 260rpx;
+    width: 50rpx;
+    height: 20rpx;
+}
+
+.txtIntro {
+    font-size: 25rpx;
+    color: #817E75;
+    position: absolute;
+    top: 330rpx;
+    left: 0rpx;
+    width: 300rpx;
+    height: 25rpx;
+}
