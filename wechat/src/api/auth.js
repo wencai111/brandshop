@@ -15,6 +15,7 @@ export const getAuthUrl = (address ) => {
   })
 }
 
+
 export const getAccount = (code) => {
   console.log("调用接口getAccount：入参："+JSON.stringify(code));
   var data = {
