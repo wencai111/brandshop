@@ -144,4 +144,12 @@ export default [
     },
     component: () => import('@/view/safety/safety.vue')
   },
+  {
+    path: '/answer',
+    name: 'answer',
+    meta: {
+      title: '答题页面'
+    },
+    component: () => import('@/view/answer/answer.vue')
+  },
 ]
