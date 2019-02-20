@@ -7,6 +7,7 @@
       <div class="play">
         <img src="@/assets/other/play.png">
       </div>
+      <div class="color"></div>
       <img src="@/assets/videos/1.jpg">
       <p>第一讲：“危险”的安全带</p>
       <nav class="border"></nav>
@@ -14,11 +15,11 @@
         <span>车载安全是针对成年人所设计的汽车约束系统。儿童若直接使用车载安全带，一旦发生事故，将对儿童造成致命伤害。</span>
       </div>
     </div>
-
     <div class="safety">
-      <div class="play">
-        <img src="@/assets/other/play.png">
-      </div>
+        <div class="play">
+      <img src="@/assets/other/play.png">
+    </div>
+    <div class="color"></div>
       <img class="videos" src="@/assets/videos/2.jpg">
       <p>第二讲：“致命”的安全气囊</p>
       <nav class="border"></nav>
@@ -33,6 +34,7 @@
       <div class="play">
         <img src="@/assets/other/play.png">
       </div>
+      <div class="color"></div>
       <img src="@/assets/videos/3.jpg">
       <p>第三讲：孩子需要专属保护</p>
       <nav class="border"></nav>
@@ -44,6 +46,7 @@
       <div class="play">
         <img src="@/assets/other/play.png">
       </div>
+      <div class="color"></div>
       <img src="@/assets/videos/4.jpg">
       <p>第四讲：不要将孩子抱在怀里乘车</p>
       <nav class="border"></nav>
@@ -55,6 +58,7 @@
       <div class="play">
         <img src="@/assets/other/play.png">
       </div>
+      <div class="color"></div>
       <img src="@/assets/videos/5.jpg">
       <p>第五讲：可怕的汽车盲区</p>
       <nav class="border"></nav>
@@ -66,6 +70,7 @@
       <div class="play">
         <img src="@/assets/other/play.png">
       </div>
+      <div class="color"></div>
       <img src="@/assets/videos/6.jpg">
       <p>第六讲：不要在车里放置多余物品</p>
       <nav class="border"></nav>
@@ -80,6 +85,7 @@
       <div class="play">
         <img src="@/assets/other/play.png">
       </div>
+      <div class="color"></div>
       <img src="@/assets/videos/7.jpg">
       <p>第七讲：不要将孩子独自留在车内</p>
       <nav class="border"></nav>
@@ -97,20 +103,23 @@ export default {
   }
 };
 </script>
-<style>
+// <style>
 .safetys {
   margin-top: -5px;
+  width: 100%;
 }
-/* .safetys img {
-  opacity: 0.6;
+.color {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 210px;
+  background-color: rgba(0, 0, 0, 0.4);
 }
-.safety img {
-  opacity: 0.6;
-} */
 .play img {
   position: absolute;
   margin-left: 43%;
   margin-top: 20%;
+  display: block;
 }
 .safetys p {
   font-size: 14px;
@@ -119,6 +128,7 @@ export default {
 }
 .safetys span {
   font-size: 6px;
+  margin-top: 20px;
 }
 .border {
   border: 0.5px solid rgb(112, 111, 111);
@@ -130,6 +140,7 @@ export default {
 }
 .anquan {
   margin: 10px;
+  margin-top: 20px;
 }
 .safety p {
   font-size: 14px;

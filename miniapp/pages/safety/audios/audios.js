@@ -26,9 +26,11 @@ Page({
                 a.data.data.forEach(function(a) {
                     a.image = e.mediaUrl + "/" + a.image, a.url = e.mediaUrl + "/" + a.url, a.playtime = "00:00", 
                     a.percent = 0, a.statusImage = "../../images/play.png";
-                }), u.setData({
+                });
+                 u.setData({
                     audios: a.data.data
-                }), console.log(u.data.audios);
+                });
+                 console.log(u.data.audios);
             },
             fail: function(a) {
                 console.log("failure from ", e.apiUrl + "/safety/audios"), console.log(a);
