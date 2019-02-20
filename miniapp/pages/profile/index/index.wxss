@@ -1,1 +1,126 @@
-/* pages/profile/index/index.wxss */
+page {
+    height: 100%;
+    width: 750rpx;
+}
+
+.container {
+    position: relative;
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0rpx;
+    background: #f2f2f2;
+}
+
+.avator {
+    width: 132rpx;
+    height: 132rpx;
+    position: absolute;
+    top: 33rpx;
+    left: 20rpx;
+}
+
+.nickname {
+    width: 200rpx;
+    height: 110rpx;
+    position: absolute;
+    top: 40rpx;
+    left: 170rpx;
+    font-size: 30rpx;
+    color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.background {
+    width: 750rpx;
+    height: 1108rpx;
+    position: absolute;
+}
+
+.orderView {
+    width: 750rpx;
+    height: 120rpx;
+    margin-top: 325rpx;
+    position: absolute;
+}
+
+.unpaid {
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    margin-top: 20rpx;
+    margin-left: 55rpx;
+}
+
+.unshipped {
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    margin-top: 20rpx;
+    margin-left: 195rpx;
+}
+
+.unreceipt {
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    margin-top: 20rpx;
+    margin-left: 335rpx;
+}
+
+.refunding {
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    margin-top: 20rpx;
+    margin-left: 475rpx;
+}
+
+.completed {
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    margin-top: 20rpx;
+    margin-left: 615rpx;
+}
+
+button::after {
+    border: none;
+}
+
+.address {
+    width: 190rpx;
+    height: 90rpx;
+    position: absolute;
+    top: 477rpx;
+    right: 0rpx;
+    background-repeat: no-repeat;
+    background-size: 100%,100%;
+    background-color: rgba(255,255,255,0);
+}
+
+.service {
+    width: 190rpx;
+    height: 90rpx;
+    position: absolute;
+    top: 598rpx;
+    right: 0rpx;
+    background-repeat: no-repeat;
+    background-size: 100%,100%;
+    background-color: rgba(255,255,255,0);
+}
+
+.phoneCall {
+    width: 190rpx;
+    height: 90rpx;
+    position: absolute;
+    top: 719rpx;
+    right: 0rpx;
+    background-repeat: no-repeat;
+    background-size: 100%,100%;
+    background-color: rgba(255,255,255,0);
+}

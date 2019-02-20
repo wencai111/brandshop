@@ -1,1 +1,153 @@
-/* pages/safety/index/index.wxss */
+page {
+    height: 100%;
+    width: 750rpx;
+}
+
+.container {
+    position: relative;
+    width: 750rpx;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0rpx;
+    background: #E1EDFC;
+}
+
+.safety-index-banner {
+    width: 750rpx;
+    height: 425rpx;
+    position: relative;
+}
+
+.safety-index-backgroud {
+    width: 750rpx;
+    height: 1452rpx;
+    position: relative;
+}
+
+.videoView {
+    width: 544rpx;
+    height: 280rpx;
+    top: 170rpx;
+    left: 160rpx;
+    position: absolute;
+    border-radius: 10rpx;
+}
+
+.posterImage {
+    width: 544rpx;
+    height: 280rpx;
+    position: absolute;
+    border-radius: 10rpx;
+}
+
+.videoMask {
+    width: 544rpx;
+    height: 280rpx;
+    position: absolute;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 10rpx;
+}
+
+.playstatus {
+    width: 48rpx;
+    height: 48rpx;
+    position: absolute;
+    left: 248rpx;
+    top: 129rpx;
+}
+
+.audioView {
+    width: 390rpx;
+    height: 355rpx;
+    top: 650rpx;
+    left: 20rpx;
+    position: absolute;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+.articleView {
+    width: 710rpx;
+    height: 320rpx;
+    top: 1140rpx;
+    left: 20rpx;
+    position: absolute;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+.articleItem {
+    width: 320rpx;
+    height: 320rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.articleImage {
+    width: 320rpx;
+    height: 220rpx;
+    position: relative;
+}
+
+.articleTitle {
+    font-size: 30rpx;
+    color: #000000;
+    position: relative;
+    left: 0rpx;
+    width: 320rpx;
+    height: 30rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+}
+
+.articleSubtitle {
+    font-size: 25rpx;
+    color: #7e7e7e;
+    position: relative;
+    left: 0rpx;
+    width: 320rpx;
+    height: 25rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+}
+
+button::after {
+    border: none;
+}
+
+.moreVideo {
+    width: 152rpx;
+    height: 72rpx;
+    position: absolute;
+    top: 60rpx;
+    right: 0rpx;
+    background-repeat: no-repeat;
+    background-size: 100%,100%;
+    background-color: rgba(255,255,255,0);
+}
+
+.moreAudio {
+    width: 152rpx;
+    height: 72rpx;
+    position: absolute;
+    top: 580rpx;
+    right: 0rpx;
+    background-repeat: no-repeat;
+    background-size: 100%,100%;
+    background-color: rgba(255,255,255,0);
+}
+
+.moreArticle {
+    width: 152rpx;
+    height: 72rpx;
+    position: absolute;
+    top: 1070rpx;
+    right: 0rpx;
+    background-repeat: no-repeat;
+    background-size: 100%,100%;
+    background-color: rgba(255,255,255,0);
+}

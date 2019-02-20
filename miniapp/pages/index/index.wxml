@@ -1,5 +1,5 @@
 <view class="container">
-    <view bindtap="safetySurveyTapHandler" binderror="dfdfd" class="safety-survey">
+    <view bindtap="safetySurveyTapHandler" class="safety-survey">
         <image src="{{safetySurvey}}" style="width:100%;height:100%;"></image>
     </view>
     <view bindtap="safetyClassTapHandler" class="safety-class">
