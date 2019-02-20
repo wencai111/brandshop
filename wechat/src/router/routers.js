@@ -168,4 +168,12 @@ export default [
     },
     component: () => import('@/view/risk/risk.vue')
   },
+  {
+    path: '/article',
+    name: 'article',
+    meta: {
+      title: '安全文章'
+    },
+    component: () => import('@/view/article/article.vue')
+  },
 ]
