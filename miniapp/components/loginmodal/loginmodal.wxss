@@ -1,0 +1,44 @@
+.modal {
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 19998;
+}
+
+.container {
+    position: relative;
+    width: 606rpx;
+    height: 646rpx;
+}
+
+.login-bk {
+    position: absolute;
+    width: 606rpx;
+    height: 646rpx;
+    top: 0rpx;
+    left: 0rpx;
+}
+
+.login-button {
+    position: absolute;
+    width: 440rpx;
+    height: 76rpx;
+    left: 0rpx;
+    bottom: 0rpx;
+}
+
+.confirm-button {
+    position: absolute;
+    width: 440rpx;
+    height: 76rpx;
+    left: 83rpx;
+    bottom: 50rpx;
+    border-radius: 30rpx;
+}

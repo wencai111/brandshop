@@ -1,1 +1,66 @@
-/* pages/safety/article/article.wxss */
+page {
+    height: 100%;
+    width: 750rpx;
+}
+
+.container {
+    position: relative;
+    width: 750rpx;
+    height: 100%;
+    display: flex;
+    padding: 0rpx;
+    background: #F9E7AD;
+}
+
+.safety-article-banner {
+    width: 750rpx;
+    height: 270rpx;
+    position: relative;
+}
+
+.articleView {
+    width: 710rpx;
+    height: 320rpx;
+    top: 220rpx;
+    left: 20rpx;
+    position: absolute;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.articleItem {
+    width: 320rpx;
+    height: 320rpx;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60rpx;
+}
+
+.articleImage {
+    width: 320rpx;
+    height: 220rpx;
+    position: relative;
+}
+
+.articleTitle {
+    font-size: 30rpx;
+    color: #000000;
+    position: relative;
+    left: 0rpx;
+    width: 320rpx;
+    height: 30rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+}
+
+.articleSubtitle {
+    font-size: 25rpx;
+    color: #7e7e7e;
+    position: relative;
+    left: 0rpx;
+    width: 320rpx;
+    height: 25rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+}

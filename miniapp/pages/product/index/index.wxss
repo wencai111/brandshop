@@ -1,1 +1,223 @@
-/* pages/product/index/index.wxss */
+page {
+    width: 750rpx;
+    height: 100%;
+}
+
+.container {
+    position: fixed;
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0rpx;
+    background-color: #FFF9A0;
+}
+
+.banner {
+    width: 750rpx;
+    height: 476rpx;
+}
+
+.coupon {
+    width: 750rpx;
+    height: 288rpx;
+}
+
+.coupon-detail {
+    background-color: rgba(0,0,0,0.65);
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9968;
+}
+
+.coupon-image {
+    position: relative;
+    width: 612rpx;
+    height: 580rpx;
+}
+
+.goods {
+    width: 750rpx;
+    height: 1715rpx;
+    position: relative;
+}
+
+.fstView {
+    width: 710rpx;
+    height: 900rpx;
+    position: absolute;
+    left: 20rpx;
+    top: 40rpx;
+}
+
+.fstTitle {
+    width: 410rpx;
+    height: auto;
+    display: flex;
+    position: absolute;
+    left: 150rpx;
+    top: 500rpx;
+    font-size: 35rpx;
+    font-weight: bold;
+    color: #ff4344;
+    justify-content: center;
+    align-items: center;
+}
+
+.fstSubtitle {
+    width: 410rpx;
+    height: auto;
+    position: absolute;
+    font-size: 23rpx;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 150rpx;
+    top: 560rpx;
+}
+
+.fstPrice {
+    width: 80;
+    height: auto;
+    position: absolute;
+    font-size: 45rpx;
+    font-weight: bold;
+    color: #ff3b44;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 160rpx;
+    top: 612rpx;
+}
+
+.fstBuy {
+    width: 160rpx;
+    height: 55rpx;
+    position: absolute;
+    right: 40rpx;
+    bottom: 0rpx;
+}
+
+.secdView {
+    width: 710rpx;
+    height: 320rpx;
+    position: absolute;
+    left: 20rpx;
+    top: 1020rpx;
+}
+
+.secdTitle {
+    width: 410rpx;
+    height: auto;
+    display: flex;
+    position: absolute;
+    left: 370rpx;
+    top: 60rpx;
+    font-size: 25rpx;
+    font-weight: bold;
+    color: #ff4344;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.secdSubtitle {
+    width: 410rpx;
+    height: auto;
+    position: absolute;
+    font-size: 23rpx;
+    color: #000000;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    left: 370rpx;
+    top: 120rpx;
+}
+
+.secdPrice {
+    width: 80;
+    height: auto;
+    position: absolute;
+    font-size: 45rpx;
+    font-weight: bold;
+    color: #ff3b44;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 320rpx;
+    top: 208rpx;
+}
+
+.secdBuy {
+    width: 160rpx;
+    height: 55rpx;
+    position: absolute;
+    right: 0rpx;
+    bottom: 0rpx;
+}
+
+.thirdView {
+    width: 710rpx;
+    height: 320rpx;
+    position: absolute;
+    left: 20rpx;
+    top: 1360rpx;
+}
+
+.thirdTitle {
+    width: 300rpx;
+    height: auto;
+    display: flex;
+    position: absolute;
+    left: 360rpx;
+    top: 70rpx;
+    font-size: 25rpx;
+    font-weight: bold;
+    color: #ff4344;
+    justify-content: center;
+    align-items: center;
+}
+
+.thirdSubtitle {
+    width: 300rpx;
+    height: auto;
+    position: absolute;
+    font-size: 23rpx;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    left: 360rpx;
+    top: 120rpx;
+}
+
+.thirdPrice {
+    width: 80;
+    height: auto;
+    position: absolute;
+    font-size: 45rpx;
+    color: #ff3b44;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 320rpx;
+    top: 208rpx;
+}
+
+.thirdBuy {
+    width: 160rpx;
+    height: 55rpx;
+    position: absolute;
+    right: 0rpx;
+    bottom: 0rpx;
+}
