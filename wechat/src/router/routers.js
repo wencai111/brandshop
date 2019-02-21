@@ -176,4 +176,20 @@ export default [
     },
     component: () => import('@/view/article/article.vue')
   },
+  {
+    path: '/rowyemian',
+    name: 'rowyemian',
+    meta: {
+      title: '宽度测试'
+    },
+    component: () => import('@/view/rowyemian/rowyemian.vue')
+  },
+  {
+    path: '/test',
+    name: 'test',
+    meta: {
+      title: '测试'
+    },
+    component: () => import('@/view/demo/test.vue')
+  }
 ]
