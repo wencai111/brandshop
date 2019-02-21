@@ -112,7 +112,7 @@ export default {
   position: absolute;
   display: block;
   width: 100%;
-  height: 210px;
+  height: 232px;
   background-color: rgba(0, 0, 0, 0.4);
 }
 .play img {
