@@ -97,7 +97,7 @@
 </template>
 <script>
 export default {
-  name: "risk",
+  name: "Risk",
   data() {
     return {};
   }
