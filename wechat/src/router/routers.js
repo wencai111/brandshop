@@ -191,5 +191,13 @@ export default [
       title: '测试'
     },
     component: () => import('@/view/demo/test.vue')
-  }
+  },
+  {
+    path: '/display',
+    name: 'display',
+    meta: {
+      title: '视频播放'
+    },
+    component: () => import('@/view/display/display.vue')
+  },
 ]

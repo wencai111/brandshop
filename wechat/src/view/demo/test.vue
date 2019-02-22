@@ -12,7 +12,7 @@
 <script>
 import Demo from "@/components/demo";
 export default {
-  name: "",
+  name: "Test",
   data() {
     return {
         menus:["首页","服务","关于我们"]
