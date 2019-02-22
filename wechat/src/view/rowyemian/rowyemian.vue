@@ -3,8 +3,7 @@
     <div>
       <img src="@/assets/safety-audio-banner.jpg">
     </div>
-    <div
-      class="background"
+    <div class="background"
       v-bind:style="{backgroundImage:'url('+require('../../assets/other/safety-audio-bk.jpg')+')'}"
     >
      <Row type="flex" justify="start" class="code-row-bg">
@@ -165,7 +164,7 @@ export default {
 .assets {
   width: 150px;
   height: 150px;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 40px;
 }
 .color {
@@ -173,7 +172,7 @@ export default {
   display: block;
   width: 150px;
   height: 150px;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 40px;
   background-color: rgba(0, 0, 0, 0.4);
 }
@@ -196,7 +195,7 @@ export default {
   position: absolute;
   width: 30px;
   height: 30px;
-  margin-left: 70px;
+  margin-left: 75px;
   margin-top: 100px;
   display: block;
 }
