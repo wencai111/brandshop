@@ -1,9 +1,10 @@
-var e = require("../../../osann.config.js"), a = getApp();
+var config = require("../../../wxc.config.js");
+var a = getApp();
 
 Page({
     data: {
         videos: [],
-        safetyVideoBanner: e.mediaUrl + "/images/safety-video-banner.jpg"
+        safetyVideoBanner: config.mediaUrl + "/images/safety-video-banner.jpg"
     },
     onLoad: function(a) {
         wx.showLoading({
@@ -11,17 +12,17 @@ Page({
         });
         var t = this;
         wx.request({
-            url: e.apiUrl + "/safety/videos",
+            url: config.apiUrl + "/safety/videos",
             method: "POST",
             success: function(a) {
                 a.data.data.forEach(function(a) {
-                    a.image = e.mediaUrl + "/" + a.image, a.url = e.mediaUrl + "/" + a.url;
+                    a.image = config.mediaUrl + "/" + a.image, a.url = config.mediaUrl + "/" + a.url;
                 }), t.setData({
                     videos: a.data.data
                 }), console.log(t.data.videos);
             },
             fail: function(a) {
-                console.log("failure from ", e.apiUrl + "/safety/videos"), console.log(a);
+                console.log("failure from ", config.apiUrl + "/safety/videos"), console.log(a);
             },
             complete: function() {
                 wx.hideLoading();

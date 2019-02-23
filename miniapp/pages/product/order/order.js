@@ -7,7 +7,8 @@ function o(o, e, a) {
     }) : o[e] = a, o;
 }
 
-var e = require("../../../osann.config.js"), a = getApp();
+var config = require("../../../wxc.config.js");
+var a = getApp();
 
 Page({
     data: {
@@ -53,7 +54,7 @@ Page({
             icon: "none",
             duration: 1e3
         }) : wx.request({
-            url: e.apiUrl + "/order/new",
+            url: config.apiUrl + "/order/new",
             method: "POST",
             data: {
                 openid: a.globalData.orderInfo.openid,
@@ -78,7 +79,7 @@ Page({
             success: function(o) {
                 console.log("create order success -> ", o), console.log("orderinfo -> ", a.globalData.orderInfo), 
                 wx.request({
-                    url: e.payUrl + "/unifiedorder",
+                    url: config.payUrl + "/unifiedorder",
                     method: "POST",
                     data: {
                         openid: a.globalData.orderInfo.openid,
@@ -133,7 +134,7 @@ Page({
                 });
             }
         }), wx.request({
-            url: e.apiUrl + "/coupon/available",
+            url: config.apiUrl + "/coupon/available",
             method: "POST",
             data: {
                 openid: a.globalData.openid

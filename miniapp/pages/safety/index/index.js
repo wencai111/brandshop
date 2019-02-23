@@ -7,15 +7,18 @@ function a(a, e, t) {
     }) : a[e] = t, a;
 }
 
-var e = require("../../../osann.config.js"), t = require("../../../utils/util.js"), o = getApp(), i = wx.createInnerAudioContext();
+var config = require("../../../wxc.config.js");
+var t = require("../../../utils/util.js");
+var o = getApp();
+var i = wx.createInnerAudioContext();
 
 Page({
     data: {
         videos: [],
         audios: [],
         articles: [],
-        safetyIndexBanner: e.mediaUrl + "/images/safety-index-banner.jpg",
-        safetyIndexBK: e.mediaUrl + "/images/safety-index-bk.jpg"
+        safetyIndexBanner: config.mediaUrl + "/images/safety-index-banner.jpg",
+        safetyIndexBK: config.mediaUrl + "/images/safety-index-bk.jpg"
     },
     safetyIndexBannerTapHandler: function() {
         wx.navigateTo({
@@ -28,16 +31,16 @@ Page({
         });
         var r = this;
         wx.request({
-            url: e.apiUrl + "/safety/index",
+            url: config.apiUrl + "/safety/index",
             method: "POST",
             success: function(a) {
                 console.log(a), a.data.data.videos.forEach(function(a) {
-                    a.image = e.mediaUrl + "/" + a.image, a.url = e.mediaUrl + "/" + a.url;
+                    a.image = config.mediaUrl + "/" + a.image, a.url = config.mediaUrl + "/" + a.url;
                 }), a.data.data.audios.forEach(function(a) {
-                    a.image = e.mediaUrl + "/" + a.image, a.url = e.mediaUrl + "/" + a.url, a.playtime = "00:00", 
+                    a.image = config.mediaUrl + "/" + a.image, a.url = e.mediaUrl + "/" + a.url, a.playtime = "00:00", 
                     a.percent = 0, a.statusImage = "../../images/play.png";
                 }), a.data.data.articles.forEach(function(a) {
-                    a.image = e.mediaUrl + "/" + a.image;
+                    a.image = config.mediaUrl + "/" + a.image;
                 }), r.setData({
                     videos: a.data.data.videos,
                     audios: a.data.data.audios,
@@ -144,7 +147,7 @@ Page({
         return {
             title: "小黄人安全课堂开讲啦",
             path: "/pages/safety/index/index",
-            imageUrl: e.mediaUrl + "/images/class-share.jpg",
+            imageUrl: config.mediaUrl + "/images/class-share.jpg",
             success: function(a) {},
             fail: function(a) {},
             complete: function() {}

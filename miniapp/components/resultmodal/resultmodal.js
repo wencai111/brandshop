@@ -1,4 +1,4 @@
-var t = require("../../osann.config.js");
+var config = require("../../wxc.config.js");
 
 Component({
     options: {},
@@ -21,7 +21,7 @@ Component({
     },
     attached: function() {
         this.setData({
-            btnstyle: t.mediaUrl + "/images/btncontinue.png"
+            btnstyle: config.mediaUrl + "/images/btncontinue.png"
         });
     },
     data: {},

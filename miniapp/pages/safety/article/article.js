@@ -1,9 +1,10 @@
-var a = require("../../../osann.config.js"), t = getApp();
+var config = require("../../../wxc.config.js");
+var t = getApp();
 
 Page({
     data: {
         articles: [],
-        safetyArticleBanner: a.mediaUrl + "/images/safety-article-banner.jpg"
+        safetyArticleBanner: config.mediaUrl + "/images/safety-article-banner.jpg"
     },
     onLoad: function(t) {
         wx.showLoading({
@@ -11,7 +12,7 @@ Page({
         });
         var e = this;
         wx.request({
-            url: a.apiUrl + "/safety/articles",
+            url: config.apiUrl + "/safety/articles",
             method: "POST",
             success: function(t) {
                 t.data.data.forEach(function(t) {

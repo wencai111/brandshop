@@ -1,4 +1,5 @@
-var t = require("../../../osann.config.js"), e = getApp();
+var config = require("../../../wxc.config.js");
+var e = getApp();
 
 Page({
     data: {
@@ -6,7 +7,7 @@ Page({
         poster: "",
         subtitle: "",
         intro: "",
-        safetyVideoBanner: t.mediaUrl + "/images/safety-video-banner.jpg"
+        safetyVideoBanner: config.mediaUrl + "/images/safety-video-banner.jpg"
     },
     onLoad: function(t) {
         var o = this, n = e.globalData.currentVideoUrl, a = e.globalData.currentVideoPoster, r = e.globalData.currentSubtitle, i = e.globalData.currentIntro;

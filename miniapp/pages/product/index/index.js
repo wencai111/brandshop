@@ -1,11 +1,12 @@
-var o = require("../../../osann.config.js"), a = getApp();
+var config = require("../../../wxc.config.js");
+var a = getApp();
 
 Page({
     data: {
         goods: [],
-        goodsIndex: o.mediaUrl + "/images/goods-index.jpg",
-        goodsCoupon: o.mediaUrl + "/images/goods-coupon.jpg",
-        goodsBanner: o.mediaUrl + "/images/goods-banner.jpg",
+        goodsIndex: config.mediaUrl + "/images/goods-index.jpg",
+        goodsCoupon: config.mediaUrl + "/images/goods-coupon.jpg",
+        goodsBanner: config.mediaUrl + "/images/goods-banner.jpg",
         showCouponDetail: !0,
         hiddenLoginModel: !0
     },
@@ -41,7 +42,7 @@ Page({
     },
     wxdecryptUserInfo: function(e, n, t, s, i) {
         wx.request({
-            url: o.apiUrl + "/userinfo/decryption",
+            url: config.apiUrl + "/userinfo/decryption",
             method: "POST",
             data: {
                 openid: e,
@@ -71,7 +72,7 @@ Page({
     GetCouponTapHandler: function(e) {
         var n = this;
         wx.request({
-            url: o.apiUrl + "/coupon/new",
+            url: config.apiUrl + "/coupon/new",
             method: "POST",
             data: {
                 openid: a.globalData.openid,
@@ -112,7 +113,7 @@ Page({
         var n = this;
         console.log("goods-index app ->", a.globalData), 0 === a.globalData.userid && "" !== a.globalData.openid && (console.log("authorized ...."), 
         n.wxfetchUserInfoWithOpenID(a.globalData.openid)), wx.request({
-            url: o.apiUrl + "/goods",
+            url: config.apiUrl + "/goods",
             method: "POST",
             success: function(o) {
                 o.data.data.forEach(function(o) {

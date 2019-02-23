@@ -1,37 +1,65 @@
-var o = require("osann.config.js");
+var config = require("wxc.config.js");
+debugger;
 
 App({
     onLaunch: function() {
-        var o = this;
+        var _this = this;
         wx.checkSession({
             success: function() {
-                var e = wx.getStorageSync("sessionid"), n = wx.getStorageSync("userid"), s = wx.getStorageSync("userInfo");
-                "" != e && "" != n && s ? (o.globalData.openid = e, o.globalData.userid = n, console.log("storage sessionid = ", e, " and userid = ", n), 
-                o.globalData.userInfo = s, console.log("storage userInfo : ", o.globalData.userInfo)) : (console.log("re-login and fetch userinfo again ..."), 
-                o.wxloginwithsession());
+                var sessionid = wx.getStorageSync("sessionid");
+                var userid = wx.getStorageSync("userid");
+                var userInfo = wx.getStorageSync("userInfo");
+                if(sessionid!=""&&userid!=""&&userInfo){
+                    _this.globalData.openid=sessionid;
+                    _this.globalData.userid=userid;
+                    console.log("storage sessionid = ", sessionid, " and userid = ", userid);
+                    _this.globalData.userInfo=userInfo;
+                    console.log("storage userInfo : ", userInfo);
+                }
+                else{
+                    console.log("缓存信息时效，重新登录获取用户信息！");
+                    _this.wxloginwithsession();
+                }
             },
             fail: function() {
-                o.wxloginwithsession();
+                console.log("登录态已经过期，重新登录！");
+                _this.wxloginwithsession();
             }
         });
     },
     wxloginwithsession: function() {
-        var e = this;
+        var _this = this;
         wx.login({
-            success: function(n) {
-                n.code ? (console.log("Code is " + n.code), wx.request({
-                    url: o.apiUrl + "/login",
-                    method: "POST",
-                    data: {
-                        code: n.code
-                    },
-                    success: function(o) {
-                        console.log("remote sessionid : ", o.data), e.globalData.openid = o.data, wx.setStorage({
-                            key: "sessionid",
-                            data: o.data
-                        });
-                    }
-                })) : console.log("登录失败！" + n.errMsg);
+            success: function(res) {
+                if(res.code){
+                    console.log("code is "+res.code);
+                    wx.request({
+                        url: config.apiUrl + "/code2session.aspx",
+                        method: "POST",
+                        data: {
+                            code: res.code
+                        },
+                        success: function(o) {
+                            debugger;
+                            console.log("remote sessionid : ", o.data);
+                            _this.globalData.openid = o.data;
+                             wx.setStorage({
+                                key: "sessionid",
+                                data: o.data
+                            });
+                        },
+                        fail:function(res){
+                            debugger;
+                        },
+                        complete:function(res){
+                            debugger;
+
+                        }
+                    });
+                }
+                else{
+                    console.log("登录失败："+res.errMsg);
+                }
             }
         });
     },
