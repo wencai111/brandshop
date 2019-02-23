@@ -28,13 +28,13 @@ App({
     },
     wxloginwithsession: function () {
         var _this = this;
-        var appid = (wx.getExtConfigSync()).appid;
+        debugger;
         wx.login({
             success: function (res) {
                 if (res.code) {
                     console.log("code is " + res.code);
                     wx.request({
-                        url: config.apiUrl + "/code2session.aspx",
+                        url: config.apiUrl + "/wxc/wxxcx/code2session.aspx",
                         method: "POST",
                         data: {
                             "jscode": res.code,
@@ -42,12 +42,17 @@ App({
                         },
                         success: function (o) {
                             debugger;
-                            console.log("remote sessionid : ", o.data);
-                            _this.globalData.openid = o.data;
-                            wx.setStorage({
-                                key: "sessionid",
-                                data: o.data
-                            });
+                            if(o.data.status==0){
+                                console.log("remote sessionid : ", o.data.data);
+                                _this.globalData.openid = o.data.data;
+                                wx.setStorage({
+                                    key: "sessionid",
+                                    data: o.data
+                                });
+                            }
+                            else{
+                                console.log("授权错误："+o.data.message);
+                            }
                         },
                         fail: function (res) {
                             debugger;
