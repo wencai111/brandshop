@@ -20,8 +20,9 @@ Component({
     },
     data: {},
     methods: {
-        confirm: function(t) {
-            this.triggerEvent("confirm", t.detail);
+        confirm: function(ref) {
+            debugger;
+            this.triggerEvent("confirm", ref.detail);
         }
     },
     ready: function() {}

@@ -1,5 +1,5 @@
 var config = require("../../../wxc.config.js");
-var a = getApp();
+var appData = getApp();
 
 Page({
     data: {
@@ -10,6 +10,7 @@ Page({
         showCouponDetail: !0,
         hiddenLoginModel: !0
     },
+    //通过openId获取用户信息
     wxfetchUserInfoWithOpenID: function (openid) {
         debugger;
         var _this = this;
@@ -23,8 +24,8 @@ Page({
                         lang: "zh_CN",
                         withCredentials: !0,
                         success: function (t) {
-                            a.globalData.userInfo = t.userInfo;
-                            console.log("non-open-type UserInfo : ", a.globalData.userInfo);
+                            appData.globalData.userInfo = t.userInfo;
+                            console.log("non-open-type UserInfo : ", appData.globalData.userInfo);
                             wx.setStorage({
                                 key: "userInfo",
                                 data: a.globalData.userInfo
@@ -44,59 +45,71 @@ Page({
             }
         });
     },
-    comfirmLoginTapHandler: function (o) {
-        var e = this;
-        e.setData({
+    //弹窗授权单击授权
+    comfirmLoginTapHandler: function (ref) {
+        debugger;
+        var _this = this;
+        _this.setData({
             hiddenLoginModel: !0
-        }), console.log("open-type userinfo ", o.detail), wx.setStorage({
+        });
+         console.log("open-type userinfo ", ref.detail);
+         wx.setStorage({
             key: "userInfo",
-            data: o.detail.userInfo
-        }), e.wxdecryptUserInfo(a.globalData.openid, o.detail.rawData, o.detail.signature, o.detail.iv, o.detail.encryptedData);
+            data: ref.detail.userInfo
+        });
+        _this.wxdecryptUserInfo(appData.globalData.openid, ref.detail.rawData, ref.detail.signature, ref.detail.iv, ref.detail.encryptedData);
     },
-    wxdecryptUserInfo: function (e, n, t, s, i) {
+    //用户信息保存数据库（用户信息提交后台解密，保存）
+    wxdecryptUserInfo: function (openid, rawData, signature, iv, encryptedData) {
         wx.request({
             url: config.apiUrl + "/wxc/wxxcx/sendUserinfo.aspx",
             method: "POST",
             data: {
-                openid: e,
-                rawData: n,
-                signature: t,
-                iv: s,
-                encryptedData: i
+                openid: openid,
+                rawData: rawData,
+                signature: signature,
+                iv: iv,
+                encryptedData: encryptedData
             },
-            success: function (o) {
-                debugger
-                console.log("decrypt userinfo successful : ", o), wx.setStorage({
+            success: function (ref) {
+                console.log("解析用户信息&保存数据库成功 : ", ref);
+                 wx.setStorage({
                     key: "userid",
-                    data: o.data
-                }), a.globalData.userid = parseInt(o.data);
+                    data: ref.data
+                });
+                appData.globalData.userid = parseInt(ref.data);
             },
-            fail: function (o) {
-                console.log("decrypt userinfo failure : ", o);
+            fail: function (ref) {
+                console.log("解析用户信息&保存数据库错误 : ", ref);
             }
         });
     },
-    goodsCouponTapHandler: function (o) {
-        var e = this;
-        0 === a.globalData.userid && "" !== a.globalData.openid && (console.log("authorized ...."),
-            e.wxfetchUserInfoWithOpenID(a.globalData.openid)), e.setData({
+    //弹出领取优惠证窗体
+    goodsCouponTapHandler: function (ref) {
+        var _this = this;
+        if(0 === appData.globalData.userid && "" !== appData.globalData.openid ){
+            console.log("开始授权！");
+            _this.wxfetchUserInfoWithOpenID(appData.globalData.openid)
+        }
+        _this.setData({
             showCouponDetail: !1
         });
     },
+    //领取优惠卷
     GetCouponTapHandler: function (e) {
-        var n = this;
+        var _this = this;
         wx.request({
             url: config.apiUrl + "/coupon/new",
             method: "POST",
             data: {
-                openid: a.globalData.openid,
-                userid: a.globalData.userid,
+                openid: appData.globalData.openid,
+                userid: appData.globalData.userid,
                 coupon_id: 1,
                 coupon_name: "小黄人立减红包",
                 status: 0,
                 source: 5
             },
-            success: function (o) {
+            success: function (ref) {
                 wx.showToast({
                     title: "领取成功",
                     image: "../../../images/success.png",
@@ -107,51 +120,65 @@ Page({
                     complete: function () {}
                 });
             }
-        }), n.setData({
+        });
+        _this.setData({
             showCouponDetail: !0
         });
     },
+    //跳转产品详情页面
     goodsBannerTapHandler: function () {
-        var o = this;
-        0 === a.globalData.userid && "" !== a.globalData.openid && (console.log("authorized ...."),
-            o.wxfetchUserInfoWithOpenID(a.globalData.openid));
-        var e = "goodsID=" + o.data.goods[0].goodsID + "&price=" + o.data.goods[0].price + "&title=" + o.data.goods[0].goods_title;
+        var _this = this;
+        if(0 === appData.globalData.userid && "" !== appData.globalData.openid){
+            console.log("开始授权！");
+            _this.wxfetchUserInfoWithOpenID(appData.globalData.openid)
+        }
+        var param="goodsID=" + _this.data.goods[0].goodsID + "&price=" + _this.data.goods[0].price + "&title=" + _this.data.goods[0].goods_title;
         wx.navigateTo({
-            url: "/pages/product/goods/goods?" + e
+            url: "/pages/product/goods/goods?" + param
         });
     },
     onLoad: function (e) {
+        var _this= this;
         wx.showLoading({
             title: "努力加载 ..."
         });
-        var n = this;
-        console.log("goods-index app ->", a.globalData), 0 === a.globalData.userid && "" !== a.globalData.openid && (console.log("authorized ...."),
-            n.wxfetchUserInfoWithOpenID(a.globalData.openid)), wx.request({
+        console.log("产品首页 app ->", appData.globalData);
+        if(0 === appData.globalData.userid && "" !== appData.globalData.openid ){
+            console.log("已经授权！");
+            _this.wxfetchUserInfoWithOpenID(appData.globalData.openid);
+        }
+        //获取产品
+        wx.request({
             url: config.apiUrl + "/goods",
             method: "POST",
-            success: function (o) {
-                o.data.data.forEach(function (o) {
-                    o.price = o.price / 100;
-                }), n.setData({
-                    goods: o.data.data
-                }), console.log(n.data.goods);
+            success: function (ref) {
+                ref.data.data.forEach(function (item) {
+                    item.price = item.price / 100;
+                });
+                _this.setData({
+                    goods: ref.data.data
+                });
+                console.log(_this.data.goods);
             },
-            fail: function (a) {
-                console.log("failure from ", o.apiUrl + "/goods"), console.log(a);
+            fail: function (ref) {
+                console.log("failure from ", config.apiUrl + "/goods"), console.log(ref);
             },
             complete: function () {
                 wx.hideLoading();
             }
         });
     },
-    buynowTapHandler: function (o) {
-        var e = o.currentTarget.id,
-            n = this;
-        0 === a.globalData.userid && "" !== a.globalData.openid && (console.log("authorized ...."),
-            n.wxfetchUserInfoWithOpenID(a.globalData.openid));
-        var t = "goodsID=" + n.data.goods[e].goodsID + "&price=" + n.data.goods[e].price + "&title=" + n.data.goods[e].goods_title;
+    ////跳转产品详情页面
+    buynowTapHandler: function (e) {
+        var id = e.currentTarget.id;
+        var _this=this;
+        if(0 === appData.globalData.userid && "" !== appData.globalData.openid ){
+            console.log("开始授权！");
+            _this.wxfetchUserInfoWithOpenID(appData.globalData.openid);
+        }
+        var param = "goodsID=" + _this.data.goods[id].goodsID + "&price=" + _this.data.goods[id].price + "&title=" + _this.data.goods[id].goods_title;
         wx.navigateTo({
-            url: "/pages/product/goods/goods?" + t
+            url: "/pages/product/goods/goods?" + param
         });
     },
     onReady: function () {},
@@ -164,7 +191,7 @@ Page({
         return {
             title: "小黄人守护儿童乘车安全底线",
             path: "/pages/product/index/index",
-            imageUrl: o.mediaUrl + "/images/goods-share.jpg",
+            imageUrl: config.mediaUrl + "/images/goods-share.jpg",
             success: function (o) {},
             fail: function (o) {},
             complete: function () {}
