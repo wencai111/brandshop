@@ -12,8 +12,8 @@
           </div>
           <div class="color"></div>
           <div class="assets">
-            <img src="item.image">
-            <p>{{item.subtitle}}</p>
+          <img src="item.image">
+          <p>{{item.subtitle}}</p>
           </div>
         </i-col>
       </i-row>
