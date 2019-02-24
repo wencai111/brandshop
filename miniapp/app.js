@@ -16,7 +16,7 @@ App({
                     _this.globalData.userInfo = userInfo;
                     console.log("storage userInfo : ", userInfo);
                 } else {
-                    console.log("缓存信息时效，重新登录获取用户信息！");
+                    console.log("缓存信息失效，重新登录获取用户信息！");
                     _this.wxloginwithsession();
                 }
             },
@@ -47,7 +47,7 @@ App({
                                 _this.globalData.openid = o.data.data;
                                 wx.setStorage({
                                     key: "sessionid",
-                                    data: o.data
+                                    data: o.data.data
                                 });
                             }
                             else{
