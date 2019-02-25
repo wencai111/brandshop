@@ -54,7 +54,6 @@ export default {
   },
    methods: {
        goPurchaseDayCourseInfoList:function(){
-         debugger;
 // v-bind:href="['/WeChatCourseUser/PurchaseDayCourseInfoList?CourseId='+ item.CourseId+'&UserId='+item.UserId+'&ScheduleId='+item.ScheduleId+'&CourseName='+item.CourseName+'&CourseLong='+item.CourseLong+'&StartTime='+item.PostStartTime+'&EndTime='+item.PostEndTime]"
        }
 

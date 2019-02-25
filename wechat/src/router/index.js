@@ -12,17 +12,13 @@ const router = new Router({
   routes
 })
 router.beforeEach((to, from, next) => {
-  // debugger;
   iView.LoadingBar.start();
   var authObj=getAuth(to,from);
   if(authObj.operate===1){
     next();
   }
   else if(authObj.operate===2){
-    console.log("authObj.next.auth"+authObj.next.auth);
     getAuthUrl(authObj.next.auth).then(res=>{
-      console.log("res.data.data"+res.data.data);
-      // debugger;
       window.location.href = res.data.data;
     });
   }
@@ -34,7 +30,6 @@ router.beforeEach((to, from, next) => {
         }
         else if(res.operate===5){
           getAuthUrl(authObj.next.auth).then(res=>{
-            // debugger;
             window.location.href = res.data.data;
           });
         }

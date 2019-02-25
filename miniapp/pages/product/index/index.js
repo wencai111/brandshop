@@ -12,11 +12,9 @@ Page({
     },
     //通过openId获取用户信息
     wxfetchUserInfoWithOpenID: function (openid) {
-        debugger;
         var _this = this;
         wx.getSetting({
             success: function (ref) {
-                debugger;
                 console.log("输出 auth.openid -> ", openid);
                 if (ref.authSetting["scope.userInfo"]) {
                     console.log("已经授权，无需弹出系统授权框，可以直接调用getUserInfo获取用户信息");
@@ -47,7 +45,6 @@ Page({
     },
     //弹窗授权单击授权
     comfirmLoginTapHandler: function (ref) {
-        debugger;
         var _this = this;
         _this.setData({
             hiddenLoginModel: !0
@@ -149,7 +146,7 @@ Page({
         }
         //获取产品
         wx.request({
-            url: config.apiUrl + "/goods",
+            url: apiUrlDev + "/goods",
             method: "POST",
             success: function (ref) {
                 ref.data.data.forEach(function (item) {

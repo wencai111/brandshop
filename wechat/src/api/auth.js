@@ -4,7 +4,6 @@ const { domian } = config
 //授权界面
 
 export const getAuthUrl = (address ) => {
-  debugger;
   console.log("调用接口getAuthUrl：入参："+JSON.stringify(address));
   return axios.request({
     url: domian+'api/auth/getAuthUrl',
