@@ -9,7 +9,7 @@
       </div>
       <div class="color"></div>
       <img src="@/assets/videos/1.jpg">
-      <p>第一讲：“危险”的安全带</p>
+      <p>{{item.subtitle}}</p>
       <nav class="border"></nav>
       <div class="anquan">
         <span>车载安全是针对成年人所设计的汽车约束系统。儿童若直接使用车载安全带，一旦发生事故，将对儿童造成致命伤害。</span>
