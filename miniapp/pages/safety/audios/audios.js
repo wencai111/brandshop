@@ -7,12 +7,15 @@ function a(a, e, t) {
     }) : a[e] = t, a;
 }
 
-var e = require("../../../osann.config.js"), t = require("../../../utils/util.js"), o = getApp(), n = wx.createInnerAudioContext();
+var config = require("../../../wxc.config.js");
+var t = require("../../../utils/util.js");
+var o = getApp();
+var n = wx.createInnerAudioContext();
 
 Page({
     data: {
         audios: [],
-        safetyAudioBanner: e.mediaUrl + "/images/safety-audio-banner.jpg"
+        safetyAudioBanner: config.mediaUrl + "/images/safety-audio-banner.jpg"
     },
     onLoad: function(i) {
         wx.showLoading({
@@ -20,11 +23,11 @@ Page({
         });
         var u = this;
         wx.request({
-            url: e.apiUrl + "/safety/audios",
+            url: config.apiUrl + "/safety/audios",
             method: "POST",
             success: function(a) {
                 a.data.data.forEach(function(a) {
-                    a.image = e.mediaUrl + "/" + a.image, a.url = e.mediaUrl + "/" + a.url, a.playtime = "00:00", 
+                    a.image = config.mediaUrl + "/" + a.image, a.url = e.mediaUrl + "/" + a.url, a.playtime = "00:00", 
                     a.percent = 0, a.statusImage = "../../images/play.png";
                 });
                  u.setData({
@@ -33,7 +36,7 @@ Page({
                  console.log(u.data.audios);
             },
             fail: function(a) {
-                console.log("failure from ", e.apiUrl + "/safety/audios"), console.log(a);
+                console.log("failure from ", config.apiUrl + "/safety/audios"), console.log(a);
             },
             complete: function() {
                 wx.hideLoading();

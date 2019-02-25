@@ -1,12 +1,12 @@
-var e = require("../../osann.config.js");
+var config = require("../../wxc.config.js");
 
 getApp();
 
 Page({
     data: {
-        serviceImgUrl: e.mediaUrl + "/images/service.gif",
-        safetySurvey: e.mediaUrl + "/images/index-safety-survey.jpg",
-        safetyClass: e.mediaUrl + "/images/index-safety-class.jpg"
+        serviceImgUrl: config.mediaUrl + "/images/service.gif",
+        safetySurvey: config.mediaUrl + "/images/index-safety-survey.jpg",
+        safetyClass: config.mediaUrl + "/images/index-safety-class.jpg"
     },
     onLoad: function(e) {},
     onShow: function(e) {},

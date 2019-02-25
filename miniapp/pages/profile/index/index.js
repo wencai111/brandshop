@@ -1,10 +1,10 @@
-var o = require("../../../osann.config.js");
+var config = require("../../../wxc.config.js");
 
 getApp();
 
 Page({
     data: {
-        goonImage: o.mediaUrl + "/images/goon.png"
+        goonImage: config.mediaUrl + "/images/goon.png"
     },
     onLoad: function(o) {},
     unpaidOrder: function() {

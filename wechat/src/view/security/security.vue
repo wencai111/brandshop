@@ -3,10 +3,10 @@
     <div>
       <img src="@/assets/safety-audio-banner.jpg">
     </div>
-    <div
-      class="background" v-bind:style="{backgroundImage:'url('+require('../../assets/other/safety-audio-bk.jpg')+')'}">
+    <div class="background" v-bind:style="{backgroundImage:'url('+require('../../assets/other/safety-audio-bk.jpg')+')'}">
       <i-row>
-        <i-col span="12" v-for="item in audios" v-bind:key="item.audioID" i-class="col-class">
+        <div v-for="item in audios" v-bind:key="item.audioID" i-class="col-class">
+           <i-col span="12" >
           <div class="play">
             <img src="@/assets/other/play.png">
           </div>
@@ -16,14 +16,12 @@
           <p>{{item.subtitle}}</p>
           </div>
         </i-col>
+        </div>
       </i-row>
     </div>
   </div>
 </template> 
 <script>
-import Vue from 'vue'
-import iView from 'iview'
-Vue.use(iView)
 export default {
   name: "Security",
   data() {
@@ -146,7 +144,7 @@ export default {
       item.percent = 0;
       item.statusImage = "../../images/play.png";
     }
-    this.audios=data;
+    this.audios = data;
   }
 };
 </script>

@@ -1,10 +1,10 @@
-var e = require("../../osann.config.js");
+var config = require("../../wxc.config.js");
 
 Component({
     properties: {
         posterPath: {
             type: String,
-            value: e.mediaUrl + "/audios/10.jpg"
+            value: config.mediaUrl + "/audios/10.jpg"
         },
         statusImagePath: {
             type: String,

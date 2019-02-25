@@ -7,13 +7,15 @@ function o(o, a, e) {
     }) : o[a] = e, o;
 }
 
-var a = require("../../../osann.config.js"), e = require("../../../utils/util.js"), t = getApp();
+var config = require("../../../wxc.config.js");
+var e = require("../../../utils/util.js");
+var t = getApp();
 
 Page({
     data: {
         imageContent: [],
-        serviceImgUrl: a.mediaUrl + "/images/contact.jpg",
-        buynowImgUrl: a.mediaUrl + "/images/buynow.jpg",
+        serviceImgUrl: config.mediaUrl + "/images/contact.jpg",
+        buynowImgUrl: config.mediaUrl + "/images/buynow.jpg",
         goods: {},
         skuimage: "",
         hiddenSkuModal: !0
@@ -26,7 +28,7 @@ Page({
         var n = this;
         n.setData((t = {}, o(t, "goods.goodsID", e.goodsID), o(t, "goods.price", e.price), 
         o(t, "goods.title", e.title), t)), console.log(e), wx.request({
-            url: a.apiUrl + "/goods/content",
+            url: config.apiUrl + "/goods/content",
             method: "POST",
             data: {
                 goodsID: Number(e.goodsID)
@@ -50,7 +52,7 @@ Page({
                 t));
             },
             fail: function(o) {
-                console.log("failure from ", a.apiUrl + "/goods/content"), console.log(o);
+                console.log("failure from ", config.apiUrl + "/goods/content"), console.log(o);
             },
             complete: function() {
                 wx.hideLoading();
@@ -97,7 +99,7 @@ Page({
         return {
             title: "小黄人守护儿童乘车安全底线",
             path: "/pages/product/index/index",
-            imageUrl: a.mediaUrl + "/images/goods-share.jpg",
+            imageUrl: config.mediaUrl + "/images/goods-share.jpg",
             success: function(o) {},
             fail: function(o) {},
             complete: function() {}

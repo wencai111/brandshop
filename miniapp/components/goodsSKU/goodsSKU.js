@@ -7,7 +7,7 @@ function e(e, n, a) {
     }) : e[n] = a, e;
 }
 
-var n = require("../../osann.config.js");
+var config = require("../../wxc.config.js");
 
 Component({
     properties: {
@@ -64,7 +64,7 @@ Component({
                 var s;
                 o[i].checked = !0, t.setData((s = {
                     currentIndex: i
-                }, e(s, "goods.skus", o), e(s, "skuimage", n.mediaUrl + r[i]), s));
+                }, e(s, "goods.skus", o), e(s, "skuimage", config.mediaUrl + r[i]), s));
             }
         },
         increaseNum: function(e) {

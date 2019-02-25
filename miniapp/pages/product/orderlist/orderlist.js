@@ -1,4 +1,5 @@
-var o = require("../../../osann.config.js"), e = getApp();
+var config = require("../../../wxc.config.js");
+var e = getApp();
 
 Page({
     data: {
@@ -24,7 +25,7 @@ Page({
             content: "请确认是否要删除当前未支付订单，删除后无法找回。",
             success: function(t) {
                 t.confirm ? (console.log("用户确定 - 删除订单"), console.log(e.currentTarget), wx.request({
-                    url: o.apiUrl + "/goods/delete",
+                    url: config.apiUrl + "/goods/delete",
                     method: "POST",
                     data: {
                         orderno: e.currentTarget.dataset.orderno
@@ -42,7 +43,7 @@ Page({
     toPayOrderTap: function(e) {
         var t = this.data.orderList[e.currentTarget.dataset.index];
         console.log("order list -> ", t), wx.request({
-            url: o.payUrl + "/unifiedorder",
+            url: config.payUrl + "/unifiedorder",
             method: "POST",
             data: {
                 openid: t.openid,
@@ -101,7 +102,7 @@ Page({
         wx.showLoading();
         var a = this;
         wx.request({
-            url: o.apiUrl + "/order/list/openid",
+            url: config.apiUrl + "/order/list/openid",
             method: "post",
             data: {
                 openid: e.globalData.openid,

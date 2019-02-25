@@ -1,4 +1,6 @@
-var a = require("../../../data/question.js"), e = require("../../../osann.config.js"), t = getApp();
+var a = require("../../../data/question.js");
+var config = require("../../../wxc.config.js");
+var t = getApp();
 
 Page({
     data: {
@@ -17,8 +19,8 @@ Page({
         hiddenResultModal: !0,
         btnstyle: "btncontinue.png",
         resultImage: "",
-        btnStartImage: e.mediaUrl + "/images/btnstart.png",
-        surveyBackground: e.mediaUrl + "/images/safety-survey-background.jpg",
+        btnStartImage: config.mediaUrl + "/images/btnstart.png",
+        surveyBackground: config.mediaUrl + "/images/safety-survey-background.jpg",
         sharingImagePath: ""
     },
     onLoad: function(e) {
@@ -53,7 +55,7 @@ Page({
         return {
             title: "测一测安全底线在哪里",
             path: "/pages/safety/survey/survey",
-            imageUrl: e.mediaUrl + "/images/survey-share.jpg",
+            imageUrl: config.mediaUrl + "/images/survey-share.jpg",
             success: function(a) {},
             fail: function(a) {},
             complete: function() {}
@@ -93,7 +95,7 @@ Page({
             qimage: "../../../images/" + a.data.qsList[t.globalData.qIndex].qimage,
             result: a.data.qsList[t.globalData.qIndex].result
         }), 9 == t.globalData.qIndex && a.setData({
-            btnstyle: e.mediaUrl + "/images/btncompleted.png"
+            btnstyle: config.mediaUrl + "/images/btncompleted.png"
         }); else if (9 == t.globalData.qIndex) {
             t.globalData.qIndex = 0, a.setData({
                 viewIndex: 2,
