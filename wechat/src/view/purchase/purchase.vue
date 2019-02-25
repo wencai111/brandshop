@@ -15,7 +15,8 @@
       <div class="prices">
         <p class="gold">{{gold}}</p>
         <br>
-        <span>欧标ISOFIX硬接口</span>
+        <span>{{span}}</span>
+
       </div>
       <router-link to="order">
         <div class="close">
@@ -26,6 +27,8 @@
         <p>颜色分类</p>
         <div class="white">白色</div>
         <div class="red">红色</diV>
+        <div class="blue">蓝色</div>
+        <div class="green">绿色</div>
       </div>
       <div class="numbers">
         <span>购买数量</span>
@@ -46,10 +49,13 @@ export default {
     return {
       gold: "￥50",
       text:"1",
+      span:"欧标ISOFIX硬接口",
       button:"",
-      text:"",
+      text:"3",
       white:"",
       red:"",
+      green:"",
+      blue:"",
       imgs:"",
       close:"",
     };
@@ -103,10 +109,16 @@ export default {
 }
 .colors{
     margin: 20px;
-    height: 130px;
+    height: 120px;
     color: black;
     font-size: 14px;
     margin-top: 150px;
+}
+.blue{
+       margin: 30px;
+    height: 130px;
+    color: black;
+    font-size: 14px;
 }
 .white{
     width: 50%;
@@ -117,6 +129,11 @@ export default {
     width: 50%;
     float: right;
     margin-top: -20px;
+}
+.green{
+     width: 50%;
+    float: right;
+    margin-top: -160px;
 }
 .numbers{
     height: 50px;

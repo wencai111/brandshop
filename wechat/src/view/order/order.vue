@@ -5,8 +5,8 @@
     <div class="order" v-for="item in dai" v-bind:key="item.order_on">
         <p>订单号：{{item.order}}</p>
         <nav class="border"></nav>
-        <div class="img1">
-            <img src="@/assets/1goodsku/1.jpg">
+        <div class="img1" v-for="item in name1" v-bind:key="item.audioID">
+            <img :src="item.goods_image">
     </div>
         <div v-for="item in name1" v-bind:key="item.audioID">
         <P class="wnezi">
@@ -19,35 +19,41 @@
          </div>
         <nav class="border1"></nav>
         <div v-for="item in name1" v-bind:key="item.audioID" class="total"><span>合计：{{item.pay_amount}}</span>
-        <input class="deliver" type="button" value="提醒发货"/>
+        <input class="deliver" type="button" value="立即付款"/>
         </div>
       </div>
       </div>
-      <div class="information" v-else>暂无订单消息</div>
+      <div class="information" v-else>
+          <img src="@/photo/goods/no-order.png"><br/>
+          暂无订单消息</div>
     </TabPane>
     <TabPane label="待发货" name="name2"  >
         <div v-if="name2.length>0">
 
         </div>
-        <div class="information" v-else>暂无订单消息</div>
+        <div class="information" v-else>
+            <img src="@/photo/goods/no-order.png"><br/>暂无订单消息</div>
     </TabPane>
     <TabPane label="待收货" name="name3">
             <div v-if="name3.length>0">
             
         </div>
-        <div class="information"  v-else>暂无订单消息</div>
+        <div class="information"  v-else>
+            <img src="@/photo/goods/no-order.png"><br/>暂无订单消息</div>
     </TabPane>
     <TabPane label="退换货" name="name4">    
          <div v-if="name4.length>0">
             
         </div>
-        <div class="information" v-else>暂无订单消息</div>
+        <div class="information" v-else>
+            <img src="@/photo/goods/no-order.png"><br/>暂无订单消息</div>
         </TabPane>
     <TabPane label="已完成" name="name5"> 
         <div v-if="name5.length>0">
             
         </div>
-        <div class="information" v-else>暂无订单消息</div>
+        <div class="information" v-else>
+            <img src="@/photo/goods/no-order.png"><br/>暂无订单消息</div>
     </TabPane>
   </Tabs>
 </template>
@@ -66,7 +72,7 @@ export default {
                 express_name:"",
                 express_sn:"",
                 goods_id:"2",
-                goods_image:"",
+                goods_image:"/goods/1/sku/1.jpg",
                 goods_price:"2001",
                 goods_title:"便捷式安全增高垫",
                 openid:"oiFBo5OQY1u4cNCBO4-UpjeyrSf0",
@@ -97,6 +103,11 @@ export default {
 .information{
     margin-top: 50%;
     margin-left: 40%;
+}
+.information img{
+    width: 30px;
+    height: 40px;
+    margin-left: 9%;
 }
 .order{
     margin-left: 15px;

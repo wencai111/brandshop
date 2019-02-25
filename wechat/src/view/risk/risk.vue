@@ -3,7 +3,7 @@
     <div>
       <img src="@/assets/safety-video-banner.jpg">
     </div>
-    <div class="safetys">
+    <div class="safetys" v-for="item in audios" v-bind:key="item.audioID">
       <div class="play">
         <img src="@/assets/other/play.png">
       </div>
@@ -97,13 +97,41 @@
 </template>
 <script>
 export default {
-  name: "Risk",
+  name: "Order",
+  code: 0,
   data() {
-    return {};
+    return {
+      audios: []
+    };
+  },
+  created: function() {
+    var data = [
+      {
+        audioID: 1,
+        title: "听欧颂爷爷讲故事",
+        subtitle: "危险的”的安全带",
+        url: "audios/1.mp3",
+        image: "audios/1.jpg",
+        intro: "0",
+        size: 4,
+        duration: "01:48",
+        sort: 1,
+        createtime: "2018-07-25T00:24:13+08:00",
+        updatetime: "2018-10-10T17:37:02+08:00"
+      }
+    ];
+    for (let item of data) {
+      item.image = mediaUrl + "/" + item.image;
+      item.url = mediaUrl + "/" + item.url;
+      item.playtime = "00:00";
+      item.percent = 0;
+      item.statusImage = "";
+    }
+    this.audios = data;
   }
 };
 </script>
-// <style>
+<style>
 .safetys {
   margin-top: -5px;
   width: 100%;
@@ -116,9 +144,10 @@ export default {
   background-color: rgba(0, 0, 0, 0.4);
 }
 .play img {
+  width: 30px;
   position: absolute;
-  margin-left: 43%;
-  margin-top: 20%;
+  margin-left: 50%;
+  margin-top: 25%;
   display: block;
 }
 .safetys p {

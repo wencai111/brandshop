@@ -24,32 +24,32 @@
           <img class="danger" :src="item.image">
           <p>{{item.subtitle}}</p>
         </div>
-        <div class="audios1" v-for="item in audios1" v-bind:key="item.audioID1">
-          <p>{{item.subtitle}}</p>
-          <span>{{item.span}}</span>
+        <div class="audios1" v-for="item in articles" v-bind:key="item.sort">
+          <p>{{item.title}}</p>
+          <span>{{item.subtitle}}</span>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import config from '@/config'
-const {mediaUrl } = config
+import config from "@/config";
+const { mediaUrl } = config;
 import Wxcrow from "@/components/wxc-row/wxc-row.vue";
 export default {
   name: "Safety",
   data() {
     return {
-       audios:[],
-        audios1:[],
+      audios: [],
+      articles: []
     };
   },
-   created: function() {
+  mounted: function() {
     var data = [
       {
         audioID: 1,
         title: "听欧颂爷爷讲故事",
-        subtitle: "危险的”的安全带",
+        subtitle: "致命”的安全带",
         url: "audios/1.mp3",
         image: "audios/1.jpg",
         intro: "0",
@@ -59,37 +59,12 @@ export default {
         createtime: "2018-07-25T00:24:13+08:00",
         updatetime: "2018-10-10T17:37:02+08:00"
       },
+
       {
         audioID: 2,
         title: "听欧颂爷爷讲故事",
-        subtitle: "“致命”的安全气囊",
-        url: "audios/2.mp3",
+        subtitle: "致命”的安全气囊",
         image: "audios/2.jpg",
-        intro: "0",
-        size: 5,
-        duration: "02:02",
-        sort: 2,
-        createtime: "2018-07-25T00:24:13+08:00",
-        updatetime: "2018-10-10T17:37:02+08:00"
-      },
-          {audioID1: 1,
-        title: "听欧颂爷爷讲故事",
-        subtitle: "安全气囊对孩子的危害",
-        span:"本该护人安全的安全气囊，何以反倒成了“杀人凶器”？",
-        image: "articles/1.jpg",
-        intro: "0",
-        size: 4,
-        duration: "01:48",
-        sort: 1,
-        createtime: "2018-07-25T00:24:13+08:00",
-        updatetime: "2018-10-10T17:37:02+08:00"
-      },
-      {
-    audioID1: 1,
-        title: "听欧颂爷爷讲故事",
-        subtitle: "儿童安全锁的作用",
-        span:"本该护人安全的安全气囊，何以反倒成了“杀人凶器”？",
-        image: "articles/2.jpg",
         intro: "0",
         size: 30,
         duration: "01:48",
@@ -98,16 +73,47 @@ export default {
         updatetime: "2018-10-10T17:37:02+08:00"
       }
     ];
-      for (let item of data) {
-      item.image =mediaUrl + "/" + item.image;
+    for (let item of data) {
+      item.image = mediaUrl + "/" + item.image;
       item.url = mediaUrl + "/" + item.url;
       item.playtime = "00:00";
       item.percent = 0;
-      item.statusImage =  ""
+      item.statusImage = "";
     }
     this.audios = data;
-}
-}
+  },
+  created: function() {
+    var articles = [
+      {
+        audioID: 1,
+        content: "",
+        createtime: "2018-07-25-TOO:26:38+08:00",
+        sort: "",
+        title: "安全气囊对孩子的危害",
+        subtitle: "本该护人的安全气囊，何以反倒成了“杀人凶器”？",
+        url: "",
+        image: "audios/2.jpg"
+      },
+      {
+        audioID: 2,
+        content: "",
+        title: "儿童安全锁的作用",
+        subtitle: "打开它，给孩子多一份安全",
+        image: "articles/1.jpg",
+        sort: 2,
+        createtime: "2018-07-25T00:24:13+08:00"
+      }
+    ];
+    for (let item of data) {
+      item.image = mediaUrl + "/" + item.image;
+      item.url = mediaUrl + "/" + item.url;
+      item.playtime = "00:00";
+      item.percent = 0;
+      item.statusImage = "";
+    }
+    this.articles = data;
+  }
+};
 </script>
 <style>
 .home {

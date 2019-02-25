@@ -49,23 +49,6 @@
          <img src="@/photo/goods/goon.png">
       </a>
     </div>
-    <!-- 底部 -->
-    <div class="dibu">
-      <a href>
-        <i class="icon-ticket"></i>
-        <span>首页</span>
-        <nav class="border2"></nav>
-      </a>
-      <a href>
-        <i class="icon-ticket"></i>
-        <span>产品</span>
-        <nav class="border2"></nav>
-      </a>
-      <a href>
-        <i class="icon-ticket"></i>
-        <span>我的</span>
-      </a>
-    </div>
   </div>
 </template>
 <script>
@@ -167,30 +150,10 @@ export default {
 }
 .diz img{
     position: absolute;
-    left: 280px;
+    left: 70%;
     width: 130px;
 }
-.dibu {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  background-color: white;
-  margin-top: 60%;
-}
-.dibu a {
-  width: 100%;
-  color: #000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.border2 {
-  position: absolute;
-  height: 30px;
-  border: 0.5px solid black;
-  margin-left: 15%;
-  margin-top: 20px;
-}
+
 </style>
 
 
