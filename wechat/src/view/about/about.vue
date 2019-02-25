@@ -19,7 +19,6 @@ export default {
         debugger;
         alert("是否打开腾讯客服！");
       }
-
     }
 }
 </script>

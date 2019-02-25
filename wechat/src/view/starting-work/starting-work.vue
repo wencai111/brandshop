@@ -28,7 +28,9 @@
 export default {
   name: "work",
   data() {
-    return {};
+    return {
+      
+    };
   }
 };
 </script>

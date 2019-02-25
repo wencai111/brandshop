@@ -166,8 +166,9 @@ export default {
   width: 100%;
 }
 .diz img{
-  display: flex;
- margin-left: 30%;
+    position: absolute;
+    left: 280px;
+    width: 130px;
 }
 .dibu {
   height: 40px;

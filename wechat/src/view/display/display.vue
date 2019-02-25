@@ -3,7 +3,9 @@
         <div>
             <img src="@/assets/safety-video-banner.jpg">
         </div>
-        <div class="video"></div>
+        <div class="video">
+            <!-- <img :src="itme.image"> -->
+        </div>
         <div class="character">
             <p>第一讲 ：“危险”的安全带</p>
             <nav class="border"></nav>
@@ -16,12 +18,14 @@ export default {
     name:"display",
     data(){
         return{
+            image:"../../assets/safety-video-banner.jpg",
         }
     }
 }
 </script>
 <style>
 .video{
+    margin-top: -5px;
     width: 100%;
     height: 200px;
 }

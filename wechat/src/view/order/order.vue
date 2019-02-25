@@ -8,16 +8,17 @@
         <div class="img1">
             <img src="@/assets/1goodsku/1.jpg">
     </div>
-        <div>
+        <div v-for="item in name1" v-bind:key="item.audioID">
         <P class="wnezi">
-           欧标ISOFIX硬接口<br/><br/>
-           颜色：minisons Vacation<br/><br/>
-           <span class="price">￥50.01</span>
+           <span> {{item.goods_title}}</span>
+          <br/><br/>
+           <span>{{item.buy_sku}}</span><br/><br/>
+           <span class="price">{{item.pay_amount}}</span>
         </p>
         <span class="number">x1</span>
          </div>
         <nav class="border1"></nav>
-        <div class="total"><span>合计：￥0.01</span>
+        <div v-for="item in name1" v-bind:key="item.audioID" class="total"><span>合计：{{item.pay_amount}}</span>
         <input class="deliver" type="button" value="提醒发货"/>
         </div>
       </div>
@@ -75,42 +76,6 @@ export default {
                 total_amount:"5001",
                 userid:"10437",
                 },
-                 {
-                buy_nums:"1",
-                buy_sku:"minions Vacation",
-                coupon_amount:"5000",
-                create_time:"",
-                express_name:"",
-                express_sn:"",
-                goods_id:"2",
-                goods_image:"",
-                goods_price:"2001",
-                goods_title:"便捷式安全增高垫",
-                openid:"oiFBo5OQY1u4cNCBO4-UpjeyrSf0",
-                order_on:"2019021013061110437",
-                pay_amount:"5001",
-                status:"0",
-                total_amount:"5001",
-                userid:"10437",
-                },
-                 {
-                buy_nums:"1",
-                buy_sku:"minions Vacation",
-                coupon_amount:"5000",
-                create_time:"",
-                express_name:"",
-                express_sn:"",
-                goods_id:"2",
-                goods_image:"",
-                goods_price:"2001",
-                goods_title:"便捷式安全增高垫",
-                openid:"oiFBo5OQY1u4cNCBO4-UpjeyrSf0",
-                order_on:"2019021013061110437",
-                pay_amount:"1",
-                status:"0",
-                total_amount:"5001",
-                userid:"10437",
-                } 
             ],
             name2:[],
             name3:[],

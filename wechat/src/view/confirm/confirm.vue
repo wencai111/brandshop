@@ -28,7 +28,7 @@
         <div class="bottom">
             <div class="bottoms">
             <span>应付金额：</span>
-            <span class="color">{{jinge}}</span>
+            <span class="colors">{{jinge}}</span>
             </div>
             <div class="img">
             <img src="@/assets/goods/buyconfirm.jpg">
@@ -106,7 +106,7 @@ export default {
     height: 100%;
     margin-top:30px;
 } */
-.color{
+.colors{
 color: red;
 }
 .img{
