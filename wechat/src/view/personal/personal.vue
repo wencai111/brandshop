@@ -5,30 +5,25 @@
         <h3>小黄人儿童安全座椅</h3>
       </div>
       <div class="img2" v-bind:style="{backgroundImage:'url('+require('../../assets/upload/main/course2.jpg')+')'}"  ></div>
-      <span class="name">小黄人坐骑</span>
+      <span class="name">{{name}}</span>
     </div>
     <div>
       <div class="myindent">
         <h3 class="indent">我的订单</h3>
+        <router-link to="order">
+         <img src="@/photo/goods/unpaid.png">
+        </router-link>
         <a href>
-          <i class="icon-ticket"></i>
-          <span>待付款</span>
+        <img src="@/photo/goods/unshipped.png">
         </a>
         <a href>
-          <i class="icon-ticket"></i>
-          <span>待发货</span>
+        <img src="@/photo/goods/unreceipt.png">
         </a>
         <a href>
-          <i class="icon-ticket"></i>
-          <span>待收货</span>
+      <img src="@/photo/goods/refunding.png">
         </a>
         <a href>
-          <i class="icon-ticket"></i>
-          <span>退换货</span>
-        </a>
-        <a href>
-          <i class="icon-ticket"></i>
-          <span>已完成</span>
+         <img src="@/photo/goods/completed.png">
         </a>
       </div>
     </div>
@@ -37,21 +32,21 @@
       <a href>
         <i class="icon-ticket"></i>
         <span class="phone">地址管理</span>
-        <span class="arrows">></span>
+        <img src="@/photo/goods/goon.png">
       </a>
     </div>
     <div class="diz">
       <a href>
         <i class="icon-ticket"></i>
         <span>联系客服</span>
-        <span class="arrows">></span>
+         <img src="@/photo/goods/goon.png">
       </a>
     </div>
     <div class="diz">
       <a href>
         <i class="icon-ticket"></i>
         <span class="phone">电话&emsp;&emsp;</span>
-        <span class="arrows">></span>
+         <img src="@/photo/goods/goon.png">
       </a>
     </div>
     <!-- 底部 -->
@@ -78,7 +73,7 @@ export default {
   name:"Personal",
   data(){
     return{
-      
+      name:"名字",
     }
   }
 };
@@ -87,6 +82,10 @@ export default {
 * {
   padding: 0px;
   margin: 0px;
+}
+.myindent img{
+  width: 40px;
+  height: 40px;
 }
 .personal {
   overflow: hidden;
@@ -127,7 +126,7 @@ export default {
   display: flex;
   align-items: center;
   background-color: white;
-  margin-top: 10px;
+      margin-top: -5px;
   overflow: hidden;
 }
 .indent {
@@ -166,16 +165,16 @@ export default {
   align-items: center;
   width: 100%;
 }
-.arrows {
-  align-items: center;
-  margin-left: 70%;
+.diz img{
+  display: flex;
+ margin-left: 30%;
 }
 .dibu {
-  height: 30%;
+  height: 40px;
   display: flex;
   align-items: center;
   background-color: white;
-  margin-top: 100px;
+  margin-top: 60%;
 }
 .dibu a {
   width: 100%;

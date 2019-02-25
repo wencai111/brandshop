@@ -3,32 +3,39 @@
     <div>
       <img src="@/assets/safety-audio-banner.jpg">
     </div>
-    <div class="background" v-bind:style="{backgroundImage:'url('+require('../../assets/other/safety-audio-bk.jpg')+')'}">
-      <i-row>
-        <div v-for="item in audios" v-bind:key="item.audioID" i-class="col-class">
-           <i-col span="12" >
+    <div class="background"
+      v-bind:style="{backgroundImage:'url('+require('../../assets/other/safety-audio-bk.jpg')+')'}"
+    >
+     <Row type="flex" justify="start" class="code-row-bg">
+        <i-col span="12" v-for="item in audios" v-bind:key="item.audioID">
           <div class="play">
-            <img src="@/assets/other/play.png">
+            <img  src="@/assets/icon/play.png">
           </div>
           <div class="color"></div>
           <div class="assets">
-          <img src="item.image">
-          <p>{{item.subtitle}}</p>
+            <img :src="item.image">
+            <p>{{item.subtitle}}</p>
           </div>
         </i-col>
-        </div>
-      </i-row>
+      </Row>
+
     </div>
   </div>
 </template> 
+
 <script>
+import config from '@/config'
+const {mediaUrl } = config
+import Wxcrow from "@/components/wxc-row/wxc-row.vue";
 export default {
-  name: "Security",
+  name: "RowYemian",
   data() {
     return {
-      mediaUrl: "https://cdn.osann-china.com",
       audios: []
     };
+  },
+  components: {
+    Wxcrow
   },
   created: function() {
     var data = [
@@ -138,11 +145,11 @@ export default {
       }
     ];
     for (let item of data) {
-      item.image = this.mediaUrl + "/" + item.image;
-      item.url = this.mediaUrl + "/" + item.url;
+      item.image =mediaUrl + "/" + item.image;
+      item.url = mediaUrl + "/" + item.url;
       item.playtime = "00:00";
       item.percent = 0;
-      item.statusImage = "../../images/play.png";
+      item.statusImage =  ""
     }
     this.audios = data;
   }
@@ -157,7 +164,7 @@ export default {
 .assets {
   width: 150px;
   height: 150px;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 40px;
 }
 .color {
@@ -165,7 +172,7 @@ export default {
   display: block;
   width: 150px;
   height: 150px;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 40px;
   background-color: rgba(0, 0, 0, 0.4);
 }
@@ -188,7 +195,7 @@ export default {
   position: absolute;
   width: 30px;
   height: 30px;
-  margin-left: 70px;
+  margin-left: 75px;
   margin-top: 100px;
   display: block;
 }
