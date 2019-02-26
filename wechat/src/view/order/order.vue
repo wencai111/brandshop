@@ -19,7 +19,7 @@
          </div>
         <nav class="border1"></nav>
         <div v-for="item in name1" v-bind:key="item.audioID" class="total"><span>合计：{{item.pay_amount}}</span>
-        <input class="deliver" type="button" value="立即付款"/>
+        <button class="deliver" type="button">{{item.values}}</button>
         </div>
       </div>
       </div>
@@ -81,6 +81,7 @@ export default {
                 status:"0",
                 total_amount:"5001",
                 userid:"10437",
+                values:"立即付款",
                 },
             ],
             name2:[],

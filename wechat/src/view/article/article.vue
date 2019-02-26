@@ -10,32 +10,17 @@
       <div>
         <div class="articles" v-for="item in article" v-bind:key="item.audioID">
           <img :src="item.image">
-          <!-- <img src="@/assets/articles/1.jpg"> -->
           <p>{{item.title}}}</p>
           <span>{{item.subtitle}}}</span>
-        </div>
-        <div class="articles">
-          <img src="@/assets/articles/2.jpg">
-          <p>儿童安全锁的作用</p>
-          <span>打开它，给孩子多一份安全</span>
-        </div>
-      </div>
-      <div class="article">
-        <div class="articles1">
-          <img src="@/assets/articles/3.jpg">
-          <p>危险的汽车盲区</p>
-          <span>为什么屡屡有孩子丧生于盲区之手？</span>
-        </div>
-        <div class="articles1">
-          <img src="@/assets/articles/4.jpg">
-          <p>勿将孩子独留车上</p>
-          <span>带上孩子并没有你想象的那么麻烦，不带孩子可能会留下永远的遗憾。</span>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import config from "@/config";
+const { mediaUrl } = config;
+import Wxcrow from "@/components/wxc-row/wxc-row.vue";
 export default {
   name: "Article",
   data() {
@@ -54,7 +39,7 @@ export default {
         title: "安全气囊对孩子的危害",
         subtitle: "本该护人的安全气囊，何以反倒成了“杀人凶器”？",
         url: "",
-        image: "@/assets/articles/1.jpg"
+        image: "articles/1.jpg"
       },
       {
         audioID: 2,
@@ -65,7 +50,7 @@ export default {
         title: "儿童安全锁的作用",
         subtitle: "打开它，给孩子多一份安全",
         url: "",
-        image: ""
+        image: "articles/2.jpg"
       },
       {
         audioID: 3,
@@ -76,7 +61,7 @@ export default {
         title: "危险的汽车盲区",
         subtitle: "为什么屡屡有孩子丧生于盲区之手？",
         url: "",
-        image: ""
+        image: "articles/3.jpg"
       },
       {
         audioID: 4,
@@ -88,14 +73,13 @@ export default {
         subtitle:
           "带上孩子并没有你想象的那么麻烦，不带孩子可能会留下永远的遗憾。",
         url: "",
-        image: ""
+        image: "articles/4.jpg"
       }
     ];
     for (let item of data) {
       item.image = mediaUrl + "/" + item.image;
       item.url = mediaUrl + "/" + item.url;
-      item.updatetime = "00:00";
-      
+      item.updatetime = "00:00"; 
     }
     this.article = data;
   }

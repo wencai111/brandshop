@@ -24,7 +24,7 @@
           <img class="danger" :src="item.image">
           <p>{{item.subtitle}}</p>
         </div>
-        <div class="audios1" v-for="item in articles" v-bind:key="item.sort">
+        <div class="audios1" v-for="item in articles" v-bind:key="item.audioID">
           <p>{{item.title}}</p>
           <span>{{item.subtitle}}</span>
         </div>
@@ -59,7 +59,6 @@ export default {
         createtime: "2018-07-25T00:24:13+08:00",
         updatetime: "2018-10-10T17:37:02+08:00"
       },
-
       {
         audioID: 2,
         title: "听欧颂爷爷讲故事",
@@ -68,23 +67,11 @@ export default {
         intro: "0",
         size: 30,
         duration: "01:48",
-        sort: 1,
+        sort: 2,
         createtime: "2018-07-25T00:24:13+08:00",
         updatetime: "2018-10-10T17:37:02+08:00"
-      }
-    ];
-    for (let item of data) {
-      item.image = mediaUrl + "/" + item.image;
-      item.url = mediaUrl + "/" + item.url;
-      item.playtime = "00:00";
-      item.percent = 0;
-      item.statusImage = "";
-    }
-    this.audios = data;
-  },
-  created: function() {
-    var articles = [
-      {
+      },
+           {
         audioID: 1,
         content: "",
         createtime: "2018-07-25-TOO:26:38+08:00",
@@ -92,14 +79,14 @@ export default {
         title: "安全气囊对孩子的危害",
         subtitle: "本该护人的安全气囊，何以反倒成了“杀人凶器”？",
         url: "",
-        image: "audios/2.jpg"
+        image: "articles/1.jpg"
       },
       {
         audioID: 2,
         content: "",
         title: "儿童安全锁的作用",
         subtitle: "打开它，给孩子多一份安全",
-        image: "articles/1.jpg",
+        image: "articles/2.jpg",
         sort: 2,
         createtime: "2018-07-25T00:24:13+08:00"
       }
@@ -111,8 +98,8 @@ export default {
       item.percent = 0;
       item.statusImage = "";
     }
-    this.articles = data;
-  }
+    this.audios = data;
+  },
 };
 </script>
 <style>

@@ -13,9 +13,9 @@
         <router-link to="order">
          <img src="@/photo/goods/unpaid.png">
         </router-link>
-        <a href>
+        <router-link to="order">
         <img src="@/photo/goods/unshipped.png">
-        </a>
+       </router-link>
         <a href>
         <img src="@/photo/goods/unreceipt.png">
         </a>
