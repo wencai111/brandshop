@@ -8,8 +8,8 @@ function o(o, a, e) {
 }
 
 var config = require("../../../wxc.config.js");
-var e = require("../../../utils/util.js");
-var t = getApp();
+var util = require("../../../utils/util.js");
+var appData = getApp();
 
 Page({
     data: {
@@ -65,20 +65,20 @@ Page({
         });
     },
     buyConfirm: function(o) {
-        var a = this, n = e.formatTimeStr(new Date());
-        t.globalData.orderInfo = {
+        var a = this, n = util.formatTimeStr(new Date());
+        appData.globalData.orderInfo = {
             sku: o.detail.color,
             num: o.detail.num,
             image: o.detail.image,
             title: a.data.goods.title,
             price: 100 * a.data.goods.price,
             goodsID: a.data.goods.goodsID,
-            openid: t.globalData.openid,
-            userid: t.globalData.userid,
+            openid: appData.globalData.openid,
+            userid: appData.globalData.userid,
             total: o.detail.num * a.data.goods.price * 100,
-            orderNO: n + t.globalData.userid,
+            orderNO: n + appData.globalData.userid,
             coupon: 5e3
-        }, console.log("basic order : ", t.globalData.orderInfo), wx.navigateTo({
+        }, console.log("basic order : ", appData.globalData.orderInfo), wx.navigateTo({
             url: "/pages/product/order/order"
         }), a.setData({
             hiddenSkuModal: !0
