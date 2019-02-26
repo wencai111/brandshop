@@ -8,8 +8,8 @@ function a(a, e, t) {
 }
 
 var config = require("../../../wxc.config.js");
-var t = require("../../../utils/util.js");
-var o = getApp();
+var util = require("../../../utils/util.js");
+var appData = getApp();
 var i = wx.createInnerAudioContext();
 
 Page({
@@ -31,13 +31,13 @@ Page({
         });
         var r = this;
         wx.request({
-            url: config.apiUrl + "/safety/index",
+            url: config.apiUrlDev + "/safety/index",
             method: "POST",
             success: function(a) {
                 console.log(a), a.data.data.videos.forEach(function(a) {
                     a.image = config.mediaUrl + "/" + a.image, a.url = config.mediaUrl + "/" + a.url;
                 }), a.data.data.audios.forEach(function(a) {
-                    a.image = config.mediaUrl + "/" + a.image, a.url = e.mediaUrl + "/" + a.url, a.playtime = "00:00", 
+                    a.image = config.mediaUrl + "/" + a.image, a.url = config.mediaUrl + "/" + a.url, a.playtime = "00:00", 
                     a.percent = 0, a.statusImage = "../../images/play.png";
                 }), a.data.data.articles.forEach(function(a) {
                     a.image = config.mediaUrl + "/" + a.image;
@@ -56,58 +56,58 @@ Page({
             }
         }), i.onPlay(function() {
             console.log("start to play music ", i.src);
-            var e = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+            var e = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
             r.setData(a({}, e, "../../images/pause.png"));
         }), i.onError(function(a) {
             console.log(a.errCode), wx.showToast({
                 title: "网络错误，请稍后再试 ..."
             });
         }), i.onTimeUpdate(function() {
-            if (0 <= o.globalData.currentAudioIndex) {
-                var e, n = "audios[" + o.globalData.currentAudioIndex + "].playtime", l = "audios[" + o.globalData.currentAudioIndex + "].percent";
-                r.setData((e = {}, a(e, n, t.formatSecond(i.currentTime.toFixed(0))), a(e, l, i.currentTime.toFixed(2) / i.duration.toFixed(2) * 100), 
+            if (0 <= appData.globalData.currentAudioIndex) {
+                var e, n = "audios[" + appData.globalData.currentAudioIndex + "].playtime", l = "audios[" + appData.globalData.currentAudioIndex + "].percent";
+                r.setData((e = {}, a(e, n, util.formatSecond(i.currentTime.toFixed(0))), a(e, l, i.currentTime.toFixed(2) / i.duration.toFixed(2) * 100), 
                 e));
             }
         }), i.onEnded(function() {
             var e;
             console.log("播放结束 ...请重置播放器 ...");
-            var t = "audios[" + o.globalData.currentAudioIndex + "].playtime", i = "audios[" + o.globalData.currentAudioIndex + "].percent", n = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+            var t = "audios[" + appData.globalData.currentAudioIndex + "].playtime", i = "audios[" + appData.globalData.currentAudioIndex + "].percent", n = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
             r.setData((e = {}, a(e, t, "00:00"), a(e, i, 0), a(e, n, "../../images/play.png"), 
             e));
         });
     },
     videoPlayerTapHandler: function(a) {
         var e = this;
-        o.globalData.currentVideoUrl = e.data.videos[0].url, o.globalData.currentVideoPoster = e.data.videos[0].image, 
-        o.globalData.currentSubtitle = e.data.videos[0].subtitle, o.globalData.currentIntro = e.data.videos[0].intro, 
+        appData.globalData.currentVideoUrl = e.data.videos[0].url, appData.globalData.currentVideoPoster = e.data.videos[0].image, 
+        appData.globalData.currentSubtitle = e.data.videos[0].subtitle, appData.globalData.currentIntro = e.data.videos[0].intro, 
         wx.navigateTo({
             url: "/pages/safety/videodetail/videodetail"
         });
     },
     audioPlayerTapHandler: function(e) {
         var t = this, n = e.currentTarget.id - 1;
-        if (n == o.globalData.currentAudioIndex) if (i.paused) {
-            u = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+        if (n == appData.globalData.currentAudioIndex) if (i.paused) {
+            u = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
             t.setData(a({}, u, "../../images/pause.png")), i.play();
         } else {
-            u = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+            u = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
             t.setData(a({}, u, "../../images/play.png")), i.pause();
         } else {
-            if (0 <= o.globalData.currentAudioIndex) {
-                var r, l = "audios[" + o.globalData.currentAudioIndex + "].playtime", d = "audios[" + o.globalData.currentAudioIndex + "].percent", u = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+            if (0 <= appData.globalData.currentAudioIndex) {
+                var r, l = "audios[" + appData.globalData.currentAudioIndex + "].playtime", d = "audios[" + appData.globalData.currentAudioIndex + "].percent", u = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
                 t.setData((r = {}, a(r, l, "00:00"), a(r, d, 0), a(r, u, "../../images/play.png"), 
                 r)), i.stop();
             }
-            o.globalData.currentAudioIndex = n, i.src = t.data.audios[o.globalData.currentAudioIndex].url, 
+            appData.globalData.currentAudioIndex = n, i.src = t.data.audios[appData.globalData.currentAudioIndex].url, 
             i.play();
         }
     },
     articleTapHandler: function(a) {
         var e = this;
-        console.log(a), o.globalData.currentArticleUrl = e.data.articles[a.currentTarget.id - 1].url, 
+        console.log(a), appData.globalData.currentArticleUrl = e.data.articles[a.currentTarget.id - 1].url, 
         wx.navigateTo({
             url: "/pages/safety/articledetail/articledetail"
-        }), console.log(o.globalData.currentArticleUrl);
+        }), console.log(appData.globalData.currentArticleUrl);
     },
     moreVideoTapHandler: function(a) {
         wx.navigateTo({
@@ -127,12 +127,12 @@ Page({
     onReady: function() {},
     onShow: function() {},
     restoreAudioPlayer: function() {
-        if (0 <= o.globalData.currentAudioIndex) {
+        if (0 <= appData.globalData.currentAudioIndex) {
             var e;
             i.stop();
-            var t = this, n = "audios[" + o.globalData.currentAudioIndex + "].playtime", r = "audios[" + o.globalData.currentAudioIndex + "].percent", l = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+            var t = this, n = "audios[" + appData.globalData.currentAudioIndex + "].playtime", r = "audios[" + appData.globalData.currentAudioIndex + "].percent", l = "audios[" +appData.globalData.currentAudioIndex + "].statusImage";
             t.setData((e = {}, a(e, n, "00:00"), a(e, r, 0), a(e, l, "../../images/play.png"), 
-            e)), o.globalData.currentAudioIndex = -1;
+            e)), appData.globalData.currentAudioIndex = -1;
         }
     },
     onHide: function() {
