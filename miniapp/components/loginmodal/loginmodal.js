@@ -21,7 +21,6 @@ Component({
     data: {},
     methods: {
         confirm: function(ref) {
-            debugger;
             this.triggerEvent("confirm", ref.detail);
         }
     },

@@ -28,7 +28,6 @@ App({
     },
     wxloginwithsession: function () {
         var _this = this;
-        debugger;
         wx.login({
             success: function (res) {
                 if (res.code) {
@@ -41,7 +40,6 @@ App({
                             "appid": _this.extConfig.appid
                         },
                         success: function (o) {
-                            debugger;
                             if(o.data.status==0){
                                 console.log("remote sessionid : ", o.data.data);
                                 _this.globalData.openid = o.data.data;
@@ -55,10 +53,8 @@ App({
                             }
                         },
                         fail: function (res) {
-                            debugger;
                         },
                         complete: function (res) {
-                            debugger;
 
                         }
                     });

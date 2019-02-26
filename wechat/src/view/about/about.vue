@@ -16,7 +16,6 @@ export default {
     },
     methods:{
       goContact:function(){
-        debugger;
         alert("是否打开腾讯客服！");
       }
     }

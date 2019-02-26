@@ -7,11 +7,13 @@ Page({
         goonImage: config.mediaUrl + "/images/goon.png"
     },
     onLoad: function(o) {},
+    //未支付订单
     unpaidOrder: function() {
         wx.navigateTo({
             url: "/pages/product/orderlist/orderlist?status=0"
         });
     },
+    //未发货的订单
     unshippedOrder: function() {
         wx.navigateTo({
             url: "/pages/product/orderlist/orderlist?status=1"
