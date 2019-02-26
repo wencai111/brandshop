@@ -130,7 +130,7 @@ Page({
         if (0 <= appData.globalData.currentAudioIndex) {
             var e;
             i.stop();
-            var t = this, n = "audios[" + appData.globalData.currentAudioIndex + "].playtime", r = "audios[" + appData.globalData.currentAudioIndex + "].percent", l = "audios[" +appData.globalData.currentAudioIndex + "].statusImage";
+            var t = this, n = "audios[" + appData.globalData.currentAudioIndex + "].playtime", r = "audios[" + appData.globalData.currentAudioIndex + "].percent", l = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
             t.setData((e = {}, a(e, n, "00:00"), a(e, r, 0), a(e, l, "../../images/play.png"), 
             e)), appData.globalData.currentAudioIndex = -1;
         }
