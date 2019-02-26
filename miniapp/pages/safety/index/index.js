@@ -77,6 +77,7 @@ Page({
         });
     },
     videoPlayerTapHandler: function(a) {
+        
         var e = this;
         appData.globalData.currentVideoUrl = e.data.videos[0].url, appData.globalData.currentVideoPoster = e.data.videos[0].image, 
         appData.globalData.currentSubtitle = e.data.videos[0].subtitle, appData.globalData.currentIntro = e.data.videos[0].intro, 
