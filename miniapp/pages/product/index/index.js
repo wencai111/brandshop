@@ -146,7 +146,7 @@ Page({
         }
         //获取产品
         wx.request({
-            url: apiUrlDev + "/goods",
+            url: config.apiUrlDev + "/goods",
             method: "POST",
             success: function (ref) {
                 ref.data.data.forEach(function (item) {
