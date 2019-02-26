@@ -1,6 +1,7 @@
 var config = require("../../../wxc.config.js");
 var appData = getApp();
 
+ 
 Page({
     data: {
         goods: [],
@@ -83,6 +84,7 @@ Page({
     },
     //弹出领取优惠证窗体
     goodsCouponTapHandler: function (ref) {
+        debugger;
         var _this = this;
         if(0 === appData.globalData.userid && "" !== appData.globalData.openid ){
             console.log("开始授权！");

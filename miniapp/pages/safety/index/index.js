@@ -1,10 +1,16 @@
+//合并对象，动态添加属性
 function a(a, e, t) {
-    return e in a ? Object.defineProperty(a, e, {
-        value: t,
-        enumerable: !0,
-        configurable: !0,
-        writable: !0
-    }) : a[e] = t, a;
+    if(e in a ){
+        Object.defineProperty(a, e, {
+            value: t,
+            enumerable: !0,
+            configurable: !0,
+            writable: !0
+        }) 
+    }else{
+       return a[e] = t;
+    }
+    return a;
 }
 
 var config = require("../../../wxc.config.js");
@@ -66,28 +72,34 @@ Page({
                 wx.hideLoading();
             }
         });
+        //播放音频
         audio.onPlay(function() {
-            console.log("start to play music ", i.src);
-            var e = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
-            r.setData(a({}, e, "../../images/pause.png"));
+            console.log("start to play music ", audio.src);
+            var statusImage= "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
+            _this.setData(a({}, statusImage, "../../images/pause.png"));
         });
-        audio.onError(function(a) {
-            console.log(a.errCode), wx.showToast({
+        audio.onError(function(ref) {
+            console.log(ref.errCode), wx.showToast({
                 title: "网络错误，请稍后再试 ..."
             });
         });
         audio.onTimeUpdate(function() {
             if (0 <= appData.globalData.currentAudioIndex) {
-                var e, n = "audios[" + appData.globalData.currentAudioIndex + "].playtime", l = "audios[" + appData.globalData.currentAudioIndex + "].percent";
-                r.setData((e = {}, a(e, n, util.formatSecond(i.currentTime.toFixed(0))), a(e, l, i.currentTime.toFixed(2) / i.duration.toFixed(2) * 100), 
-                e));
+                var obj={};
+                var playtime = "audios[" + appData.globalData.currentAudioIndex + "].playtime";
+                var percent = "audios[" + appData.globalData.currentAudioIndex + "].percent";
+                obj= a(obj, playtime, util.formatSecond(audio.currentTime.toFixed(0)));
+                obj= a(obj, percent, audio.currentTime.toFixed(2) / audio.duration.toFixed(2) * 100);
+               _this.setData(obj);
             }
         });
         audio.onEnded(function() {
             var e;
             console.log("播放结束 ...请重置播放器 ...");
-            var t = "audios[" + appData.globalData.currentAudioIndex + "].playtime", i = "audios[" + appData.globalData.currentAudioIndex + "].percent", n = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
-            r.setData((e = {}, a(e, t, "00:00"), a(e, i, 0), a(e, n, "../../images/play.png"), 
+            var t = "audios[" + appData.globalData.currentAudioIndex + "].playtime";
+            var i = "audios[" + appData.globalData.currentAudioIndex + "].percent";
+             var n = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
+            _this.setData((e = {}, a(e, t, "00:00"), a(e, i, 0), a(e, n, "../../images/play.png"), 
             e));
         });
     },
@@ -146,9 +158,9 @@ Page({
     restoreAudioPlayer: function() {
         if (0 <= appData.globalData.currentAudioIndex) {
             var e;
-            i.stop();
+            audio.stop();
             var t = this, n = "audios[" + appData.globalData.currentAudioIndex + "].playtime", r = "audios[" + appData.globalData.currentAudioIndex + "].percent", l = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
-            t.setData((e = {}, a(e, n, "00:00"), a(e, r, 0), a(e, l, "../../images/play.png"), 
+            _this.setData((e = {}, a(e, n, "00:00"), a(e, r, 0), a(e, l, "../../images/play.png"), 
             e)), appData.globalData.currentAudioIndex = -1;
         }
     },
