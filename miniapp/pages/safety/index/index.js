@@ -10,7 +10,7 @@ function a(a, e, t) {
 var config = require("../../../wxc.config.js");
 var util = require("../../../utils/util.js");
 var appData = getApp();
-var i = wx.createInnerAudioContext();
+var audio = wx.createInnerAudioContext();
 
 Page({
     data: {
@@ -29,46 +29,61 @@ Page({
         wx.showLoading({
             title: "努力加载 ..."
         });
-        var r = this;
+        var _this = this;
         wx.request({
             url: config.apiUrlDev + "/safety/index",
             method: "POST",
-            success: function(a) {
-                console.log(a), a.data.data.videos.forEach(function(a) {
-                    a.image = config.mediaUrl + "/" + a.image, a.url = config.mediaUrl + "/" + a.url;
-                }), a.data.data.audios.forEach(function(a) {
-                    a.image = config.mediaUrl + "/" + a.image, a.url = config.mediaUrl + "/" + a.url, a.playtime = "00:00", 
-                    a.percent = 0, a.statusImage = "../../images/play.png";
-                }), a.data.data.articles.forEach(function(a) {
-                    a.image = config.mediaUrl + "/" + a.image;
-                }), r.setData({
-                    videos: a.data.data.videos,
-                    audios: a.data.data.audios,
-                    articles: a.data.data.articles,
-                    videoPoster: a.data.data.videos[0].image
-                }), console.log(r.data.videos), console.log(r.data.audios), console.log(r.data.articles);
+            success: function(ref) {
+                console.log(ref);
+                ref.data.data.videos.forEach(function(item) {
+                    item.image = config.mediaUrl + "/" + item.image;
+                    item.url = config.mediaUrl + "/" + item.url;
+                });
+                ref.data.data.audios.forEach(function(item) {
+                    item.image = config.mediaUrl + "/" + item.image;
+                    item.url = config.mediaUrl + "/" + item.url;
+                    item.playtime = "00:00", 
+                    item.percent = 0;
+                    item.statusImage = "../../images/play.png";
+                });
+                ref.data.data.articles.forEach(function(item) {
+                    item.image = config.mediaUrl + "/" + item.image;
+                });
+                 _this.setData({
+                    videos: ref.data.data.videos,
+                    audios: ref.data.data.audios,
+                    articles: ref.data.data.articles,
+                    videoPoster: ref.data.data.videos[0].image
+                }); 
+                console.log(_this.data.videos);
+                 console.log(_this.data.audios);
+                  console.log(_this.data.articles);
             },
-            fail: function(a) {
-                console.log("failure from ", e.apiUrl + "/safety/index"), console.log(a);
+            fail: function(ref) {
+                console.log("failure from ", config.apiUrl + "/safety/index"), console.log(ref);
             },
             complete: function() {
                 wx.hideLoading();
             }
-        }), i.onPlay(function() {
+        });
+        audio.onPlay(function() {
             console.log("start to play music ", i.src);
             var e = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
             r.setData(a({}, e, "../../images/pause.png"));
-        }), i.onError(function(a) {
+        });
+        audio.onError(function(a) {
             console.log(a.errCode), wx.showToast({
                 title: "网络错误，请稍后再试 ..."
             });
-        }), i.onTimeUpdate(function() {
+        });
+        audio.onTimeUpdate(function() {
             if (0 <= appData.globalData.currentAudioIndex) {
                 var e, n = "audios[" + appData.globalData.currentAudioIndex + "].playtime", l = "audios[" + appData.globalData.currentAudioIndex + "].percent";
                 r.setData((e = {}, a(e, n, util.formatSecond(i.currentTime.toFixed(0))), a(e, l, i.currentTime.toFixed(2) / i.duration.toFixed(2) * 100), 
                 e));
             }
-        }), i.onEnded(function() {
+        });
+        audio.onEnded(function() {
             var e;
             console.log("播放结束 ...请重置播放器 ...");
             var t = "audios[" + appData.globalData.currentAudioIndex + "].playtime", i = "audios[" + appData.globalData.currentAudioIndex + "].percent", n = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
@@ -76,7 +91,7 @@ Page({
             e));
         });
     },
-    
+
     videoPlayerTapHandler: function(a) {
 
         var e = this;
