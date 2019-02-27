@@ -121,7 +121,7 @@ export default {
       this.$router.push("risk");
     },
     myaudio() {
-      this.$router.push("audio");
+      this.$router.push("myaudio");
     },
     myarticles() {
       this.$router.push("article");
