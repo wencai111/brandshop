@@ -170,12 +170,12 @@ export default [
     component: () => import('@/view/article/article.vue')
   },
   {
-    path: '/rowyemian',
-    name: 'rowyemian',
+    path: '/audio',
+    name: 'audio',
     meta: {
-      title: '宽度测试'
+      title: '音频界面'
     },
-    component: () => import('@/view/rowyemian/rowyemian.vue')
+    component: () => import('@/view/audio/audio.vue')
   },
   {
     path: '/test',

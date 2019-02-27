@@ -10,8 +10,8 @@
       <div>
         <div class="articles" v-for="item in article" v-bind:key="item.audioID">
           <img :src="item.image">
-          <p>{{item.title}}}</p>
-          <span>{{item.subtitle}}}</span>
+          <p>{{item.title}}</p>
+          <span>{{item.subtitle}}</span>
         </div>
       </div>
     </div>

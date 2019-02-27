@@ -10,10 +10,13 @@
         v-bind:style="{backgroundImage:'url('+require('../../assets/safety-index-bk.jpg')+')'}"
       >
         <div class="safetys">
-          <div class="play">
+            <div @click="myvideo" class="Security myvideo"></div>
+             <div @click="myaudio" class="Security myaudio"></div>
+              <div @click="myarticles" class="Security myarticles"></div>
+          <div class="safetyplay">
             <img src="@/assets/other/play.png">
           </div>
-          <div class="color"></div>
+          <div class="backgroundcolor"></div>
           <img class="videos" src="@/assets/videos/1.jpg">
         </div>
         <div class="audios" v-for="item in audios" v-bind:key="item.audioID">
@@ -71,7 +74,7 @@ export default {
         createtime: "2018-07-25T00:24:13+08:00",
         updatetime: "2018-10-10T17:37:02+08:00"
       },
-           {
+      {
         audioID: 1,
         content: "",
         createtime: "2018-07-25-TOO:26:38+08:00",
@@ -100,13 +103,41 @@ export default {
     }
     this.audios = data;
   },
+  methods:{
+ myvideo(){
+   this.$router.push('risk')
+ },
+ myaudio(){
+ this.$router.push('audio')
+ },
+ myarticles(){
+    this.$router.push('article')
+ }
+  }
 };
 </script>
 <style>
 .home {
-  width: 100%;
+  width: 101%;
   height: 100;
   position: relative;
+}
+.Security{
+   height: 30px;
+    width: 80px;
+    opacity: 0;
+    left: 80%;
+    position: absolute;
+}
+.myvideo{
+    margin-top: 40px;
+   
+}
+.myaudio{
+   margin-top: 85%;
+}
+.myarticles{
+ margin-top: 155%;
 }
 .safety1 {
   background-size: cover;
@@ -186,7 +217,7 @@ export default {
   margin-top: 25%;
   margin-left: 22%;
 }
-.color {
+.backgroundcolor{
   position: absolute;
   display: block;
   width: 72%;
@@ -195,7 +226,7 @@ export default {
   margin-left: 22%;
   background-color: rgba(0, 0, 0, 0.4);
 }
-.play img {
+.safetyplay img {
   position: absolute;
   margin-left: 56%;
   margin-top: 43%;

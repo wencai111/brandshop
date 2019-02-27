@@ -4,7 +4,7 @@
       <img src="@/assets/safety-video-banner.jpg">
     </div>
     <div class="safetys" v-for="item in audios" v-bind:key="item.audioID">
-      <div class="play">
+      <div class="riskplay">
         <img src="@/assets/other/play.png">
       </div>
       <div class="color"></div>
@@ -22,7 +22,7 @@ import config from "@/config";
 const { mediaUrl } = config;
 import Wxcrow from "@/components/wxc-row/wxc-row.vue";
 export default {
-  name: "Order",
+  name: "Risk",
   code: 0,
   data() {
     return {
@@ -152,7 +152,7 @@ export default {
   height: 26%;
   background-color: rgba(0, 0, 0, 0.4);
 }
-.play img {
+.riskplay img {
   width: 30px;
   position: absolute;
   margin-left: 45%;

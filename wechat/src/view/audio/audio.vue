@@ -8,10 +8,10 @@
     >
      <Row type="flex" justify="start" class="code-row-bg">
         <i-col span="12" v-for="item in audios" v-bind:key="item.audioID">
-          <div class="play">
+          <div class="rowyemianplay">
             <img  src="@/assets/icon/play.png">
           </div>
-          <div class="color"></div>
+          <div class="backgroundcolors"></div>
           <div class="assets">
             <img :src="item.image">
             <p>{{item.subtitle}}</p>
@@ -167,7 +167,7 @@ export default {
   margin-left: 20px;
   margin-top: 40px;
 }
-.color {
+.backgroundcolors {
   position: absolute;
   display: block;
   width: 150px;
@@ -191,7 +191,7 @@ export default {
   margin-top: 40px;
   background-color: rgba(0, 0, 0, 0.4);
 }
-.play img {
+.rowyemianplay img {
   position: absolute;
   width: 30px;
   height: 30px;
