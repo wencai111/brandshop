@@ -3,6 +3,9 @@
        <h1>关于我们</h1>
     <p id="message">{{message}}</p>
     <button type="button" v-on:click="goContact">客户</button>
+
+
+    
   </div>
 </template>
 
