@@ -1,3 +1,4 @@
+//合并对象
 function o(o, a, e) {
     return a in o ? Object.defineProperty(o, a, {
         value: e,

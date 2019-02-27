@@ -64,14 +64,7 @@ export default [
     },
     component: () => import('@/view/personal/personal.vue')
   },
-  {
-    path: '/security',
-    name: 'security',
-    meta: {
-      title: '安全中心'
-    },
-    component: () => import('@/view/security/security.vue')
-  },
+ 
   {
     path: '/order',
     name: 'order',

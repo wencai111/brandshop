@@ -3,16 +3,22 @@
     <div class="site">
       <div class="take">
         <span class="size">收货人 &emsp;</span>
-        <input class="text" v-bind:style="styleObject" type="text" v-model="address"  placeholder="姓名">
+        <input
+          class="text"
+          v-bind:style="styleObject"
+          type="text"
+          v-model="address"
+          placeholder="姓名"
+        >
         <span>
-          <i class="icon-teacher"></i>
+          <img src="@/photo/goods/profile-unchecked.png">
         </span>
         <nav class="hr"></nav>
       </div>
 
       <div class="take">
         <span class="size">手机号码</span>
-        <input class="text" type="text" v-model="phone"  placeholder="11位手机号">
+        <input class="text" type="text" v-model="phone" placeholder="11位手机号">
         <span>
           <i class></i>
         </span>
@@ -20,7 +26,7 @@
       </div>
       <div class="take">
         <span class="size">地区信息</span>
-        <input class="text" type="text" v-model="region"  placeholder="地区信息">
+        <input class="text" type="text" v-model="region" placeholder="地区信息">
         <span>
           <i class="icon-teacher"></i>
         </span>
@@ -43,7 +49,12 @@
         <nav class="hr"></nav>
       </div>
       <div class="button">
-        <a href="javascript:;" class="weui-btn weui-btn_primary" v-bind:class="{'weui-btn_disabled':noneSubmit}" v-on:click="affirm">提交</a>
+        <a
+          href="javascript:;"
+          class="weui-btn weui-btn_primary"
+          v-bind:class="{'weui-btn_disabled':noneSubmit}"
+          v-on:click="affirm"
+        >提交</a>
       </div>
     </div>
   </section>
@@ -54,42 +65,39 @@ export default {
   name: "Site",
   data() {
     return {
-        address:"",//收货人
-        phone:"",//手机号码
-        region:"",//地区信息
-        detail:"",//详细地址
-        code:"",  //邮政编码
-        styleObject:""
-       
+      address: "", //收货人
+      phone: "", //手机号码
+      region: "", //地区信息
+      detail: "", //详细地址
+      code: "", //邮政编码
+      styleObject: ""
     };
   },
-  methods: {
-    affirm: function() {
-    //   this.styleObject = !"";
+  computed: {
+    noneSubmit: function() {
+      if (
+        this.address &&
+        this.address != "" &&
+        this.phone &&
+        this.phone != "" &&
+        this.region &&
+        this.region != "" &&
+        this.detail &&
+        this.detail != "" &&
+        this.code &&
+        this.code != ""
+      ) {
+        return false;
+      } else {
+        return true;
+      }
     }
-    // .then(res => {
-    //   if (res.data.success) {
-    //   } else {
-    //     console.log(res.data.message);
-    //     alert("请填写地址！");
-    //   }
-    // })
-  },
-  computed:{
-       noneSubmit:function(){
-           if(this.address&&this.address!=""&&this.phone&&this.phone!=""&&this.region&&this.region!=""&&this.detail&&this.detail!=""&&this.code&&this.code!=""){
-               return false;
-           }
-           else{
-               return true;
-        }
-   }
   }
 };
 </script>
 
 <style>
-*{
+* {
   padding: 0px;
   margin: 0px auto;
 }
@@ -102,6 +110,11 @@ export default {
   margin-top: 20px;
   text-align: left;
   position: relative;
+}
+.take img {
+  width: 30px;
+  float: right;
+  margin-right: 20px;
 }
 .size {
   font-size: 1.3em;

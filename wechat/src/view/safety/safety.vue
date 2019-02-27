@@ -16,42 +16,90 @@
           <div class="color"></div>
           <img class="videos" src="@/assets/videos/1.jpg">
         </div>
-        <div class="audios">
+        <div class="audios" v-for="item in audios" v-bind:key="item.audioID">
           <div class="plays">
             <img src="@/assets/other/play.png">
           </div>
           <div class="black"></div>
-          <img class="danger" src="@/assets/audios/1.jpg">
-          <p>“危险”的安全带</p>
+          <img class="danger" :src="item.image">
+          <p>{{item.subtitle}}</p>
         </div>
-        <div class="audios">
-          <div class="plays">
-            <img src="@/assets/other/play.png">
-          </div>
-          <div class="black"></div>
-          <img class="danger" src="@/assets/audios/2.jpg">
-          <p>“致命”的安全气囊</p>
-        </div>
-        <div class="audios1">
-          <img src="@/assets/articles/1.jpg">
-          <p>安全气囊对孩子的危害</p>
-          <span>本该护人安全的安全气囊，何以反倒成了“杀人凶器”？</span>
-        </div>
-        <div class="audios1">
-          <img src="@/assets/articles/2.jpg">
-          <p>儿童安全锁的作用</p>
-          <span>打开它，给孩子多一份安全</span>
+        <div class="audios1" v-for="item in articles" v-bind:key="item.audioID">
+          <p>{{item.title}}</p>
+          <span>{{item.subtitle}}</span>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import config from "@/config";
+const { mediaUrl } = config;
+import Wxcrow from "@/components/wxc-row/wxc-row.vue";
 export default {
   name: "Safety",
   data() {
-    return {};
-  }
+    return {
+      audios: [],
+      articles: []
+    };
+  },
+  mounted: function() {
+    var data = [
+      {
+        audioID: 1,
+        title: "听欧颂爷爷讲故事",
+        subtitle: "致命”的安全带",
+        url: "audios/1.mp3",
+        image: "audios/1.jpg",
+        intro: "0",
+        size: 4,
+        duration: "01:48",
+        sort: 1,
+        createtime: "2018-07-25T00:24:13+08:00",
+        updatetime: "2018-10-10T17:37:02+08:00"
+      },
+      {
+        audioID: 2,
+        title: "听欧颂爷爷讲故事",
+        subtitle: "致命”的安全气囊",
+        image: "audios/2.jpg",
+        intro: "0",
+        size: 30,
+        duration: "01:48",
+        sort: 2,
+        createtime: "2018-07-25T00:24:13+08:00",
+        updatetime: "2018-10-10T17:37:02+08:00"
+      },
+           {
+        audioID: 1,
+        content: "",
+        createtime: "2018-07-25-TOO:26:38+08:00",
+        sort: "",
+        title: "安全气囊对孩子的危害",
+        subtitle: "本该护人的安全气囊，何以反倒成了“杀人凶器”？",
+        url: "",
+        image: "articles/1.jpg"
+      },
+      {
+        audioID: 2,
+        content: "",
+        title: "儿童安全锁的作用",
+        subtitle: "打开它，给孩子多一份安全",
+        image: "articles/2.jpg",
+        sort: 2,
+        createtime: "2018-07-25T00:24:13+08:00"
+      }
+    ];
+    for (let item of data) {
+      item.image = mediaUrl + "/" + item.image;
+      item.url = mediaUrl + "/" + item.url;
+      item.playtime = "00:00";
+      item.percent = 0;
+      item.statusImage = "";
+    }
+    this.audios = data;
+  },
 };
 </script>
 <style>
@@ -79,7 +127,7 @@ export default {
   margin-top: 95%;
 }
 .audios1 img {
-  width: 150px;
+  width: 110px;
   margin-top: 10px;
   margin: 5%;
   float: left;
@@ -111,10 +159,10 @@ export default {
 }
 .plays img {
   position: absolute;
-  margin-left: 13%;
-  margin-top: 13%;
-  width: 40px;
-  height: 40px;
+  margin-left: 18%;
+  margin-top: 18%;
+  width: 20px;
+  /* height: 20px; */
   display: block;
 }
 .safety {
@@ -149,10 +197,9 @@ export default {
 }
 .play img {
   position: absolute;
-  margin-left: 55%;
-  margin-top: 40%;
-  width: 40px;
-  height: 40px;
+  margin-left: 56%;
+  margin-top: 43%;
+  width: 20px;
   display: block;
 }
 </style>

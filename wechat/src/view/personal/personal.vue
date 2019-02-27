@@ -13,9 +13,9 @@
         <router-link to="order">
          <img src="@/photo/goods/unpaid.png">
         </router-link>
-        <a href>
+        <router-link to="order">
         <img src="@/photo/goods/unshipped.png">
-        </a>
+       </router-link>
         <a href>
         <img src="@/photo/goods/unreceipt.png">
         </a>
@@ -47,23 +47,6 @@
         <i class="icon-ticket"></i>
         <span class="phone">电话&emsp;&emsp;</span>
          <img src="@/photo/goods/goon.png">
-      </a>
-    </div>
-    <!-- 底部 -->
-    <div class="dibu">
-      <a href>
-        <i class="icon-ticket"></i>
-        <span>首页</span>
-        <nav class="border2"></nav>
-      </a>
-      <a href>
-        <i class="icon-ticket"></i>
-        <span>产品</span>
-        <nav class="border2"></nav>
-      </a>
-      <a href>
-        <i class="icon-ticket"></i>
-        <span>我的</span>
       </a>
     </div>
   </div>
@@ -166,30 +149,11 @@ export default {
   width: 100%;
 }
 .diz img{
-  display: flex;
- margin-left: 30%;
+    position: absolute;
+    left: 70%;
+    width: 130px;
 }
-.dibu {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  background-color: white;
-  margin-top: 60%;
-}
-.dibu a {
-  width: 100%;
-  color: #000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.border2 {
-  position: absolute;
-  height: 30px;
-  border: 0.5px solid black;
-  margin-left: 15%;
-  margin-top: 20px;
-}
+
 </style>
 
 

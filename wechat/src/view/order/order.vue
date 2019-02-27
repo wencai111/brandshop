@@ -5,48 +5,55 @@
     <div class="order" v-for="item in dai" v-bind:key="item.order_on">
         <p>订单号：{{item.order}}</p>
         <nav class="border"></nav>
-        <div class="img1">
-            <img src="@/assets/1goodsku/1.jpg">
+        <div class="img1" v-for="item in name1" v-bind:key="item.audioID">
+            <img :src="item.goods_image">
     </div>
-        <div>
+        <div v-for="item in name1" v-bind:key="item.audioID">
         <P class="wnezi">
-           欧标ISOFIX硬接口<br/><br/>
-           颜色：minisons Vacation<br/><br/>
-           <span class="price">￥50.01</span>
+           <span> {{item.goods_title}}</span>
+          <br/><br/>
+           <span>{{item.buy_sku}}</span><br/><br/>
+           <span class="price">{{item.pay_amount}}</span>
         </p>
         <span class="number">x1</span>
          </div>
         <nav class="border1"></nav>
-        <div class="total"><span>合计：￥0.01</span>
-        <input class="deliver" type="button" value="提醒发货"/>
+        <div v-for="item in name1" v-bind:key="item.audioID" class="total"><span>合计：{{item.pay_amount}}</span>
+        <button class="deliver" type="button">{{item.values}}</button>
         </div>
       </div>
       </div>
-      <div class="information" v-else>暂无订单消息</div>
+      <div class="information" v-else>
+          <img src="@/photo/goods/no-order.png"><br/>
+          暂无订单消息</div>
     </TabPane>
     <TabPane label="待发货" name="name2"  >
         <div v-if="name2.length>0">
 
         </div>
-        <div class="information" v-else>暂无订单消息</div>
+        <div class="information" v-else>
+            <img src="@/photo/goods/no-order.png"><br/>暂无订单消息</div>
     </TabPane>
     <TabPane label="待收货" name="name3">
             <div v-if="name3.length>0">
             
         </div>
-        <div class="information"  v-else>暂无订单消息</div>
+        <div class="information"  v-else>
+            <img src="@/photo/goods/no-order.png"><br/>暂无订单消息</div>
     </TabPane>
     <TabPane label="退换货" name="name4">    
          <div v-if="name4.length>0">
             
         </div>
-        <div class="information" v-else>暂无订单消息</div>
+        <div class="information" v-else>
+            <img src="@/photo/goods/no-order.png"><br/>暂无订单消息</div>
         </TabPane>
     <TabPane label="已完成" name="name5"> 
         <div v-if="name5.length>0">
             
         </div>
-        <div class="information" v-else>暂无订单消息</div>
+        <div class="information" v-else>
+            <img src="@/photo/goods/no-order.png"><br/>暂无订单消息</div>
     </TabPane>
   </Tabs>
 </template>
@@ -65,7 +72,7 @@ export default {
                 express_name:"",
                 express_sn:"",
                 goods_id:"2",
-                goods_image:"",
+                goods_image:"/goods/1/sku/1.jpg",
                 goods_price:"2001",
                 goods_title:"便捷式安全增高垫",
                 openid:"oiFBo5OQY1u4cNCBO4-UpjeyrSf0",
@@ -74,43 +81,8 @@ export default {
                 status:"0",
                 total_amount:"5001",
                 userid:"10437",
+                values:"立即付款",
                 },
-                 {
-                buy_nums:"1",
-                buy_sku:"minions Vacation",
-                coupon_amount:"5000",
-                create_time:"",
-                express_name:"",
-                express_sn:"",
-                goods_id:"2",
-                goods_image:"",
-                goods_price:"2001",
-                goods_title:"便捷式安全增高垫",
-                openid:"oiFBo5OQY1u4cNCBO4-UpjeyrSf0",
-                order_on:"2019021013061110437",
-                pay_amount:"5001",
-                status:"0",
-                total_amount:"5001",
-                userid:"10437",
-                },
-                 {
-                buy_nums:"1",
-                buy_sku:"minions Vacation",
-                coupon_amount:"5000",
-                create_time:"",
-                express_name:"",
-                express_sn:"",
-                goods_id:"2",
-                goods_image:"",
-                goods_price:"2001",
-                goods_title:"便捷式安全增高垫",
-                openid:"oiFBo5OQY1u4cNCBO4-UpjeyrSf0",
-                order_on:"2019021013061110437",
-                pay_amount:"1",
-                status:"0",
-                total_amount:"5001",
-                userid:"10437",
-                } 
             ],
             name2:[],
             name3:[],
@@ -132,6 +104,11 @@ export default {
 .information{
     margin-top: 50%;
     margin-left: 40%;
+}
+.information img{
+    width: 30px;
+    height: 40px;
+    margin-left: 9%;
 }
 .order{
     margin-left: 15px;
