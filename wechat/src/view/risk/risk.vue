@@ -4,12 +4,14 @@
       <img src="@/assets/safety-video-banner.jpg">
     </div>
     <div class="safetys" v-for="item in audios" v-bind:key="item.audioID">
+      <router-link to='display'>
       <div class="riskplay">
         <img src="@/assets/other/play.png">
-         <video class="movie" src="item.url" controls="controls"></video>
+         <!-- <video class="movie" src="item.url" controls="controls"></video> -->
       </div>
       <div class="color"></div>
       <img src="@/assets/videos/1.jpg">
+      </router-link>
       <p>{{item.subtitle}}</p>
       <nav class="border"></nav>
       <div class="anquan">
@@ -152,11 +154,6 @@ export default {
 .safetys {
   margin-top: -5px;
   width: 100%;
-}
-.movie {
-  position: absolute;
-  width: 100%;
-  height: 26%;
 }
 .color {
   position: absolute;

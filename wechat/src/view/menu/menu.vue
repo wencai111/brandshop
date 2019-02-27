@@ -24,8 +24,8 @@
     <router-link to="personal">
       <div>personal</div>
     </router-link>
-    <router-link to="security">
-      <div>security</div>
+    <router-link to="safety">
+      <div>safety</div>
     </router-link>
         <router-link to="site">
       <div>site</div>
