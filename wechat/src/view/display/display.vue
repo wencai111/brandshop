@@ -16,7 +16,6 @@
 <script>
    import config from "@/config";
 const { mediaUrl } = config;
-import Wxcrow from "@/components/wxc-row/wxc-row.vue";
 export default {
   name:"display",
   code: 0,

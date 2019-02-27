@@ -4,7 +4,7 @@
       <img src="@/assets/safety-article-banner.jpg">
     </div>
     <div
-      class="background"
+      class="articlebackground"
       v-bind:style="{backgroundImage:'url('+require('../../assets/other/safety-audio-bk.jpg')+')'}"
     >
       <div>
@@ -20,7 +20,6 @@
 <script>
 import config from "@/config";
 const { mediaUrl } = config;
-import Wxcrow from "@/components/wxc-row/wxc-row.vue";
 export default {
   name: "Article",
   data() {
@@ -86,7 +85,7 @@ export default {
 };
 </script>
 <style>
-.background {
+.articlebackground {
   height: 600px;
   margin-top: -5px;
 }

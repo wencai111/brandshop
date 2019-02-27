@@ -3,7 +3,7 @@
     <div>
       <img src="@/assets/safety-audio-banner.jpg">
     </div>
-    <div class="background"
+    <div class="audiobackground"
       v-bind:style="{backgroundImage:'url('+require('../../assets/other/safety-audio-bk.jpg')+')'}"
     >
      <Row type="flex" justify="start" class="code-row-bg">
@@ -26,7 +26,6 @@
 <script>
 import config from '@/config'
 const {mediaUrl } = config
-import Wxcrow from "@/components/wxc-row/wxc-row.vue";
 export default {
   name: "RowYemian",
   data() {
@@ -157,7 +156,7 @@ export default {
 </script>
 
 <style>
-.background {
+.audiobackground {
   margin-top: -5px;
   height: 900px;
 }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="background">
+        <div class="answerbackground">
             <img src="@/assets/answer/safety-survey-background.jpg">
         </div>
         <div class="topic">
@@ -27,7 +27,7 @@ export default {
 }
 </script>
 <style>
-.background img{
+.answerbackground img{
     position: fixed;
     width: 100%;
     height: 100%;
