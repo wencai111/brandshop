@@ -3,39 +3,46 @@
     <div>
       <img src="@/assets/safety-audio-banner.jpg">
     </div>
-    <div class="background"
+    <div
+      class="audiobackground"
       v-bind:style="{backgroundImage:'url('+require('../../assets/other/safety-audio-bk.jpg')+')'}"
     >
-     <Row type="flex" justify="start" class="code-row-bg">
+      <Row type="flex" justify="start" class="code-row-bg">
         <i-col span="12" v-for="item in audios" v-bind:key="item.audioID">
-          <div class="play">
-            <img  src="@/assets/icon/play.png">
+          <section class="progressBar">
+            <div class="progressBac"></div>
+            <div class="speed" id="speed"></div>
+            <div class="drag" id="drag"></div>
+          </section>
+          <div id="time">
+            <div class="tiemDetail">
+              <span class="currentTime" id="currentTime">00:00</span>
+              <span class="allTime" id="allTime">00:00</span>
+            </div>
           </div>
-          <div class="color"></div>
+          <div class="rowyemianplay">
+            <img  id="control"  src="@/assets/icon/play.png">
+          </div>
+          <div class="backgroundcolors"></div>
           <div class="assets">
             <img :src="item.image">
             <p>{{item.subtitle}}</p>
           </div>
         </i-col>
       </Row>
-
     </div>
   </div>
 </template> 
 
 <script>
-import config from '@/config'
-const {mediaUrl } = config
-import Wxcrow from "@/components/wxc-row/wxc-row.vue";
+import config from "@/config";
+const { mediaUrl } = config;
 export default {
-  name: "RowYemian",
+  name: "myaudio",
   data() {
     return {
       audios: []
     };
-  },
-  components: {
-    Wxcrow
   },
   created: function() {
     var data = [
@@ -145,11 +152,11 @@ export default {
       }
     ];
     for (let item of data) {
-      item.image =mediaUrl + "/" + item.image;
+      item.image = mediaUrl + "/" + item.image;
       item.url = mediaUrl + "/" + item.url;
       item.playtime = "00:00";
       item.percent = 0;
-      item.statusImage =  ""
+      item.statusImage = "";
     }
     this.audios = data;
   }
@@ -157,17 +164,81 @@ export default {
 </script>
 
 <style>
-.background {
+/*进度条样式*/
+.progressBar {
+  width: 100%;
+  height: 10px;
+  margin: 30px auto 30px auto;
+  position: absolute;
+  left: 0;
+  bottom: 35px;
+  top: 150px;
+  margin-left: 10px;
+}
+.progressBar div {
+  position: absolute;
+}
+.progressBar .progressBac {
+  width: 50%;
+  height: 3px;
+  margin-left: 30px;
+  left: 0;
+  top: 0;
+  background: #e4e4e4;
+}
+.progressBar .speed {
+  width: 100%;
+  height: 10px;
+  left: -250%;
+  background: #f06060;
+}
+.progressBar .drag {
+  width: 5px;
+  height: 5px;
+  left: 20px;
+  top: -5px;
+  background: skyblue;
+  opacity: 0.8;
+  display: none;
+  border-radius: 50px;
+  -webkit-box-shadow: #fff 0 0 5px;
+  box-shadow: #fff 0 0 5px;
+}
+#time {
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+    color: #888;
+    top: 172px;
+}
+.tiemDetail {
+     position: absolute;
+    right: 10px;
+    width: 100%;
+    top: 0;
+}
+.currentTime{
+      float: left;
+    margin-left: 30px;
+}
+.allTime{
+  float: right;
+    margin-right: 10px;
+}
+.audiobackground {
   margin-top: -5px;
   height: 900px;
 }
+
 .assets {
   width: 150px;
   height: 150px;
   margin-left: 20px;
   margin-top: 40px;
 }
-.color {
+.backgroundcolors {
   position: absolute;
   display: block;
   width: 150px;
@@ -191,7 +262,7 @@ export default {
   margin-top: 40px;
   background-color: rgba(0, 0, 0, 0.4);
 }
-.play img {
+.rowyemianplay img {
   position: absolute;
   width: 30px;
   height: 30px;

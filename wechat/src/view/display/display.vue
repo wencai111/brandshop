@@ -4,7 +4,8 @@
             <img src="@/assets/safety-video-banner.jpg">
         </div>
         <div class="video" v-for="item in audios" v-bind:key="item.audioID">
-           <img :src="item.image">
+            <video class="movie" src="item.url" controls="controls"></video>
+           <!-- <img :src="item.image"> -->
         </div>
         <div class="character" v-for="item in audios" v-bind:key="item.audioID">
             <p>{{item.title}}</p>
@@ -16,7 +17,6 @@
 <script>
    import config from "@/config";
 const { mediaUrl } = config;
-import Wxcrow from "@/components/wxc-row/wxc-row.vue";
 export default {
   name:"display",
   code: 0,
@@ -51,6 +51,11 @@ export default {
 }
 </script>
 <style>
+.movie {
+  position: absolute;
+  width: 100%;
+  height: 25%;
+}
 .video{
     margin-top: -5px;
     width: 100%;

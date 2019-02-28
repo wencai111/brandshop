@@ -33,14 +33,6 @@ export default [
     component: () => import('@/view/error/show.vue')
   },
   {
-    path: '/about',
-    name: 'about',
-    meta: {
-      title: '授权'
-    },
-    component: () => import('@/view/about/about.vue')
-  },
-  {
     path: '/service',
     name: 'service',
     meta: {
@@ -170,12 +162,12 @@ export default [
     component: () => import('@/view/article/article.vue')
   },
   {
-    path: '/rowyemian',
-    name: 'rowyemian',
+    path: '/myaudio',
+    name: 'myaudio',
     meta: {
-      title: '宽度测试'
+      title: '音频'
     },
-    component: () => import('@/view/rowyemian/rowyemian.vue')
+    component: () => import('@/view/myaudio/myaudio.vue')
   },
   {
     path: '/test',
@@ -192,5 +184,13 @@ export default [
       title: '视频播放'
     },
     component: () => import('@/view/display/display.vue')
+  },
+  {
+    path: '/index',
+    name: 'index',
+    meta: {
+      title: '视频首页'
+    },
+    component: () => import('@/view/index/index.vue')
   },
 ]
