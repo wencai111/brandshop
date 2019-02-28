@@ -14,6 +14,7 @@
         <img src="@/assets/other/icon-minions.png">
       </div>
     </div>
+
     <div class v-if="MyAnswer =='answer'">
       <div v-if="questions.length > 0">
         <ul>
@@ -27,7 +28,7 @@
           </li>
           <li v-for="item in questions" v-bind:key="item.question">
             <div
-              @click="answer"
+              @click="answer1"
               class="answerA answersum"
               v-bind:style="{backgroundImage:'url('+require('../../assets/other/answer-a.png')+')'}"
             >
@@ -36,7 +37,7 @@
           </li>
           <li v-for="item in questions" v-bind:key="item.question">
             <div
-              @click="answer"
+              @click="answer1"
               class="answerB answersum"
               v-bind:style="{backgroundImage:'url('+require('../../assets/other/answer-b.png')+')'}"
             >
@@ -45,17 +46,30 @@
           </li>
           <li v-for="item in questions" v-bind:key="item.question">
             <div
-              @click="answer"
+              @click="answer1"
               class="answerC answersum"
               v-bind:style="{backgroundImage:'url('+require('../../assets/other/answer-c.png')+')'}"
             >
               <span class="answeras">{{item.answerC}}</span>
               <div class="amswer-photo">
-              <img :src="item.image">
+                <img :src="item.image">
               </div>
             </div>
           </li>
         </ul>
+      </div>
+    </div>
+    <div v-if="MyAnswer =='response'">
+      <div
+        class="wrong"
+        v-bind:style="{backgroundImage:'url('+require('../../photo/goods/safety-comfrim-backgorund.png')+')'}"
+      >
+        <p class="response">回答错误</p>
+        <p class="myanswers">答案:{{result}}</p>
+        <span>{{tip}}</span>
+        <div @click="wrong">
+          <img src>
+        </div>
       </div>
     </div>
   </div>
@@ -67,7 +81,10 @@ export default {
   name: "Answer",
   data() {
     return {
+      MyAnswer: "response",
+      MyAnswer: "answer",
       MyAnswer: "home",
+
       questions: [
         {
           question: "1、一辆小汽车有几块视野盲区？",
@@ -77,8 +94,8 @@ export default {
           result: "C",
           tip:
             "汽车A柱造成的左右视野盲区，B柱造成左右视野盲区，C柱造成的左右视野盲区,以及车头盲区和车尾盲区。",
-          image: "audios/2.jpg",
-        },
+          image: "audios/2.jpg"
+        }
         // {
         //   question: "2、下面关于安全气囊的说法，哪一个是错误的？",
         //   answerA:
@@ -193,11 +210,36 @@ export default {
     },
     answer() {
       this.MyAnswer = "answer";
+    },
+    answer1() {
+      this.MyAnswer = "response";
+    },
+    wrong() {
+      this.MyAnswer = "answer";
     }
   }
 };
 </script>
 <style>
+.wrong {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  margin-top: 50%;
+  background-image: black;
+  margin-left: 15%;
+}
+.response {
+  font-size: 24px;
+  color: blue;
+  text-align: center;
+  margin-top: 20px;
+}
+.myanswers {
+  color: red;
+  font-size: 20px;
+  text-align: center;
+}
 .question {
   position: absolute;
   width: 300px;
@@ -216,13 +258,13 @@ export default {
   text-align: center;
   position: absolute;
 }
-.question1{
-    width: 220px;
-    height: 20px;
-    margin-left: 35px;
-    top: 40%;
-    text-align: center;
-    position: absolute;
+.question1 {
+  width: 220px;
+  height: 20px;
+  margin-left: 35px;
+  top: 40%;
+  text-align: center;
+  position: absolute;
 }
 .answersum {
   background-repeat: no-repeat;
