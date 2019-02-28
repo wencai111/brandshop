@@ -1,3 +1,4 @@
+//合并对象 迭代添加属性
 function a(a, e, t) {
     return e in a ? Object.defineProperty(a, e, {
         value: t,
@@ -8,9 +9,9 @@ function a(a, e, t) {
 }
 
 var config = require("../../../wxc.config.js");
-var t = require("../../../utils/util.js");
-var o = getApp();
-var n = wx.createInnerAudioContext();
+var util = require("../../../utils/util.js");
+var appData = getApp();
+var audio = wx.createInnerAudioContext();
 
 Page({
     data: {
@@ -21,75 +22,108 @@ Page({
         wx.showLoading({
             title: "努力加载 ..."
         });
-        var u = this;
+        var _this = this;
         wx.request({
-            url: config.apiUrl + "/safety/audios",
+            url: config.apiUrlDev + "/safety/audios",
             method: "POST",
-            success: function(a) {
-                a.data.data.forEach(function(a) {
-                    a.image = config.mediaUrl + "/" + a.image, a.url = e.mediaUrl + "/" + a.url, a.playtime = "00:00", 
-                    a.percent = 0, a.statusImage = "../../images/play.png";
+            success: function(ref) {
+                ref.data.data.forEach(function(a) {
+                    a.image = config.mediaUrl + "/" + a.image;
+                    a.url = config.mediaUrl + "/" + a.url;
+                    a.playtime = "00:00";
+                    a.percent = 0;
+                    a.statusImage = "../../images/play.png";
                 });
-                 u.setData({
-                    audios: a.data.data
+                 _this.setData({
+                    audios: ref.data.data
                 });
-                 console.log(u.data.audios);
+                 console.log(_this.data.audios);
             },
             fail: function(a) {
-                console.log("failure from ", config.apiUrl + "/safety/audios"), console.log(a);
+                console.log("failure from ", config.apiUrlDev + "/safety/audios"), console.log(a);
             },
             complete: function() {
                 wx.hideLoading();
             }
-        }), n.onPlay(function() {
-            console.log("start to play music ", n.src);
-            var e = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
-            u.setData(a({}, e, "../../images/pause.png"));
-        }), n.onError(function(a) {
-            console.log(a.errCode), wx.showToast({
+        });
+        audio.onPlay(function() {
+            console.log("start to play music ", audio.src);
+            var statusImage = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
+            var obj=a({}, statusImage, "../../images/pause.png")
+            _this.setData(obj);
+        });
+        audio.onError(function(ref) {
+            console.log(ref.errCode);
+             wx.showToast({
                 title: "网络错误，请稍后再试 ..."
             });
-        }), n.onTimeUpdate(function() {
-            if (0 <= o.globalData.currentAudioIndex) {
-                var e, i = "audios[" + o.globalData.currentAudioIndex + "].playtime", r = "audios[" + o.globalData.currentAudioIndex + "].percent";
-                u.setData((e = {}, a(e, i, t.formatSecond(n.currentTime.toFixed(0))), a(e, r, n.currentTime.toFixed(2) / n.duration.toFixed(2) * 100), 
-                e));
+        });
+        audio.onTimeUpdate(function() {
+            if (0 <= appData.globalData.currentAudioIndex) {
+                var obj={};
+                playtime = "audios[" + o.globalData.currentAudioIndex + "].playtime";
+                percent = "audios[" + o.globalData.currentAudioIndex + "].percent";
+                obj=a(obj, playtime, util.formatSecond(audio.currentTime.toFixed(0)));
+                obj=a(obj, percent, audio.currentTime.toFixed(2) / audio.duration.toFixed(2) * 100)
+                u.setData(obj);
             }
-        }), n.onEnded(function() {
-            var e;
+        });
+        audio.onEnded(function() {
+            var obj={};
             console.log("播放结束 ...请重置播放器 ...");
-            var t = "audios[" + o.globalData.currentAudioIndex + "].playtime", n = "audios[" + o.globalData.currentAudioIndex + "].percent", i = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
-            u.setData((e = {}, a(e, t, "00:00"), a(e, n, 0), a(e, i, "../../images/play.png"), 
-            e));
+            var playtime = "audios[" + appData.globalData.currentAudioIndex + "].playtime";
+            var percent = "audios[" + appData.globalData.currentAudioIndex + "].percent";
+            var statusImage = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
+             obj=a(obj, playtime, "00:00");
+             obj=a(obj, percent, 0);
+             obj= a(obj, statusImage, "../../images/play.png")
+            u.setData(obj);
         });
     },
-    audioPlayerTapHandler: function(e) {
-        var t = this, i = e.currentTarget.id - 1;
-        if (i == o.globalData.currentAudioIndex) if (n.paused) {
-            d = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
-            t.setData(a({}, d, "../../images/pause.png")), n.play();
-        } else {
-            d = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
-            t.setData(a({}, d, "../../images/play.png")), n.pause();
-        } else {
-            if (0 <= o.globalData.currentAudioIndex) {
-                var u, r = "audios[" + o.globalData.currentAudioIndex + "].playtime", s = "audios[" + o.globalData.currentAudioIndex + "].percent", d = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
-                t.setData((u = {}, a(u, r, "00:00"), a(u, s, 0), a(u, d, "../../images/play.png"), 
-                u)), n.stop();
+    audioPlayerTapHandler: function(ref) {
+        var _this = this;
+        var audioId = ref.currentTarget.id - 1;
+        if (audioId == appData.globalData.currentAudioIndex)
+         if (audio.paused) {
+            var statusImage = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+            _this.setData(a({}, statusImage, "../../images/pause.png")), audio.play();
+        }
+         else {
+            var statusImage = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+            _this.setData(a({}, statusImage, "../../images/play.png")), audio.pause();
+        } 
+        else {
+            if (0 <= appData.globalData.currentAudioIndex) {
+                var obj={};
+                var playtime = "audios[" + o.globalData.currentAudioIndex + "].playtime"
+                var percent = "audios[" + o.globalData.currentAudioIndex + "].percent";
+                var statusImage = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+                obj=a(obj, playtime, "00:00");
+                obj=a(obj, percent, 0);
+                obj=a(obj, statusImage, "../../images/play.png")
+                _this.setData(obj);
+                audio.stop();
             }
-            o.globalData.currentAudioIndex = i, n.src = t.data.audios[o.globalData.currentAudioIndex].url, 
-            n.play();
+            appData.globalData.currentAudioIndex = i;
+            _this.src = _this.data.audios[appData.globalData.currentAudioIndex].url, 
+            audio.play();
         }
     },
     onReady: function() {},
     onShow: function() {},
     restoreAudioPlayer: function() {
-        if (0 <= o.globalData.currentAudioIndex) {
-            var e;
-            n.stop();
-            var t = this, i = "audios[" + o.globalData.currentAudioIndex + "].playtime", u = "audios[" + o.globalData.currentAudioIndex + "].percent", r = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
-            t.setData((e = {}, a(e, i, "00:00"), a(e, u, 0), a(e, r, "../../images/play.png"), 
-            e)), o.globalData.currentAudioIndex = -1;
+        if (0 <= appData.globalData.currentAudioIndex) {
+            var obj={};
+            audio.stop();
+            var t = this;
+            var playtime = "audios[" + o.globalData.currentAudioIndex + "].playtime";
+            var percent = "audios[" + o.globalData.currentAudioIndex + "].percent";
+            var statusImage = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+            obj=a(obj, playtime, "00:00");
+            obj=a(obj, percent, 0);
+            obj=a(obj, statusImage, "../../images/play.png");
+            _this.setData(obj);
+            appData.globalData.currentAudioIndex = -1;
         }
     },
     onHide: function() {

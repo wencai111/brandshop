@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1 user-scalable=0" />
-    <link rel="shortcut icon" href="img/logo.png">
     <title>html5 audio音频播放</title>
     <style>
         * {
@@ -112,8 +111,7 @@
             left: 100000px;
         }
     </style>
-
-    <!-- <script src="js/zepto.js"></script> -->
+   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 
 <body>
@@ -125,7 +123,7 @@
         //获取歌曲链接并插入dom中
         function getSong() {
             var audio = document.getElementById("audio");
-            audio.src = "http://frontman.qiniudn.com/songnotime.mp3";
+            audio.src = "https://cdn.osann-china.com/videos/1.mp4" ;
             audio.loop = true; //歌曲循环
             playCotrol(); //播放控制函数
 
@@ -250,14 +248,14 @@
 
 
     <!--audiostart-->
-    <audio id="audio" src="" loop="loop" autoplay="autoplay"></audio>
+    <audio id="audio" src="https://cdn.osann-china.com/videos/1.mp4" loop="loop" autoplay="autoplay"></audio>
     <!--audio End-->
 
 
 
     <!--播放控制按钮start-->
     <!-- <button id="control" class="">loading</button> -->
-    <img id="control" src="assets/icon/play.png">
+    <img id="control" src="@/assets/icon/play.png">
     <!--播放控制按钮end-->
 
     <!--时间进度条块儿start-->
@@ -275,7 +273,7 @@
     </div>
     <!--播放时间end-->
     <!--歌曲信息start-->
-    <div class="shareImg"><img src="img/html5audio.jpg" alt=""></div>
+    <div class="shareImg"><img src="" alt=""></div>
     <!--歌曲信息end-->
 </body>
 
