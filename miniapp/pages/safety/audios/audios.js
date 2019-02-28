@@ -61,8 +61,8 @@ Page({
         audio.onTimeUpdate(function() {
             if (0 <= appData.globalData.currentAudioIndex) {
                 var obj={};
-                playtime = "audios[" + o.globalData.currentAudioIndex + "].playtime";
-                percent = "audios[" + o.globalData.currentAudioIndex + "].percent";
+                playtime = "audios[" + appData.globalData.currentAudioIndex + "].playtime";
+                percent = "audios[" + appData.globalData.currentAudioIndex + "].percent";
                 obj=a(obj, playtime, util.formatSecond(audio.currentTime.toFixed(0)));
                 obj=a(obj, percent, audio.currentTime.toFixed(2) / audio.duration.toFixed(2) * 100)
                 u.setData(obj);
@@ -85,26 +85,26 @@ Page({
         var audioId = ref.currentTarget.id - 1;
         if (audioId == appData.globalData.currentAudioIndex)
          if (audio.paused) {
-            var statusImage = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+            var statusImage = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
             _this.setData(a({}, statusImage, "../../images/pause.png")), audio.play();
         }
          else {
-            var statusImage = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+            var statusImage = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
             _this.setData(a({}, statusImage, "../../images/play.png")), audio.pause();
         } 
         else {
             if (0 <= appData.globalData.currentAudioIndex) {
                 var obj={};
-                var playtime = "audios[" + o.globalData.currentAudioIndex + "].playtime"
-                var percent = "audios[" + o.globalData.currentAudioIndex + "].percent";
-                var statusImage = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+                var playtime = "audios[" + appData.globalData.currentAudioIndex + "].playtime"
+                var percent = "audios[" + appData.globalData.currentAudioIndex + "].percent";
+                var statusImage = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
                 obj=a(obj, playtime, "00:00");
                 obj=a(obj, percent, 0);
                 obj=a(obj, statusImage, "../../images/play.png")
                 _this.setData(obj);
                 audio.stop();
             }
-            appData.globalData.currentAudioIndex = i;
+            appData.globalData.currentAudioIndex = audioId;
             _this.src = _this.data.audios[appData.globalData.currentAudioIndex].url, 
             audio.play();
         }
@@ -116,9 +116,9 @@ Page({
             var obj={};
             audio.stop();
             var t = this;
-            var playtime = "audios[" + o.globalData.currentAudioIndex + "].playtime";
-            var percent = "audios[" + o.globalData.currentAudioIndex + "].percent";
-            var statusImage = "audios[" + o.globalData.currentAudioIndex + "].statusImage";
+            var playtime = "audios[" + appData.globalData.currentAudioIndex + "].playtime";
+            var percent = "audios[" + appData.globalData.currentAudioIndex + "].percent";
+            var statusImage = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
             obj=a(obj, playtime, "00:00");
             obj=a(obj, percent, 0);
             obj=a(obj, statusImage, "../../images/play.png");
