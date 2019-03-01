@@ -174,7 +174,7 @@ export default {
       // var newData1 = { success: true, result: 0, message: "已经是最后一题" };
       if (this.total<10) {
         //跳转到分享页面
-        this.MyAnswer ="share";
+        // this.MyAnswer ="share";
       } else {
         //绑定新的数据；
         return;
