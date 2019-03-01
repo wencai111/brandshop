@@ -7,6 +7,9 @@
       <div v-if="MyAnswer =='home'" class="topic">
         <img src="@/assets/other/rule-content.png">
       </div>
+      <div class="rule" v-if="MyAnswer =='home'">
+         <img src="@/assets/other/title-rule.png">
+      </div>
       <div class="answers" @click="answer" v-if="MyAnswer =='home'">
         <img src="@/assets/answer/btnstart.png">
       </div>
@@ -14,8 +17,11 @@
         <img src="@/assets/other/icon-minions.png">
       </div>
     </div>
-
+<!--第二部分-->
     <div class v-if="MyAnswer =='answer'">
+      <div class="rule">
+         <img src="@/assets/other/title-question.png">
+      </div>
       <div v-if="questions.length > 0">
         <ul>
           <li v-for="item in questions" v-bind:key="item.question">
@@ -58,6 +64,7 @@
           </li>
         </ul>
       </div>
+      <!-- 第三部分 -->
     </div>
     <div v-if="MyAnswer =='response'">
       <div
@@ -221,11 +228,18 @@ export default {
 };
 </script>
 <style>
+.rule img{
+  width: 100px;
+  height: 30px;
+  margin-top: 41%;
+  margin-left: 37%;
+  position:absolute
+}
 .wrong {
   width: 250px;
   height: 250px;
   position: absolute;
-  margin-top: 50%;
+  margin-top: 80%;
   background-image: black;
   margin-left: 15%;
 }
