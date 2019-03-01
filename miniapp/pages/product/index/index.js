@@ -1,7 +1,6 @@
 var config = require("../../../wxc.config.js");
 var appData = getApp();
 
- 
 Page({
     data: {
         goods: [],
@@ -13,9 +12,11 @@ Page({
     },
     //通过openId获取用户信息
     wxfetchUserInfoWithOpenID: function (openid) {
+        debugger;
         var _this = this;
         wx.getSetting({
             success: function (ref) {
+                debugger;
                 console.log("输出 auth.openid -> ", openid);
                 if (ref.authSetting["scope.userInfo"]) {
                     console.log("已经授权，无需弹出系统授权框，可以直接调用getUserInfo获取用户信息");
@@ -46,6 +47,7 @@ Page({
     },
     //弹窗授权单击授权
     comfirmLoginTapHandler: function (ref) {
+        debugger;
         var _this = this;
         _this.setData({
             hiddenLoginModel: !0
@@ -84,7 +86,6 @@ Page({
     },
     //弹出领取优惠证窗体
     goodsCouponTapHandler: function (ref) {
-        debugger;
         var _this = this;
         if(0 === appData.globalData.userid && "" !== appData.globalData.openid ){
             console.log("开始授权！");
@@ -148,7 +149,7 @@ Page({
         }
         //获取产品
         wx.request({
-            url: config.apiUrlDev + "/goods",
+            url: "" + "/goods",
             method: "POST",
             success: function (ref) {
                 ref.data.data.forEach(function (item) {
