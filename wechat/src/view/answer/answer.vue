@@ -8,7 +8,7 @@
         <img src="@/assets/other/rule-content.png">
       </div>
       <div class="rule" v-if="MyAnswer =='home'">
-         <img src="@/assets/other/title-rule.png">
+        <img src="@/assets/other/title-rule.png">
       </div>
       <div class="answers" @click="answer" v-if="MyAnswer =='home'">
         <img src="@/assets/answer/btnstart.png">
@@ -17,66 +17,91 @@
         <img src="@/assets/other/icon-minions.png">
       </div>
     </div>
-<!--第二部分-->
+    <!--第二部分-->
     <div class v-if="MyAnswer =='answer'">
       <div class="rule">
-         <img src="@/assets/other/title-question.png">
+        <img src="@/assets/other/title-question.png">
       </div>
-      <div v-if="questions.length > 0">
+      <div>
         <ul>
-          <li v-for="item in questions" v-bind:key="item.question">
+          <li>
             <div
               class="question"
               v-bind:style="{backgroundImage:'url('+require('../../assets/other/question.png')+')'}"
             >
-              <span class="question1">{{item.question}}</span>
+              <span class="question1">{{question.title}}</span>
             </div>
           </li>
-          <li v-for="item in questions" v-bind:key="item.question">
+          <li>
             <div
               @click="answer1"
               class="answerA answersum"
               v-bind:style="{backgroundImage:'url('+require('../../assets/other/answer-a.png')+')'}"
             >
-              <span class="answeras">{{item.answerA}}</span>
+              <span class="answeras">{{question.answerA}}</span>
             </div>
           </li>
-          <li v-for="item in questions" v-bind:key="item.question">
+          <li>
             <div
               @click="answer1"
               class="answerB answersum"
               v-bind:style="{backgroundImage:'url('+require('../../assets/other/answer-b.png')+')'}"
             >
-              <span class="answeras">{{item.answerB}}</span>
+              <span class="answeras">{{question.answerB}}</span>
             </div>
           </li>
-          <li v-for="item in questions" v-bind:key="item.question">
+          <li>
             <div
               @click="answer1"
               class="answerC answersum"
               v-bind:style="{backgroundImage:'url('+require('../../assets/other/answer-c.png')+')'}"
             >
-              <span class="answeras">{{item.answerC}}</span>
+              <span class="answeras">{{question.answerC}}</span>
               <div class="amswer-photo">
-                <img :src="item.image">
+                <img :src="question.image">
               </div>
             </div>
           </li>
         </ul>
       </div>
-      <!-- 第三部分 -->
     </div>
-    <div v-if="MyAnswer =='response'">
+    <!-- 第三部分 -->
+    <div class="Popout" v-if="show">
+      <div class="bckgroundstyle"></div>
       <div
         class="wrong"
         v-bind:style="{backgroundImage:'url('+require('../../photo/goods/safety-comfrim-backgorund.png')+')'}"
       >
-        <p class="response">回答错误</p>
-        <p class="myanswers">答案:{{result}}</p>
-        <span>{{tip}}</span>
-        <div @click="wrong">
-          <img src>
+        <ul>
+          <li>
+            <p class="response">{{question.resultText}}</p>
+          </li>
+          <li>
+            <p class="myanswers">答案:{{question.result}}</p>
+          </li>
+          <li>
+            <div class="tip">
+              <span>{{question.tip}}</span>
+            </div>
+          </li>
+        </ul>
+        <div class="Continue" @click="wrong">
+          <img src="@/assets/other/btncontinue.png">
         </div>
+      </div>
+    </div>
+    <!-- 第四部分 -->
+    <div class v-if="MyAnswer =='share'">
+      <div class="rule">
+        <img src="@/assets/other/title-result.png">
+      </div>
+      <ul>
+        <li class="good">
+          <img src="@/assets/other/good.png">
+        </li>
+      </ul>
+      <div class="share">
+        <img src="@/assets/other/share.png">
       </div>
     </div>
   </div>
@@ -88,13 +113,54 @@ export default {
   name: "Answer",
   data() {
     return {
-      MyAnswer: "response",
-      MyAnswer: "answer",
+      total:1,
+      xuhao: 2,
       MyAnswer: "home",
-
-      questions: [
-        {
-          question: "1、一辆小汽车有几块视野盲区？",
+      show: false,
+      // MyAnswer: "response",
+      question: null
+    };
+  },
+  created: function() {
+    var ref = {
+      resultText: "回答错误",
+      title: "1、一辆小汽车有几块视野盲区？",
+      answerA: "四块",
+      answerB: "六块",
+      answerC: "八块",
+      result: "C",
+      tip:
+        "汽车A柱造成的左右视野盲区，B柱造成左右视野盲区，C柱造成的左右视野盲区,以及车头盲区和车尾盲区。",
+      image: "audios/2.jpg"
+    };
+    this.question = ref;
+  },
+  methods: {
+    answer() {
+      this.MyAnswer = "answer";
+    },
+    wrong() {
+      this.MyAnswer = "share";
+      
+    },
+    answer1(ref) {
+      this.total=this.total+1;
+      var currentSeleted = ref;
+      if (ref == this.question.result) {
+        //回答正确
+      } else {
+        //回答错误
+      }
+      //显示提示结果
+      this.show = true;
+// this.show = !this.show;
+      //发送请求给后台
+      var newData = {
+        success: true,
+        result: ":1",
+        data: {
+          resultText: "回答错误",
+          title: "1、一辆小汽车有几块视野盲区？",
           answerA: "四块",
           answerB: "六块",
           answerC: "八块",
@@ -102,138 +168,77 @@ export default {
           tip:
             "汽车A柱造成的左右视野盲区，B柱造成左右视野盲区，C柱造成的左右视野盲区,以及车头盲区和车尾盲区。",
           image: "audios/2.jpg"
-        }
-        // {
-        //   question: "2、下面关于安全气囊的说法，哪一个是错误的？",
-        //   answerA:
-        //     "当儿童头部与气囊仪表盘接近时，一旦碰撞造成气囊打开，会对头部形成几百公斤的冲击力。",
-        //   answerB:
-        //     "当儿童坐在正向安装的安全座椅里时，是不可以被放置在有安全气囊的座位上的。",
-        //   answerC:
-        //     "当儿童坐在反向安装的安全座椅里时，是不可以被放置在有安全气囊的座位上的。",
-        //   result: "B",
-        //   tip:
-        //     "当儿童坐在反向安装的安全座椅里时，气囊爆炸打开会接触椅背，椅背会对脆弱的头部和颈部造成伤害。",
-        //   qimage: "2.png"
-        // },
-        // {
-        //   question: "3、下列关于安全带的说法，哪一个是正确的？",
-        //   answerA: "四岁以下的儿童不可以使用车内安全带，四岁以上才可以。",
-        //   answerB:
-        //     "儿童直接使用车内安全带，有可能在车辆碰撞时勒住儿童颈部和腹部，导致颈骨折断或器官受损。",
-        //   answerC:
-        //     "如果要给儿童使用车内成人安全带，则必须让儿童坐在有安全气囊的座位上。",
-        //   result: "B",
-        //   tip:
-        //     "只有当儿童满了12岁或者身高高于1米5时，才可以直接使用车内的安全带。",
-        //   qimage: "3.png"
-        // },
-        // {
-        //   question: "4、下列关于儿童留在车内的说法，哪一个是正确的？",
-        //   answerA: "家长如果只是离开一小会儿，儿童是可以在车里等他们回来的。",
-        //   answerB:
-        //     "家长离开一小会儿并且把儿童独自留在车内，应该在离开之前确保车门和车窗都已经锁好。",
-        //   answerC:
-        //     "夏天天气炎热，封闭的车内温度急剧上升，20分钟内就可能超过50℃，这对留在车内的儿童是致命的。",
-        //   result: "C",
-        //   tip:
-        //     "封闭车内温度急剧上升，高温环境会对小朋友的身体器官造成严重伤害，任何时候都不允许将儿童独自留在车内！",
-        //   qimage: "4.png"
-        // },
-        // {
-        //   question: "5、下列关于家长抱儿童乘车的说法，哪种是错误的？",
-        //   answerA:
-        //     "只有刚出生的婴儿才可以由家长抱在怀里乘车。婴儿很小、很轻，即使发生意外，家长也能很好的保护。",
-        //   answerB: "任何时候家长都不可以将儿童抱在怀里乘车，尤其是婴儿阶段。",
-        //   answerC:
-        //     "家长抱儿童乘车，一旦发生交通事故，很有可能会加重儿童受到伤害或导致死亡。",
-        //   result: "A",
-        //   tip:
-        //     "无论儿童处在哪个年龄段，都不可以抱在怀里乘车。汽车发生碰撞事故时，身体产生的冲击力会数倍于身体的重量，家长是无法抱住的！",
-        //   qimage: "5.png"
-        // },
-        // {
-        //   question: "6、下列哪种办法，可以最有效地避免儿童误开车门？",
-        //   answerA: "让司机打开中控锁。",
-        //   answerB: "让司机打开儿童安全锁。",
-        //   answerC: "让司机设置行驶自动上锁。",
-        //   result: "B",
-        //   tip:
-        //     "中控锁是可以通过车内解锁键打开的，只有儿童安全锁才能真正避免儿童误开车门。",
-        //   qimage: "6.png"
-        // },
-        // {
-        //   question: "7、乘车时不可以将头、手伸出窗外，下列哪种说法是错误的？",
-        //   answerA: "只有当车窗带有防夹手功能时，才可以将头、手伸出窗外。",
-        //   answerB:
-        //     "当儿童将头、手伸出窗外时，很容易与外界车辆发生擦碰，尤其是在车流量较大的地方。",
-        //   answerC: "在车流量很小的地方，儿童也不可以将头、手伸出窗外。",
-        //   result: "A",
-        //   tip:
-        //     "任何情况下儿童都不可以将头、手伸出窗外，以免发生擦碰或者异物进入眼睛。",
-        //   qimage: "7.png"
-        // },
-        // {
-        //   question: "8、关于车内摆放物品或者携带宠物，下列哪个说法是错误的？",
-        //   answerA: "车内不可以放置多余的物品，尤其是比较重或者比较尖锐的物品。",
-        //   answerB:
-        //     "有宠物一起乘车时，应该给宠物也配备相应的安全装备，例如宠物安全带、宠物防滑垫、隔离网等。",
-        //   answerC: "体型较小的宠物可以抱在怀里，不一定要配备宠物安全装备。",
-        //   result: "C",
-        //   tip:
-        //     "无论是宠物还是车内其他物品，都应该配备相应的安全装备，以防发生事故时，这些物品或宠物会以车速冲撞起来，造成二次伤害。",
-        //   qimage: "8.png"
-        // },
-        // {
-        //   question: "9、下列关于安全座椅的说法，哪个是正确的？",
-        //   answerA:
-        //     "3岁以下的小朋友乘车必须使用安全座椅。年纪稍大之后，尤其是3岁以后，就可以不坐安全座椅了。",
-        //   answerB:
-        //     "安全座椅有常规的大座椅和安全增高垫两种类型。大座椅更贵，但是比增高垫更安全。",
-        //   answerC: "汽车发生意外事故时，安全座椅能将儿童的死亡率降低71%。",
-        //   result: "C",
-        //   tip:
-        //     "只有当儿童满了12岁或身高达到1米5时，才可以不再使用安全座椅。3岁以上儿童可以使用安全增高垫。正规的增高垫必须经过ECE或者CCC等权威机构的碰撞测试。",
-        //   qimage: "9.png"
-        // },
-        // {
-        //   question: "10、下列关于安全增高垫的说法，哪一个是错误的？",
-        //   answerA:
-        //     "安全增高垫是一种轻便、易携式的安全座椅，一般适合3-12岁的小朋友使用。",
-        //   answerB:
-        //     "安全增高垫通过抬高儿童身高，并改变安全带的穿行路线，让身高不足1米5的儿童安全使用安全带。",
-        //   answerC: "车里有了安全座椅就不再需要安全增高垫。",
-        //   result: "C",
-        //   tip:
-        //     "即便车里有了安全座椅，家中也需要常备一个安全增高垫，以备儿童在乘坐其他车辆时方便使用，保障乘车安全。",
-        //   qimage: "10.png"
-        // }
-      ]
-    };
-  },
-  methods: {
-    myvideo() {
-      this.$router.push("risk");
-    },
-    answer() {
-      this.MyAnswer = "answer";
-    },
-    answer1() {
-      this.MyAnswer = "response";
+        },
+        message: "还有新的题目"
+      };
+      // var newData1 = { success: true, result: 0, message: "已经是最后一题" };
+      if (this.total<10) {
+        //跳转到分享页面
+        this.MyAnswer ="share";
+      } else {
+        //绑定新的数据；
+        return;
+      }
     },
     wrong() {
-      this.MyAnswer = "answer";
+      
+    //   this.show = !this.show;
+    //   this.question = {
+    //     resultText: "回答错误",
+    //     title: "1、一辆小汽车有几块视野盲区？" + this.xuhao,
+    //     answerA: "四块" + this.xuhao,
+    //     answerB: "六块" + this.xuhao,
+    //     answerC: "八块" + this.xuhao,
+    //     result: "C" + this.xuhao,
+    //     tip:
+    //       "汽车A柱造成的左右视野盲区，B柱造成左右视野盲区，C柱造成的左右视野盲区,以及车头盲区和车尾盲区。" +
+    //       this.xuhao,
+    //     image: "audios/2.jpg"
+    //   };
+    // this.xuhao++;
     }
   }
 };
 </script>
 <style>
-.rule img{
+.good img {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  margin-left: 10%;
+  margin-top: 60%;
+}
+.rule img {
   width: 100px;
   height: 30px;
   margin-top: 41%;
   margin-left: 37%;
-  position:absolute
+  position: absolute;
+}
+.tip {
+  width: 210px;
+  margin-left: 20px;
+}
+.share {
+  position: absolute;
+  width: 80%;
+  height: 180px;
+  margin-top: 150%;
+  margin-left: 10%;
+}
+.bckgroundstyle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgb(73, 73, 70);
+  opacity: 0.6;
+}
+.Continue img {
+  width: 140px;
+  height: 30px;
+  position: absolute;
+  top: 170px;
+  margin-left: 20%;
 }
 .wrong {
   width: 250px;
