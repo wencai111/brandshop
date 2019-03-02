@@ -4,14 +4,16 @@
       <img src="https://cdn.osann-china.com/images/safety-audio-banner.jpg">
     </div>
     <div class="audioView">
+      <audio ref="audio" style="display:none;"></audio>
       <Row :gutter="16">
         <i-col span="12" v-for="item in audios" v-bind:key="item.audioID">
           <div class="audioContianer">
             <div class="audioplayer">
               <img :src="item.image" class="posterimage">
               <div class="palycontrols">
-                <div class="playBtnBlock">
-                  <img src="@/assets/icon/play.png">
+                <div class="playBtnBlock" v-on:click="playToggle(item)">
+                  <img src="@/assets/icon/play.png" v-show="!item.statusImage">
+                  <img src="@/assets/icon/pause.png" v-show="item.statusImage">
                 </div>
                 <div class="contrlBar">
                   <span>00:00</span>
@@ -22,9 +24,7 @@
                 </div>
               </div>
             </div>
-            <div class="txtIntro">
-              {{item.subtitle}}
-            </div>
+            <div class="txtIntro">{{item.subtitle}}</div>
           </div>
         </i-col>
       </Row>
@@ -37,6 +37,13 @@ export default {
   name: "Audios",
   data() {
     return {
+      audio: {
+        el: null //音频标签
+      },
+      currentAudioDom:{//当前音频元素Dom
+        src:"",
+        item:null
+      },
       audios: [],
       safetyAudioBanner:
         "https://cdn.osann-china.com" + "/images/safety-audio-banner.jpg"
@@ -154,9 +161,51 @@ export default {
       a.url = "https://cdn.osann-china.com" + "/" + a.url;
       a.playtime = "00:00";
       a.percent = 0;
-      a.statusImage = "../../images/play.png";
+      a.statusImage = false;//false显示单机播放图标true 是显示单机暂停图标
     });
     this.audios = audios;
+  },
+  mounted: function() {
+    this.audio.el = this.$refs.audio;
+  },
+  methods:{
+    playToggle:function(item){
+      debugger;
+      if(this.currentAudioDom.src===""){//首次播放音频
+        //audio首次赋值
+        this.audio.el.src=item.url;
+        this.audio.el.play();
+        //音频元素Dom首次赋值
+        this.currentAudioDom.src=item.url;
+        item.statusImage=true;
+        this.currentAudioDom.item=item;
+      }
+      else{//
+        if(this.currentAudioDom.src===item.url){//跟前一次操作的音频元素相同
+            if(this.audio.status==0){
+              this.audios.el.play();
+              item.statusImage=true;
+              this.currentAudioDom=item;
+            }
+            else{
+              this.audios.el.stop();
+                item.statusImage=false;
+                this.currentAudioDom=item;
+            }
+        }
+        else{//跟前一次操作的音频元素不同
+         //更新audio
+         this.audio.el.src=item.url;
+         this.audio.el.play();
+         //恢复旧德音频元素Dom
+         this.currentAudioDom.item.statusImage=false;
+         //更新当前音频元素Dom
+         item.statusImage=true;
+         this.currentAudioDom.src=item.url;
+         this.currentAudioDom.item=item;
+        }
+      }
+    }
   }
 };
 </script>
@@ -188,7 +237,7 @@ export default {
   margin: auto;
 }
 
-.audioContianer{
+.audioContianer {
   position: relative;
   margin: auto;
 }
@@ -248,7 +297,7 @@ export default {
   color: #fff;
   font-size: 0.7rem;
 }
- 
+
 .audioContianer .audioplayer .palycontrols .contrlBar .timeBar {
   width: calc(100% - 20px);
   height: 3px;
@@ -266,11 +315,11 @@ export default {
   background-color: #60a9f0;
 }
 
-.audioContianer .txtIntro{
+.audioContianer .txtIntro {
   position: relative;
-  color:#817E75;
+  color: #817e75;
   margin: 0.5rem;
-  margin-top:0px;
+  margin-top: 0px;
 }
 </style>
 
