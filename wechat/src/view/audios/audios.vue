@@ -12,8 +12,8 @@
               <img :src="item.image" class="posterimage">
               <div class="palycontrols">
                 <div class="playBtnBlock" v-on:click="playToggle(item)">
-                  <img src="@/assets/icon/play.png" v-show="!item.statusImage">
-                  <img src="@/assets/icon/pause.png" v-show="item.statusImage">
+                  <img src="@/assets/icon/play.png" v-show="!item.status">
+                  <img src="@/assets/icon/pause.png" v-show="item.status">
                 </div>
                 <div class="contrlBar">
                   <span>00:00</span>
@@ -161,7 +161,7 @@ export default {
       a.url = "https://cdn.osann-china.com" + "/" + a.url;
       a.playtime = "00:00";
       a.percent = 0;
-      a.statusImage = false;//false显示单机播放图标true 是显示单机暂停图标
+      a.status = false;//false显示单机播放图标true 是显示单机暂停图标
     });
     this.audios = audios;
   },
@@ -177,20 +177,20 @@ export default {
         this.audio.el.play();
         //音频元素Dom首次赋值
         this.currentAudioDom.src=item.url;
-        item.statusImage=true;
+        item.status=true;
         this.currentAudioDom.item=item;
       }
       else{//
         if(this.currentAudioDom.src===item.url){//跟前一次操作的音频元素相同
-            if(this.audio.status==0){
-              this.audios.el.play();
-              item.statusImage=true;
-              this.currentAudioDom=item;
+            if(this.currentAudioDom.item.status){
+              this.audio.el.pause();
+              item.status=false;
+              this.currentAudioDom.item=item;
             }
             else{
-              this.audios.el.stop();
-                item.statusImage=false;
-                this.currentAudioDom=item;
+              this.audio.el.play();
+                item.status=true;
+                this.currentAudioDom.item=item;
             }
         }
         else{//跟前一次操作的音频元素不同
@@ -198,9 +198,9 @@ export default {
          this.audio.el.src=item.url;
          this.audio.el.play();
          //恢复旧德音频元素Dom
-         this.currentAudioDom.item.statusImage=false;
+         this.currentAudioDom.item.status=false;
          //更新当前音频元素Dom
-         item.statusImage=true;
+         item.status=true;
          this.currentAudioDom.src=item.url;
          this.currentAudioDom.item=item;
         }
