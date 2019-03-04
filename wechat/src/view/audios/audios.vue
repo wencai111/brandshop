@@ -16,11 +16,11 @@
                   <img src="@/assets/icon/pause.png" v-show="item.status">
                 </div>
                 <div class="contrlBar">
-                  <span>00:00</span>
+                  <span>{{minutesFormater(item.currentTime)}}</span>
                   <div class="timeBar">
-                    <div class="progress"></div>
+                    <div class="progress" v-bind:style="{width:item.width+'%'}"></div>
                   </div>
-                  <span>-05:08</span>
+                  <span>{{item.duration}}</span>
                 </div>
               </div>
             </div>
@@ -38,11 +38,12 @@ export default {
   data() {
     return {
       audio: {
-        el: null //音频标签
+        el: null //音频标签,
       },
-      currentAudioDom:{//当前音频元素Dom
-        src:"",
-        item:null
+      currentAudioDom: {
+        //当前音频元素Dom
+        src: "",
+        item: null
       },
       audios: [],
       safetyAudioBanner:
@@ -161,49 +162,79 @@ export default {
       a.url = "https://cdn.osann-china.com" + "/" + a.url;
       a.playtime = "00:00";
       a.percent = 0;
-      a.status = false;//false显示单机播放图标true 是显示单机暂停图标
+      a.status = false; //false显示单机播放图标true 是显示单机暂停图标
+      a.currentTime = 0;
+      a.width = 0;
     });
     this.audios = audios;
   },
   mounted: function() {
     this.audio.el = this.$refs.audio;
+    this.audio.el.oncanplay = this.oncanplay;
   },
-  methods:{
-    playToggle:function(item){
-      debugger;
-      if(this.currentAudioDom.src===""){//首次播放音频
+  methods: {
+    playToggle: function(item) {
+      if (this.currentAudioDom.src === "") {
+        //首次播放音频
         //audio首次赋值
-        this.audio.el.src=item.url;
+        this.audio.el.src = item.url;
         this.audio.el.play();
         //音频元素Dom首次赋值
-        this.currentAudioDom.src=item.url;
-        item.status=true;
-        this.currentAudioDom.item=item;
+        this.currentAudioDom.src = item.url;
+        item.status = true;
+        this.currentAudioDom.item = item;
+      } else {
+        //非首次播放
+        if (this.currentAudioDom.src === item.url) {
+          //跟前一次操作的音频元素相同
+          if (this.currentAudioDom.item.status) {
+            this.audio.el.pause();
+            item.status = false;
+            this.currentAudioDom.item = item;
+          } else {
+            this.audio.el.play();
+            item.status = true;
+            this.currentAudioDom.item = item;
+          }
+        } else {
+          //跟前一次操作的音频元素不同
+          //更新audio
+          this.audio.el.src = item.url;
+          this.audio.el.play();
+          //恢复旧德音频元素Dom
+          this.currentAudioDom.item.status = false;
+          this.currentAudioDom.item.currentTime=0;
+          this.currentAudioDom.item.width=0;
+          //更新当前音频元素Dom
+          item.status = true;
+          this.currentAudioDom.src = item.url;
+          this.currentAudioDom.item = item;
+        }
       }
-      else{//
-        if(this.currentAudioDom.src===item.url){//跟前一次操作的音频元素相同
-            if(this.currentAudioDom.item.status){
-              this.audio.el.pause();
-              item.status=false;
-              this.currentAudioDom.item=item;
-            }
-            else{
-              this.audio.el.play();
-                item.status=true;
-                this.currentAudioDom.item=item;
-            }
-        }
-        else{//跟前一次操作的音频元素不同
-         //更新audio
-         this.audio.el.src=item.url;
-         this.audio.el.play();
-         //恢复旧德音频元素Dom
-         this.currentAudioDom.item.status=false;
-         //更新当前音频元素Dom
-         item.status=true;
-         this.currentAudioDom.src=item.url;
-         this.currentAudioDom.item=item;
-        }
+    },
+    oncanplay: function() {
+      this.audio.el.ontimeupdate = this.ontimeUpdate;
+    },
+    ontimeUpdate: function(e) {
+      this.currentAudioDom.item.currentTime = this.audio.el.currentTime;
+      this.timeCalculate();
+    },
+    timeCalculate() {
+      this.currentAudioDom.item.width =(this.audio.el.currentTime / this.audio.el.duration) * 100;
+    },
+
+    minutesFormater(time) {
+      let min = Math.floor(time / 60);
+      let sec = Math.floor(time % 60);
+      return this.zeroFormater(min) + ":" + this.zeroFormater(sec);
+    },
+    zeroFormater(num) {
+      if (num == 0) {
+        return "00";
+      } else if (num < 10) {
+        return "0" + num;
+      } else {
+        return num;
       }
     }
   }
