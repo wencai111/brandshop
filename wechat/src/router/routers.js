@@ -193,4 +193,12 @@ export default [
     },
     component: () => import('@/view/index/index.vue')
   },
+  {
+    path: '/audios',
+    name: 'audios',
+    meta: {
+      title: '音频列表'
+    },
+    component: () => import('@/view/audios/audios.vue')
+  },
 ]

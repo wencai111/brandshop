@@ -115,7 +115,7 @@ Page({
         if (0 <= appData.globalData.currentAudioIndex) {
             var obj={};
             audio.stop();
-            var t = this;
+            var _this = this;
             var playtime = "audios[" + appData.globalData.currentAudioIndex + "].playtime";
             var percent = "audios[" + appData.globalData.currentAudioIndex + "].percent";
             var statusImage = "audios[" + appData.globalData.currentAudioIndex + "].statusImage";
