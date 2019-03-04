@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="safetyaudio">
       <img src="@/assets/safety-audio-banner.jpg">
     </div>
     <div
@@ -165,6 +165,9 @@ export default {
 
 <style>
 /*进度条样式*/
+.code-row-bg{
+  overflow: hidden;
+}
 .progressBar {
   width: 100%;
   height: 10px;

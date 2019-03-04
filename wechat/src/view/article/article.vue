@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="articde">
       <img src="@/assets/safety-article-banner.jpg">
     </div>
     <div
@@ -78,7 +78,7 @@ export default {
     for (let item of data) {
       item.image = mediaUrl + "/" + item.image;
       item.url = mediaUrl + "/" + item.url;
-      item.updatetime = "00:00"; 
+      item.updatetime = "00:00";
     }
     this.article = data;
   }
@@ -86,10 +86,13 @@ export default {
 </script>
 <style>
 .articlebackground {
-  height: 600px;
+  height: 700px;
+  min-width: 100%;
   margin-top: -5px;
 }
-
+.articde img {
+  min-width: 100%;
+}
 .articles img {
   width: 150px;
   margin: 5%;

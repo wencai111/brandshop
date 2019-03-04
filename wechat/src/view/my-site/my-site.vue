@@ -1,6 +1,8 @@
 <template>
 <div>
+<router-link to="site">
 <div class="add">+</div>
+</router-link>
 <div class="mysite">
   <div class="site">
     <span id="name">{{name}}</span>

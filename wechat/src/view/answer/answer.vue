@@ -114,7 +114,6 @@ export default {
   data() {
     return {
       total:1,
-      xuhao: 2,
       MyAnswer: "home",
       show: false,
       // MyAnswer: "response",
@@ -140,8 +139,7 @@ export default {
       this.MyAnswer = "answer";
     },
     wrong() {
-      this.MyAnswer = "share";
-      
+      this.MyAnswer = "share"; 
     },
     answer1(ref) {
       this.total=this.total+1;
@@ -173,29 +171,17 @@ export default {
       };
       // var newData1 = { success: true, result: 0, message: "已经是最后一题" };
       if (this.total<10) {
+      MyAnswer =answer;
         //跳转到分享页面
-        // this.MyAnswer ="share";
       } else {
+          this.MyAnswer ="share";
+          this.show = false;
         //绑定新的数据；
         return;
       }
     },
     wrong() {
-      
-    //   this.show = !this.show;
-    //   this.question = {
-    //     resultText: "回答错误",
-    //     title: "1、一辆小汽车有几块视野盲区？" + this.xuhao,
-    //     answerA: "四块" + this.xuhao,
-    //     answerB: "六块" + this.xuhao,
-    //     answerC: "八块" + this.xuhao,
-    //     result: "C" + this.xuhao,
-    //     tip:
-    //       "汽车A柱造成的左右视野盲区，B柱造成左右视野盲区，C柱造成的左右视野盲区,以及车头盲区和车尾盲区。" +
-    //       this.xuhao,
-    //     image: "audios/2.jpg"
-    //   };
-    // this.xuhao++;
+      this.show = !this.show;
     }
   }
 };
