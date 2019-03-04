@@ -1,6 +1,6 @@
 <template>
     <div class="confirms">
-        <router-link to='mysite'>
+        <router-link to='my-site'>
        <div class="dizi">
         <img src="@/assets/goods/withoutaddress.jpg" > 
         <img src="@/assets/goods/u62.jpg">
@@ -23,16 +23,18 @@
         </div>
         <div class="distribution">
             <span> 店铺优惠</span>
-            <span class="exemptions">省10元：10元优惠券</span>
+            <span class="exemptions">{{coupon}}</span>
         </div>
         <div class="bottom">
             <div class="bottoms">
             <span>应付金额：</span>
             <span class="jinge">{{jinge}}</span>
             </div>
+            <router-link to=''>
             <div class="img">
             <img src="@/assets/goods/buyconfirm.jpg">
-        </div>
+            </div>
+            </router-link>
         </div>
     </div>
 </template>
@@ -43,6 +45,7 @@ export default {
       return{
           sold:"￥50",
           jinge:"￥40",
+          coupon:"省10元：10元优惠券",
       }
     }
 }
@@ -53,7 +56,8 @@ export default {
     padding: 0;
 }
 .dizi img{
-    width: 100%
+    width: 100%;
+    min-width: 100%;
 }
 .order1 span{
     margin: 10px;
@@ -97,9 +101,8 @@ export default {
     bottom:0;
     height: 30px;
     font-size: 14px;
-    margin-left: 15%;
-    float: left;
-  
+    margin-left: 13%;
+    float: left; 
 }
 
 .jinge{
