@@ -177,7 +177,7 @@ export default {
   font-size: 6px;
   margin-top: 20px;
 }
-.border {
+.border{
   border: 0.5px solid rgb(112, 111, 111);
   margin-left: 10px;
   margin: 10px;
