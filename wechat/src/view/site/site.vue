@@ -10,9 +10,7 @@
           v-model="address"
           placeholder="姓名"
         >
-        <span>
-          <img src="@/photo/goods/profile-unchecked.png">
-        </span>
+        <Icon type="md-person" size="24" color="#1aad19"/>
         <nav class="hr"></nav>
       </div>
 
@@ -28,7 +26,7 @@
         <span class="size">地区信息</span>
         <input class="text" type="text" v-model="region" placeholder="地区信息">
         <span>
-          <i class="icon-teacher"></i>
+          <Icon type="md-pin" size="24" color="#1aad19"/>
         </span>
         <nav class="hr"></nav>
       </div>
@@ -101,6 +99,9 @@ export default {
   padding: 0px;
   margin: 0px auto;
 }
+.ivu-icon-md-pin:before {
+  margin-left: 5px;
+}
 .site {
   width: 90%;
   overflow: auto;
@@ -128,7 +129,7 @@ export default {
   outline: none;
   text-align: left;
   margin: 0px 30px;
-  width: 100px;
+  width: 30%;
   font-size: 1em;
 }
 .hr {

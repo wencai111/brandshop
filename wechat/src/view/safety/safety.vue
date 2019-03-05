@@ -22,7 +22,7 @@
             </div>
           </div>
         </div>
-        <div class="audios" v-for="item in audios" v-bind:key="item.audioID">
+        <div class="safetyaudios" v-for="item in audios" v-bind:key="item.audioID">
           <div class="plays">
             <img src="@/assets/other/play.png">
           </div>
@@ -151,7 +151,7 @@ export default {
 }
 .home {
   width: 101%;
-  height: 100;
+  height: 100px;
   position: relative;
 }
 .Security {
@@ -180,7 +180,7 @@ export default {
   width: 150px;
   height: 150px;
 }
-.audios {
+.safetyaudios {
   float: left;
   margin-top: 100%;
   margin-left: 6%;
