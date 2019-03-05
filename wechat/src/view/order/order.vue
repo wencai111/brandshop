@@ -72,7 +72,7 @@ export default {
                 express_name:"",
                 express_sn:"",
                 goods_id:"2",
-                goods_image:"/goods/1/sku/1.jpg",
+                goods_image:"/assets/1goodsku/1.jpg",
                 goods_price:"2001",
                 goods_title:"便捷式安全增高垫",
                 openid:"oiFBo5OQY1u4cNCBO4-UpjeyrSf0",

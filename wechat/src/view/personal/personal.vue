@@ -4,60 +4,63 @@
       <div class="title">
         <h3>小黄人儿童安全座椅</h3>
       </div>
-      <div class="img2" v-bind:style="{backgroundImage:'url('+require('../../assets/upload/main/course2.jpg')+')'}"  ></div>
+      <div
+        class="img2"
+        v-bind:style="{backgroundImage:'url('+require('../../assets/upload/main/course2.jpg')+')'}"
+      ></div>
       <span class="name">{{name}}</span>
     </div>
     <div>
       <div class="myindent">
         <h3 class="indent">我的订单</h3>
         <router-link to="order">
-         <img src="@/photo/goods/unpaid.png">
+          <img src="@/photo/goods/unpaid.png">
         </router-link>
         <router-link to="order">
-        <img src="@/photo/goods/unshipped.png">
-       </router-link>
+          <img src="@/photo/goods/unshipped.png">
+        </router-link>
         <a href>
-        <img src="@/photo/goods/unreceipt.png">
+          <img src="@/photo/goods/unreceipt.png">
         </a>
         <a href>
-      <img src="@/photo/goods/refunding.png">
+          <img src="@/photo/goods/refunding.png">
         </a>
         <a href>
-         <img src="@/photo/goods/completed.png">
+          <img src="@/photo/goods/completed.png">
         </a>
       </div>
     </div>
 
     <div class="diz">
       <a href>
-        <i class="icon-ticket"></i>
+        <Icon type="ios-pin-outline" size="24"/>
         <span class="phone">地址管理</span>
         <img src="@/photo/goods/goon.png">
       </a>
     </div>
     <div class="diz">
       <a href>
-        <i class="icon-ticket"></i>
+        <Icon type="ios-chatbubbles-outline" size="24"/>
         <span>联系客服</span>
-         <img src="@/photo/goods/goon.png">
+        <img src="@/photo/goods/goon.png">
       </a>
     </div>
     <div class="diz">
       <a href>
-        <i class="icon-ticket"></i>
+        <Icon type="ios-call-outline" size="24"/>
         <span class="phone">电话&emsp;&emsp;</span>
-         <img src="@/photo/goods/goon.png">
+        <img src="@/photo/goods/goon.png">
       </a>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name:"Personal",
-  data(){
-    return{
-      name:"名字",
-    }
+  name: "Personal",
+  data() {
+    return {
+      name: "名字"
+    };
   }
 };
 </script>
@@ -66,7 +69,7 @@ export default {
   padding: 0px;
   margin: 0px;
 }
-.myindent img{
+.myindent img {
   width: 40px;
   height: 40px;
 }
@@ -87,7 +90,7 @@ export default {
   position: fixed;
   margin-top: 30px;
   margin-left: 20px;
-} 
+}
 .img2 {
   position: fixed;
   height: 70px;
@@ -96,7 +99,7 @@ export default {
   /* border: 2px solid black; */
   margin-top: 90px;
   margin-left: 10px;
-    background-size: cover;
+  background-size: cover;
 }
 .name {
   position: fixed;
@@ -109,7 +112,7 @@ export default {
   display: flex;
   align-items: center;
   background-color: white;
-      margin-top: -5px;
+  margin-top: -5px;
   overflow: hidden;
 }
 .indent {
@@ -130,7 +133,9 @@ export default {
   width: 40%;
   margin-top: 40px;
 }
-
+.diz span{
+   margin-left: 3px;
+}
 .diz {
   height: 60px;
   width: 100%;
@@ -144,16 +149,17 @@ export default {
   margin-left: 10px;
   color: #000;
   display: flex;
-  height: 100%;
+  height: auto;
+  font-weight: bold;
+  font-size: 14px;
   align-items: center;
   width: 100%;
 }
-.diz img{
-    position: absolute;
-    left: 70%;
-    width: 130px;
+.diz img {
+  position: absolute;
+  left: 70%;
+  width: 130px;
 }
-
 </style>
 
 

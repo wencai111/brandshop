@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="purchasebackground"></div>
     <div class="purchase">
       <img src="@/assets/goods/goods-banner.jpg">
     </div>
@@ -68,10 +69,15 @@ export default {
     margin: 0;
     padding: 0;
 }
+.purchasebackground{
+  width: 100%;
+  height: 800px;
+  position: absolute;
+  background-color: rgb(0, 0, 0,0.4)
+
+}
 .purchase {
-  position: relative;
   margin-top: -10px;
-  filter: grayscale(60%);
 }
 .purchase img {
   width: 100%;
@@ -100,12 +106,12 @@ export default {
   color: red;
 }
 .close {
-  width: 20px;
-  height: 20px;
-  font-size: 30px;
-  float: right;
-  color: darkgrey;
-  margin-right: 10px;
+     position: absolute;
+    width: 20px;
+    height: 40px;
+    font-size: 30px;
+    color: darkgrey;
+    margin-left: 90%;
 }
 .colors{
     margin: 20px;
