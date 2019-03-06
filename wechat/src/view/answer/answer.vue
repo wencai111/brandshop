@@ -113,10 +113,9 @@ export default {
   name: "Answer",
   data() {
     return {
-      total:1,
+      total: 1,
       MyAnswer: "home",
       show: false,
-      // MyAnswer: "response",
       question: null
     };
   },
@@ -130,7 +129,7 @@ export default {
       result: "C",
       tip:
         "汽车A柱造成的左右视野盲区，B柱造成左右视野盲区，C柱造成的左右视野盲区,以及车头盲区和车尾盲区。",
-      image: "audios/2.jpg"
+      image: "audios/1.jpg",
     };
     this.question = ref;
   },
@@ -138,11 +137,8 @@ export default {
     answer() {
       this.MyAnswer = "answer";
     },
-    // wrong() {
-    //   this.MyAnswer = "share"; 
-    // },
     answer1(ref) {
-      this.total=this.total+1;
+      this.total = this.total + 1;
       var currentSeleted = ref;
       if (ref == this.question.result) {
         //回答正确
@@ -151,7 +147,7 @@ export default {
       }
       //显示提示结果
       this.show = true;
-// this.show = !this.show;
+      // this.show = !this.show;
       //发送请求给后台
       var newData = {
         success: true,
@@ -170,12 +166,12 @@ export default {
         message: "还有新的题目"
       };
       // var newData1 = { success: true, result: 0, message: "已经是最后一题" };
-      if (this.total<10) {
-      MyAnswer =answer;
+      if (this.total < 10) {
+        this.MyAnswer = "answer";
         //跳转到分享页面
       } else {
-          this.MyAnswer ="share";
-          this.show = false;
+        this.MyAnswer = "share";
+        this.show = false;
         //绑定新的数据；
         return;
       }
@@ -259,7 +255,7 @@ export default {
   width: 220px;
   height: 20px;
   margin-left: 35px;
-  top: 20%;
+  top: 15px;
   text-align: center;
   position: absolute;
 }
@@ -276,7 +272,7 @@ export default {
   background-size: contain;
   position: absolute;
   width: 270px;
-  height: 80px;
+  height: 50px;
   left: 14%;
 }
 .answerA {

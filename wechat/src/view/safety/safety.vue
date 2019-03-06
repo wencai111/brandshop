@@ -9,7 +9,7 @@
         class="safetybackground"
         v-bind:style="{backgroundImage:'url('+require('../../assets/safety-index-bk.jpg')+')'}"
       >
-        <div class="safetys">
+        <div class="mysafetys">
           <div @click="myvideo" class="Security myvideo"></div>
           <div @click="myaudio" class="Security myaudio"></div>
           <div @click="myarticles" class="Security myarticles"></div>
@@ -23,14 +23,15 @@
           </div>
         </div>
         <div class="safetyaudios" v-for="item in audios" v-bind:key="item.audioID">
-          <div class="plays">
-            <img src="@/assets/other/play.png">
-          </div>
-          <div class="black"></div>
           <img class="danger" :src="item.image">
+          <div class="black">
+            <div class="plays">
+              <img src="@/assets/other/play.png">
+            </div>
+          </div>
           <p>{{item.subtitle}}</p>
         </div>
-        <div class="Articles" v-for="item in articles" v-bind:key="item.audioID">
+        <div class="Articles" v-for="item in articles" v-bind:key="'info2-'+item.articlesID">
           <div class="securityarticles">
             <img class="danger" :src="item.image">
             <div class="articlesfont">
@@ -41,7 +42,9 @@
         </div>
       </div>
     </div>
-    <div class="buttomcolor"></div>
+    <div class="buttomcolor" v-bind:style="{backgroundImage:'url('+require('../../assets/backgroundphoto.png')+')'}">
+      
+    </div>
   </div>
 </template>
 <script>
@@ -74,6 +77,7 @@ export default {
         audioID: 2,
         title: "听欧颂爷爷讲故事",
         subtitle: "致命”的安全气囊",
+        url: "audios/2.mp3",
         image: "audios/2.jpg",
         intro: "0",
         size: 30,
@@ -85,20 +89,21 @@ export default {
     ];
     var articless = [
       {
-        audioID: 1,
+        articlesID: 1,
         content: "",
-        createtime: "2018-07-25-TOO:26:38+08:00",
-        sort: "",
         title: "安全气囊对孩子的危害",
         subtitle: "本该护人的安全气囊，何以反倒成了“杀人凶器”？",
         url: "",
-        image: "articles/1.jpg"
+        image: "articles/1.jpg",
+        sort: 1,
+        createtime: "2018-07-25-TOO:26:38+08:00"
       },
       {
-        audioID: 2,
+        articlesID: 2,
         content: "",
         title: "儿童安全锁的作用",
         subtitle: "打开它，给孩子多一份安全",
+        url: "",
         image: "articles/2.jpg",
         sort: 2,
         createtime: "2018-07-25T00:24:13+08:00"
@@ -128,7 +133,7 @@ export default {
       this.$router.push("risk");
     },
     myaudio() {
-      this.$router.push("myaudio");
+      this.$router.push("audios");
     },
     myarticles() {
       this.$router.push("article");
@@ -187,19 +192,23 @@ export default {
 }
 
 .black {
-  position: absolute;
-  display: block;
-  width: 150px;
-  height: 150px;
-  background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    display: block;
+    width: 150px;
+    margin-top: -160px;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 .plays {
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 20%;
+    left: 25%;
 }
 .plays img {
   position: absolute;
-  margin-left: 18%;
+  margin-left: 17%;
   margin-top: 18%;
   width: 20px;
   display: block;
@@ -215,7 +224,7 @@ export default {
   height: 800px;
   position: relative;
 }
-.safetys {
+.mysafetys {
   margin-top: -5px;
   width: 100%;
 }

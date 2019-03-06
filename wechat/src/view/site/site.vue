@@ -50,9 +50,7 @@
         <a
           href="javascript:;"
           class="weui-btn weui-btn_primary"
-          v-bind:class="{'weui-btn_disabled':noneSubmit}"
-          v-on:click="affirm"
-        >提交</a>
+          v-bind:class="{'weui-btn_disabled':noneSubmit}" v-on:click="affirm">提交</a>
       </div>
     </div>
   </section>
@@ -68,7 +66,8 @@ export default {
       region: "", //地区信息
       detail: "", //详细地址
       code: "", //邮政编码
-      styleObject: ""
+      styleObject: "",
+      affirm:"",
     };
   },
   computed: {

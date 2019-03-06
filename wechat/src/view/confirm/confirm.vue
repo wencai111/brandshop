@@ -12,7 +12,7 @@
          <img src="@/assets/1goodsku/1.jpg">
         </div>
         <div>
-        <P class="wnezi">
+        <P class="confirmfont">
          <span>  欧标ISOFIX硬接口</span><br/><br/>
            <span class="price">{{sold}}</span>
         </p>
@@ -73,7 +73,7 @@ export default {
     width: 150px;
     margin-left: 20px;
 }
-.wnezi{
+.confirmfont{
     float: left;
     margin-left: 200px;
     margin-top: -100px;

@@ -13,7 +13,7 @@
            <span> {{item.goods_title}}</span>
           <br/><br/>
            <span>{{item.buy_sku}}</span><br/><br/>
-           <span class="price">{{item.pay_amount}}</span>
+           <span class="myprice">{{item.pay_amount}}</span>
         </p>
         <span class="number">x1</span>
          </div>
@@ -141,7 +141,7 @@ export default {
     width: 100%;
     margin-top: 130px;
 }
-.price{
+.myprice{
     color: red;
     font-size: 16px;
 }
