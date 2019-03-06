@@ -13,8 +13,8 @@ const resolve = dir => {
 // 需要将它改为'/my-app/'
 // talko-admin线上演示打包路径： https://file.talko.com/admin-dist/
 const BASE_URL = process.env.NODE_ENV === 'production'
-  ? '/'
-  : '/'
+  ? '/module/brandshop'
+  : '/module/brandshop'
 
 module.exports = {
   // Project deployment base

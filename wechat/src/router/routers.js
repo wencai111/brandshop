@@ -201,4 +201,12 @@ export default [
     },
     component: () => import('@/view/audios/audios.vue')
   },
+  {
+    path: '/audiolearning',
+    name: 'audiolearning',
+    meta: {
+      title: '音频学习'
+    },
+    component: () => import('@/view/audiolearning/audiolearning.vue')
+  },
 ]

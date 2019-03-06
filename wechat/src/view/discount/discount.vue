@@ -35,19 +35,18 @@ export default {
 .discountbackground {
   position: absolute;
   width: 100%;
-  height: 800px;
+  height: 827px;
   background-color: rgb(0, 0, 0, 0.4);
 }
 .discounts {
   width: 100%;
   height: 100%;
-  background-color: rgb(0, 0, 0, 0.4);
+
 }
 
 .discount1 {
   height: 250px;
   background-size: 100% auto;
-  background-color: rgb(0, 0, 0, 0.4);
   background-repeat: no-repeat;
 }
 .discount2 {
@@ -55,15 +54,13 @@ export default {
   width: 100%;
   margin-top: -15px;
   background-size: 100% auto;
-  background-color: rgb(0, 0, 0, 0.4);
   background-repeat: no-repeat;
 }
 .discount3 {
-  height: 400px;
+  height: 450px;
   width: 100%;
   margin-top: -15px;
   background-size: 100% auto;
-  background-color: rgb(0, 0, 0, 0.4);
   background-repeat: no-repeat;
 }
 
@@ -71,14 +68,11 @@ export default {
   width: 150px;
   height: 150px;
 }
-.product {
-  background-color: rgb(0, 0, 0, 0.4);
-}
 .product img {
   margin: 10%;
   width: 80%;
   height: 45%;
-  margin-top: -500px;
+  margin-top: -600px;
   position: fixed;
   display: block;
 }
