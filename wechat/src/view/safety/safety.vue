@@ -42,9 +42,10 @@
         </div>
       </div>
     </div>
-    <div class="buttomcolor" v-bind:style="{backgroundImage:'url('+require('../../assets/backgroundphoto.png')+')'}">
-      
-    </div>
+    <div
+      class="buttomcolor"
+      v-bind:style="{backgroundImage:'url('+require('../../assets/articles/backgroundss.png')+')'}"
+    ></div>
   </div>
 </template>
 <script>
@@ -192,19 +193,19 @@ export default {
 }
 
 .black {
-    position: absolute;
-    display: block;
-    width: 150px;
-    margin-top: -160px;
-    height: 150px;
-    background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  display: block;
+  width: 150px;
+  margin-top: -160px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .plays {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 20%;
-    left: 25%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 20%;
+  left: 25%;
 }
 .plays img {
   position: absolute;
@@ -263,9 +264,8 @@ export default {
 }
 .buttomcolor {
   width: 100%;
-  height: 110px;
-  margin-top: 170%;
-  background-color: rgb(40, 153, 245);
+  height: 160px;
+  margin-top: 160%;
 }
 </style>
 
