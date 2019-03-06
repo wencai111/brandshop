@@ -7,13 +7,19 @@
       class="articlebackground"
       v-bind:style="{backgroundImage:'url('+require('../../assets/other/safety-audio-bk.jpg')+')'}"
     >
-      <div>
-        <div class="articles" v-for="item in article" v-bind:key="item.audioID">
-          <img :src="item.image">
-          <p>{{item.title}}</p>
-          <span>{{item.subtitle}}</span>
-        </div>
-      </div>
+      <Row>
+        <i-col span="12" v-for="item in article" v-bind:key="item.audioID">
+          <div class="safetyarticde">
+            <div class="articles">
+              <img :src="item.image">
+              <div class="articlefont">
+                <p>{{item.title}}</p>
+                <span>{{item.subtitle}}</span>
+              </div>
+            </div>
+          </div>
+        </i-col>
+      </Row>
     </div>
   </div>
 </template>
@@ -85,51 +91,47 @@ export default {
 };
 </script>
 <style>
-.articlebackground {
-  height: 700px;
-  min-width: 100%;
-  margin-top: -5px;
+.articde {
+  width: 100%;
+  height: auto;
 }
 .articde img {
-  min-width: 100%;
+  width: 100%;
 }
-.articles img {
-  width: 150px;
-  margin: 5%;
-  float: left;
+.articlebackground {
+  position: relative;
+  margin-top: -5px;
+  height: 750px;
+  width: 100%;
 }
-
-.articles1 img {
-  width: 150px;
-  margin-top: 10px;
-  margin: 5%;
-  float: left;
+.safetyarticde {
+  width: 100%;
+  height: 180px;
+  margin-top: 20px;
+  position: relative;
 }
-.articles p {
-  float: left;
+.safetyarticde .articles {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.safetyarticde .articles img {
+  margin-left: 10px;
+  width: 80%;
+  height: 100%;
+}
+.safetyarticde .articles .articlefont {
+  width: 80%;
+  height: auto;
+  margin-left: 10px;
+}
+.safetyarticde .articles .articlefont p {
   font-weight: bold;
-  margin-left: -170px;
-  margin-top: 130px;
+  font-size: 12px;
 }
-.articles span {
-  float: left;
-  display: flex;
-  margin-left: -170px;
-  margin-top: 150px;
-  width: 160px;
-  height: 40px;
-}
-.articles1 p {
-  float: left;
-  font-weight: bold;
-  margin-left: -170px;
-  margin-top: 140px;
-}
-.articles1 span {
-  float: left;
-  margin-left: -170px;
-  margin-top: 160px;
-  width: 160px;
-  height: 40px;
+.safetyarticde .articles .articlefont span {
+  width: 80%;
+  height: auto;
+  overflow: hidden;
 }
 </style>

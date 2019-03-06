@@ -138,9 +138,9 @@ export default {
     answer() {
       this.MyAnswer = "answer";
     },
-    wrong() {
-      this.MyAnswer = "share"; 
-    },
+    // wrong() {
+    //   this.MyAnswer = "share"; 
+    // },
     answer1(ref) {
       this.total=this.total+1;
       var currentSeleted = ref;

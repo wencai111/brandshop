@@ -1,6 +1,6 @@
 <template>
     <div >
-        <div>
+        <div class="videobanner">
             <img src="@/assets/safety-video-banner.jpg">
         </div>
         <div class="video" v-for="item in audios" v-bind:key="item.audioID">
@@ -51,10 +51,16 @@ export default {
 }
 </script>
 <style>
-.movie {
-  position: absolute;
+.videobanner{
   width: 100%;
-  height: 25%;
+  height: auto;
+}
+.videobanner img{
+  width: 100%;
+}
+.movie {
+  width: 100%;
+  height: auto;
 }
 .video{
     margin-top: -5px;
@@ -65,13 +71,24 @@ export default {
 .border{
     border: 0.5px solid rgb(114, 114, 113);
 }
+.character{
+      width: 100%;
+    height: 200px;
+    top: 350px;
+}
 .character p{
+      width: 200px;
+    height: auto;
     font-weight: bold;
     margin: 5px;
     font-size: 16px;
+    overflow: hidden;
 }
 .character span{
  font-size: 10px;
+ width: 300px;
+ height: auto;
+  overflow: hidden;
 }
 </style>
 

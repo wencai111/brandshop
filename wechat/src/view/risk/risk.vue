@@ -1,21 +1,25 @@
 <template>
   <div>
-    <div>
+    <div class="banner">
       <img src="@/assets/safety-video-banner.jpg">
     </div>
     <div class="safetys" v-for="item in audios" v-bind:key="item.audioID">
-      <router-link to='display'>
-      <div class="riskplay">
-        <img src="@/assets/other/play.png">
-         <!-- <video class="movie" src="item.url" controls="controls"></video> -->
-      </div>
-      <div class="color"></div>
-      <img src="@/assets/videos/1.jpg">
+      <router-link to="display">
+        <div class="riskvideos">
+          <img src="@/assets/videos/1.jpg">
+          <div class="riskbackground">
+            <div class="riskplay">
+              <img src="@/assets/other/play.png">
+            </div>
+          </div>
+        </div>
       </router-link>
-      <p>{{item.subtitle}}</p>
-      <nav class="border"></nav>
-      <div class="anquan">
-        <span>{{item.spack}}</span>
+      <div class="riskfont">
+        <p>{{item.subtitle}}</p>
+        <nav class="border"></nav>
+        <div class="anquan">
+          <span>{{item.spack}}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -151,41 +155,73 @@ export default {
 };
 </script>
 <style>
+.banner img {
+  width: 100%;
+  height: auto;
+}
 .safetys {
+  height: 350px;
   margin-top: -5px;
   width: 100%;
 }
-.color {
+.riskbackground .riskplay img {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+
+.safetys .riskvideos {
+  position: absolute;
+}
+.riskplay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 28px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.riskvideos img {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.riskbackground {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 98%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+}
+.riskfont {
   position: absolute;
   width: 100%;
-  height: 26%;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-.riskplay img {
-  width: 30px;
-  position: absolute;
-  margin-left: 45%;
-  margin-top: 25%;
-  display: block;
-}
-.safetys p {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 10px;
-}
-.safetys span {
-  font-size: 6px;
-  margin-top: 20px;
+  margin-top: 55%;
+  height: auto;
 }
 .border {
   border: 0.5px solid rgb(112, 111, 111);
   margin-left: 10px;
   margin: 10px;
 }
-
+.riskfont p {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px;
+}
 .anquan {
   margin: 10px;
+  height: 60px;
+  position: relative;
+  width: 95%;
+}
+.anquan span {
+  font-size: 6px;
   margin-top: 20px;
+  height: 20px;
 }
 </style>
 

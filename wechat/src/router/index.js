@@ -8,7 +8,7 @@ import {getAuthUrl} from '@/api/auth'
 
 Vue.use(Router)
 const router = new Router({
-  mode: 'history',
+  // mode: 'history',
   routes
 })
 router.beforeEach((to, from, next) => {

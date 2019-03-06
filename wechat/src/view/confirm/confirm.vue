@@ -101,7 +101,7 @@ export default {
     bottom:0;
     height: 30px;
     font-size: 14px;
-    margin-left: 13%;
+    margin-left: 10%;
     float: left; 
 }
 
@@ -118,7 +118,7 @@ color: red;
 .img img{
     height: 100%;
     width: 100%;
-    margin-left: 70%;
+    margin-left: 80%;
 }
 </style>
 

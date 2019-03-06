@@ -201,7 +201,7 @@ export default {
           //更新audio
           this.audio.el.src = item.url;
           this.audio.el.play();
-          //恢复旧德音频元素Dom
+          //恢复旧的音频元素Dom
           this.currentAudioDom.item.status = false;
           this.currentAudioDom.item.currentTime=0;
           this.currentAudioDom.item.width=0;

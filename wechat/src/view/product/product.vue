@@ -1,6 +1,6 @@
 <template>
-  <div class="products">
-    <div>
+  <div class="product">
+    <div class="products"> 
       <a href>
         <img src="@/assets/detial/01.jpg">
       </a>
@@ -67,8 +67,15 @@ export default {
     margin: 0;
     padding: 0;
 }
+.product{
+  width: 100%;
+  height: auto;
+}
 .products{
   margin-top: -5px;
+}
+.product img{
+  width: 100%;
 }
 .goumai img{
   width: 50%;

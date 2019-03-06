@@ -1,11 +1,12 @@
 <template>
   <div>
+    <div class="purchasebackground"></div>
     <div class="purchase">
-      <img src="@/assets/goods/goods-banner.jpg">
+      <img src="@/assets/detial/01.jpg">
     </div>
     <div class="purchase">
       <a href>
-        <img src="@/assets/goods/goods-coupon.jpg">
+        <img src="@/assets/detial/02.jpg">
       </a>
     </div>
     <div class="goumais">
@@ -35,7 +36,7 @@
         <input class="text" type="text"/>
       </div>
       <router-link to='confirm'>
-      <div class="button">
+      <div class="confirmbutton">
         <input class="confirm" type="button" value="确定">
       </div>
       </router-link>
@@ -68,16 +69,22 @@ export default {
     margin: 0;
     padding: 0;
 }
+.purchasebackground{
+  width: 100%;
+  height: 800px;
+  position: absolute;
+  background-color: rgb(0, 0, 0,0.4)
+
+}
 .purchase {
-  position: relative;
   margin-top: -10px;
-  filter: grayscale(60%);
 }
 .purchase img {
   width: 100%;
 }
 .goumais {
-  height: 410px;
+  margin-top: -420px;
+  height: 420px;
   width: 100%;
   background-color: white;
   position: absolute;
@@ -100,12 +107,12 @@ export default {
   color: red;
 }
 .close {
-  width: 20px;
-  height: 20px;
-  font-size: 30px;
-  float: right;
-  color: darkgrey;
-  margin-right: 10px;
+     position: absolute;
+    width: 20px;
+    height: 40px;
+    font-size: 30px;
+    color: darkgrey;
+    margin-left: 90%;
 }
 .colors{
     margin: 20px;
@@ -141,7 +148,8 @@ export default {
     font-size: 14px;
     margin-left: 20px;
 }
-.button{
+.confirmbutton{
+   margin-top: 30px;
   height: 50px;
   width: 100%;
 }

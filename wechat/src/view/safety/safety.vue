@@ -13,13 +13,16 @@
           <div @click="myvideo" class="Security myvideo"></div>
           <div @click="myaudio" class="Security myaudio"></div>
           <div @click="myarticles" class="Security myarticles"></div>
-          <div class="safetyplay">
-            <img src="@/assets/other/play.png">
+          <div class="videos">
+            <img src="@/assets/videos/1.jpg">
+            <div class="backgroundcolor">
+              <div class="safetyplay">
+                <img src="@/assets/other/play.png">
+              </div>
+            </div>
           </div>
-          <div class="backgroundcolor"></div>
-          <img class="videos" src="@/assets/videos/1.jpg">
         </div>
-        <div class="audios" v-for="item in audios" v-bind:key="item.audioID">
+        <div class="safetyaudios" v-for="item in audios" v-bind:key="item.audioID">
           <div class="plays">
             <img src="@/assets/other/play.png">
           </div>
@@ -27,10 +30,14 @@
           <img class="danger" :src="item.image">
           <p>{{item.subtitle}}</p>
         </div>
-        <div class="audios1" v-for="item in articles" v-bind:key="item.audioID">
-          <img class="danger" :src="item.image">
-          <p>{{item.title}}</p>
-          <span>{{item.subtitle}}</span>
+        <div class="Articles" v-for="item in articles" v-bind:key="item.audioID">
+          <div class="securityarticles">
+            <img class="danger" :src="item.image">
+            <div class="articlesfont">
+              <p>{{item.title}}</p>
+              <span>{{item.subtitle}}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -85,19 +92,19 @@ export default {
         title: "安全气囊对孩子的危害",
         subtitle: "本该护人的安全气囊，何以反倒成了“杀人凶器”？",
         url: "",
-         image: "articles/1.jpg",
+        image: "articles/1.jpg"
       },
       {
         audioID: 2,
         content: "",
         title: "儿童安全锁的作用",
         subtitle: "打开它，给孩子多一份安全",
-         image: "articles/2.jpg",
+        image: "articles/2.jpg",
         sort: 2,
         createtime: "2018-07-25T00:24:13+08:00"
       }
     ];
-       for (let item of articless) {
+    for (let item of articless) {
       item.image = mediaUrl + "/" + item.image;
       item.url = mediaUrl + "/" + item.url;
       item.playtime = "00:00";
@@ -130,9 +137,21 @@ export default {
 };
 </script>
 <style>
+.Articles {
+  float: left;
+  margin-top: 20%;
+  margin-left: 6%;
+}
+.securityarticles {
+  margin-top: 10%;
+}
+.articlesfont {
+  width: 150px;
+  height: auto;
+}
 .home {
   width: 101%;
-  height: 100;
+  height: 100px;
   position: relative;
 }
 .Security {
@@ -161,35 +180,12 @@ export default {
   width: 150px;
   height: 150px;
 }
-.audios {
+.safetyaudios {
   float: left;
-  margin-top: 35%;
+  margin-top: 100%;
   margin-left: 6%;
 }
-.audios1 {
-  margin-top: 95%;
-}
-.audios1 img {
-  width: 150px;
-  height: 150px;
-  margin-top: 30px;
-  float: left;
-    margin-left: 5%;
-}
-.audios1 p {
-  float: left;
-  font-weight: bold;
-  margin-left: -150px;
-  margin-top: 190px;
-}
-.audios1 span {
-  float: left;
-  display: flex;
-  margin-left: -150px;
-  margin-top: 210px;
-  width: 160px;
-  height: 40px;
-}
+
 .black {
   position: absolute;
   display: block;
@@ -223,33 +219,44 @@ export default {
   margin-top: -5px;
   width: 100%;
 }
+.videos img {
+  position: relative;
+  width: 92%;
+  height: auto;
+}
 .videos {
-  width: 72%;
-  height: 70%;
+  position: absolute;
   margin-top: 25%;
   margin-left: 22%;
 }
 .backgroundcolor {
-  position: absolute;
-  display: block;
-  width: 72%;
-  height: 19%;
-  margin-top: 25%;
-  margin-left: 22%;
+  top: 0;
+  left: 0;
+  width: 92%;
+  height: 98%;
   background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+}
+.safetyplay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 28px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .safetyplay img {
   position: absolute;
-  margin-left: 56%;
-  margin-top: 43%;
-  width: 20px;
-  display: block;
+  width: 30px;
+  height: 30px;
 }
-.buttomcolor{
-    width: 100%;
-    height: 80px;
-    margin-top: 180%;
-    background-color: rgb(40, 153, 245);
+.buttomcolor {
+  width: 100%;
+  height: 110px;
+  margin-top: 170%;
+  background-color: rgb(40, 153, 245);
 }
 </style>
 
