@@ -16,7 +16,7 @@
                   <img src="@/assets/icon/pause.png" v-show="item.status">
                 </div>
                 <div class="contrlBar">
-                  <span>{{minutesFormater(item.currentTime)}}</span>
+                  <!-- <span>{{minutesFormater(item.currentTime)}}</span> -->
                   <div class="timeBar">
                     <div class="progress" v-bind:style="{width:item.width+'%'}"></div>
                   </div>
@@ -222,21 +222,21 @@ export default {
     timeCalculate() {
       this.currentAudioDom.item.width =(this.audio.el.currentTime / this.audio.el.duration) * 100;
     },
-
-    minutesFormater(time) {
-      let min = Math.floor(time / 60);
-      let sec = Math.floor(time % 60);
-      return this.zeroFormater(min) + ":" + this.zeroFormater(sec);
-    },
-    zeroFormater(num) {
-      if (num == 0) {
-        return "00";
-      } else if (num < 10) {
-        return "0" + num;
-      } else {
-        return num;
-      }
-    }
+//时间进度条
+    // minutesFormater(time) {
+    //   let min = Math.floor(time / 60);
+    //   let sec = Math.floor(time % 60);
+    //   return this.zeroFormater(min) + ":" + this.zeroFormater(sec);
+    // },
+    // zeroFormater(num) {
+    //   if (num == 0) {
+    //     return "00";
+    //   } else if (num < 10) {
+    //     return "0" + num;
+    //   } else {
+    //     return num;
+    //   }
+    // }
   }
 };
 </script>

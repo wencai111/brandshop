@@ -113,18 +113,12 @@ export default {
     for (let item of articless) {
       item.image = mediaUrl + "/" + item.image;
       item.url = mediaUrl + "/" + item.url;
-      item.playtime = "00:00";
-      item.percent = 0;
-      item.statusImage = "";
     }
     this.articles = articless;
 
     for (let item of data) {
       item.image = mediaUrl + "/" + item.image;
       item.url = mediaUrl + "/" + item.url;
-      item.playtime = "00:00";
-      item.percent = 0;
-      item.statusImage = "";
     }
     this.audios = data;
   },
